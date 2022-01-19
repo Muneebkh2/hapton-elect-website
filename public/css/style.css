@@ -532,7 +532,7 @@ span.category-title {
     text-align: center;
 }
 
-.owl-carousel .owl-nav button.owl-next, .owl-carousel .owl-nav button.owl-prev, .owl-carousel button.owl-dot {
+.owl-carousel .owl-nav button.owl-next, .owl-carousel .owl-nav button.owl-prev {
     width: 30px;
     height: 30px;
     border-radius: 50%;
