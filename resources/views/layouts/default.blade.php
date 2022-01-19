@@ -10,6 +10,12 @@
         <link rel="stylesheet" href="{{ asset('/css/owl.carousel.min.css') }}">
         <link rel="stylesheet" href="{{ asset('/css/owl.theme.default.min.css') }}">
 
+        <link 
+        rel="stylesheet" 
+        href="https://pro.fontawesome.com/releases/v5.10.0/css/all.css" 
+        integrity="sha384-AYmEC3Yw5cVb3ZcuHtOA93w35dYTsvhLPVnYs9eStHfGJvOvKxVfELGroGkvsg+p" 
+        crossorigin="anonymous"/>
+
         <link rel="stylesheet" href="{{ asset('/css/style.css') }}">
 
         <title>Home</title>
@@ -46,7 +52,9 @@
         <script>
             $(document).ready(function() {
                 $('#main-slider').owlCarousel({
-                    loop:true,
+                    autoplay: true,
+                    autoplayTimeout: 10000,
+                    loop: true,
                     nav: false,
                     dots: true,
                     responsiveClass:true,
@@ -54,7 +62,23 @@
                         0:{
                             items:1,
                         },
-                    }
+                    },
+                    animateIn: 'fadeIn',
+                    animateOut: 'fadeOut'
+                });
+
+                $('#slider-2').owlCarousel({
+                    autoplay: true,
+                    autoplayTimeout: 5000,
+                    loop: true,
+                    nav: true,
+                    dots: false,
+                    responsiveClass:true,
+                    responsive:{
+                        0:{
+                            items:1,
+                        },
+                    },
                 });
 
                 /**
@@ -88,8 +112,11 @@
                     $(this).find('strong').html(Math.round(100 * progress) + '%');
                 });
 
-                
 
+                $('.navigation-toggle').on('click', function() {
+                    $(this).toggleClass('animate');
+                    $('#site-navigation').toggleClass('open');
+                })
 
             });
         </script>

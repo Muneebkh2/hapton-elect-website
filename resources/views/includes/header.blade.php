@@ -5,12 +5,15 @@
             <div class="site-logo">
                 <img src="assets/Hapton-Logo.png" alt="Hapton" class="img-fluid">
             </div>
-            <nav id="site-navigation" role="navigation">
+
+            <div class="navigation-toggle"></div>
+
+            <nav id="site-navigation">
                 <div class="nav-container">
                     <ul class="menu">
-                        <li><a href="{{ route('home') }}">Home</a></li>
-                        <li><a href="#">About</a></li>
-                        <li><a href="#">Contact</a></li>
+                        <li class="menu-item"><a href="{{ route('home') }}">Home</a></li>
+                        <li class="menu-item"><a href="#">About</a></li>
+                        <li class="menu-item"><a href="#">Contact</a></li>
                     </ul>
                 </div>
             </nav>

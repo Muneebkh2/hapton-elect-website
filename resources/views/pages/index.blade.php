@@ -11,6 +11,14 @@
                 <img src="assets/slide-switches.jpg" alt="" class="img-fluid" />
             </div>
         </div>
+        <div class="slide item">
+            <img src="assets/slide2.jpg" alt="" class="img-fluid w-100" />
+            <div class="slide-content-box">
+                <h1>LIGHTS <br>TO <br> AMAZE U</h1>
+                <p>Turn on your home with style with the Hapton Switches comprehensive range to suit your home.</p>
+                <img src="assets/slide-switches.jpg" alt="" class="img-fluid" />
+            </div>
+        </div>
     </div>
 
     <section id="categories">
@@ -134,8 +142,16 @@
         <div class="container">
             <div class="row no-gutters">
                 <div class="col-lg-6">
-                    <div>
-                        <img src="{{ asset('/assets/split-cta-image.jpg') }}" alt="" class="img-fluid w-100" />
+                    <div id="slider-2" class="owl-carousel owl-theme">
+                        <div class="item">
+                            <img src="{{ asset('/assets/split-cta-image.jpg') }}" alt="" class="img-fluid w-100" />
+                        </div>
+                        <div class="item">
+                            <img src="{{ asset('/assets/split-cta-image.jpg') }}" alt="" class="img-fluid w-100" />
+                        </div>
+                        <div class="item">
+                            <img src="{{ asset('/assets/split-cta-image.jpg') }}" alt="" class="img-fluid w-100" />
+                        </div>
                     </div>
                 </div>
                 <div class="col-lg-6 cta-content">
@@ -145,8 +161,9 @@
                             joy and immense pleasure in using our products. We are continuously developing new products
                             and upgrading our successful ranges.
                         </p>
-
-                        <a href="#" class="read-more-link">Read More</a>
+                        <div class="btn-border">
+                            <a href="#" class="btn-link">Read More</a>
+                        </div>
                     </div>
                 </div>
             </div>
@@ -154,8 +171,40 @@
     </div>
 
     <section id="stats">
-        <div class="container-fluid">
-            <img src="assets/stats-bg.jpg" alt="" class="img-fluid w-100" />
+        <div class="container">
+            <div class="row">
+                <div class="col">
+                    <div class="text-center">
+                        <h2>34</h2>
+                        <p>World wide distributors</p>
+                    </div>
+                </div>
+                <div class="col">
+                    <div class="text-center">
+                        <h2>680</h2>
+                        <p>Product Ranges</p>
+                    </div>
+                </div>
+                <div class="col">
+                    <div class="text-center">
+                        <h2>100</h2>
+                        <p>% Customer Satisfaction</p>
+                    </div>
+                </div>
+                <div class="col">
+                    <div class="text-center">
+                        <h2>5</h2>
+                        <p>Million Products Sold</p>
+                    </div>
+                </div>
+                <div class="col">
+                    <div class="text-center">
+                        <h2>749</h2>
+                        <p>New Products in line</p>
+                    </div>
+                </div>
+            </div>
+            <!-- <img src="assets/stats-bg.jpg" alt="" class="img-fluid w-100" /> -->
         </div>
     </section>
 
@@ -228,8 +277,12 @@
     </section>
 
     <div id="assist-cta">
-        <div class="container-fluid">
-            <img src="{{ asset('/assets/assist-cta.jpg') }}" alt="" class="img-fluid w-100" />
+        <div class="container">
+            <div class="content text-center">
+                <h2 class="mb-5">LET US ASSIST YOU</h2>
+                <a href="#" class="cta-btn">Read More</a>
+            </div>
+            <!-- <img src="{{ asset('/assets/assist-cta.jpg') }}" alt="" class="img-fluid w-100" /> -->
         </div>
     </div>
 
