@@ -114,6 +114,7 @@
 
 
                 $('.navigation-toggle').on('click', function() {
+                    $('body').toggleClass('nav-open');
                     $(this).toggleClass('animate');
                     $('#site-navigation').toggleClass('open');
                 })
