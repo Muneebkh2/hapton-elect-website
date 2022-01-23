@@ -5,6 +5,14 @@
     <div class="slide item">
         <img src="assets/slide1.jpg" alt="" class="img-fluid w-100" />
         <div class="slide-content-box">
+            <h1>HAPTON ELECT SWITCHES</h1>
+            <p>Turn on your home with style with the Hapton Switches comprehensive range to suit your home.</p>
+            <img src="assets/slide-switches.jpg" alt="" class="img-fluid" />
+        </div>
+    </div>
+    <div class="slide item">
+        <img src="assets/slide2.jpg" alt="" class="img-fluid w-100" />
+        <div class="slide-content-box">
             <h1>LIGHTS <br>TO <br>AMAZE U</h1>
             <p>Turn on your home with style with the Hapton Switches comprehensive range to suit your home.</p>
             <img src="assets/slide-switches.jpg" alt="" class="img-fluid" />

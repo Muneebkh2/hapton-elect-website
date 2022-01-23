@@ -54,9 +54,10 @@
                 $('#main-slider').owlCarousel({
                     autoplay: true,
                     autoplayTimeout: 10000,
-                    loop: true,
+                    loop: false,
                     nav: false,
                     dots: true,
+                    mouseDrag: false,
                     responsiveClass:true,
                     responsive:{
                         0:{
