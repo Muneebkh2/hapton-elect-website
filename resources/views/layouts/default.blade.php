@@ -18,7 +18,7 @@
 
         <link rel="stylesheet" href="{{ asset('/css/style.css') }}">
 
-        <title>Home</title>
+        <title>{{ config('app.name') . ' | ' . ucfirst($title) }}</title>
     </head>
     <body>
         <div id="wrapper">

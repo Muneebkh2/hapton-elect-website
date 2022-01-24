@@ -1,4 +1,4 @@
-@extends('layouts.default')
+@extends('layouts.default', ['title' => 'Recessed Downlights'])
 
 @section('content')
 <div class="breadcrumbs my-2">

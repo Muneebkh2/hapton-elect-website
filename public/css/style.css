@@ -953,6 +953,30 @@ span.category-title {
     font-size: 36px;
 }
 
+
+
+/*--------------------*
+    CATEGORY PAGE
+*--------------------*/
+
+.page-header .page-title {
+    font-size: 2rem;
+}
+
+.category-col {
+    border: 1px solid rgba(0,0,0,.15);
+}
+
+.category-row .category {
+    padding: 30px 50px 80px;
+}
+
+.category-row .category .category-title {
+    text-align: right;
+    text-transform: uppercase;
+    margin-bottom: 80px;
+}
+
 /*--------------------*
     PRODUCTS PAGE
 *--------------------*/

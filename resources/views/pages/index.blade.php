@@ -1,4 +1,4 @@
-@extends('layouts.default', ['header_class' => 'header-transparent'])
+@extends('layouts.default', ['header_class' => 'header-transparent', 'title' => 'Home'])
 
 
 @section('content')
