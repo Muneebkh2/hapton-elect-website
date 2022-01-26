@@ -140,67 +140,68 @@
 
     <div id="split-cta">
         <div class="container">
-            <div class="row no-gutters">
-                <div class="col-lg-6">
+            <div class="d-flex flex-wrap">
+                <div class="cta-slider-wrap">
                     <div id="slider-2" class="owl-carousel owl-theme">
-                        <div class="item">
+                        <div class="slide item">
                             <img src="{{ asset('/assets/split-cta-image.jpg') }}" alt="" class="img-fluid w-100" />
                         </div>
-                        <div class="item">
+                        <div class="slide item">
                             <img src="{{ asset('/assets/split-cta-image.jpg') }}" alt="" class="img-fluid w-100" />
                         </div>
-                        <div class="item">
+                        <div class="slide item">
                             <img src="{{ asset('/assets/split-cta-image.jpg') }}" alt="" class="img-fluid w-100" />
                         </div>
                     </div>
                 </div>
-                <div class="col-lg-6 cta-content">
-                    <div>
-                        <h2>YOU & HAPTON</h2>
-                        <p>At Hapton our whole and sole focus is not just the satisfaction of our customers, but sheer
-                            joy and immense pleasure in using our products. We are continuously developing new products
-                            and upgrading our successful ranges.
-                        </p>
-                        <div class="btn-border">
-                            <a href="#" class="btn-link">Read More</a>
-                        </div>
+                <div class="cta-content">
+                    <h3>YOU & HAPTON</h3>
+                    <p>At Hapton our whole and sole focus is not just the satisfaction of our customers, but sheer
+                        joy and immense pleasure in using our products. We are continuously developing new products
+                        and upgrading our successful ranges.
+                    </p>
+                    <div class="he-btn-wrap">    
+                        <a itemprop="url" href="#" target="_self" class="he-btn he-btn-simple">
+                            <span class="he-btn-repeating-linear"></span>
+                            <span class="he-btn-text">Read More</span>
+                        </a>
                     </div>
                 </div>
             </div>
         </div>
     </div>
 
-    <section id="stats">
+    <section id="stats" class="parallax">
         <div class="container">
-            <div class="row">
+            <div class="row no-gutters">
                 <div class="col">
                     <div class="text-center">
-                        <h2>34</h2>
-                        <p>World wide distributors</p>
+                        <span class="counter">34</span>
+                        <h6 class="counter-title">World wide distributors</h6>
                     </div>
                 </div>
                 <div class="col">
                     <div class="text-center">
-                        <h2>680</h2>
-                        <p>Product Ranges</p>
+                        <span class="counter">680</span>
+                        <h6 class="counter-title">Product Ranges</p>
                     </div>
                 </div>
                 <div class="col">
                     <div class="text-center">
-                        <h2>100</h2>
-                        <p>% Customer Satisfaction</p>
+                        <span class="counter">100</span>
+                        <h6 class="counter-title">% Customer Satisfaction</h6>
                     </div>
                 </div>
                 <div class="col">
                     <div class="text-center">
-                        <h2>5</h2>
-                        <p>Million Products Sold</p>
+                        <span class="counter">5</span>
+                        <h6 class="counter-title">Million Products Sold</h6>
                     </div>
                 </div>
                 <div class="col">
                     <div class="text-center">
-                        <h2>749</h2>
-                        <p>New Products in line</p>
+                        <span class="counter">749</span>
+                        <h6 class="counter-title">New Products in line</h6>
                     </div>
                 </div>
             </div>
@@ -211,8 +212,9 @@
     <section id="gallery">
         <div class="container"> 
             <div class="section-header text-center">
-                <h6>Superb Quality Switches, Amazing Lights</h6>
-                <h2>Switches ... Lights ... Sensors</h2>
+                <h6 class="section-header--subtitle">Superb Quality Switches, Amazing Lights</h6>
+                <h2 class="section-header--title">Switches ... Lights ... Sensors</h2>
+                <div class="section-header--line"></div>
             </div>
             <div class="row no-gutters">
                 <div class="col-lg-4 gallery-col">
@@ -240,7 +242,7 @@
                 <div class="col-lg-6">
                     <div>
                         <h3 class="mb-4">The Core Company Values</h3>
-                        <p><em>Keeping the end user in our mind, we are always at work for the optimum output.</em></p>
+                        <h6>Keeping the end user in our mind, we are always at work for the optimum output.</h6>
                         <p>Whether its a residential project or a commercial one, we've developed the Hapton range to win
                             the heart and mind of the clients. We offer the longest life products in the given categories and class.
                         </p>
