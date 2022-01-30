@@ -140,8 +140,8 @@
 
     <div id="split-cta">
         <div class="container">
-            <div class="d-flex flex-wrap">
-                <div class="cta-slider-wrap">
+            <div class="he-layout-wrapper d-flex flex-wrap">
+                <div class="he-lw-slider-images">
                     <div id="slider-2" class="owl-carousel owl-theme">
                         <div class="slide item">
                             <img src="{{ asset('/assets/split-cta-image.jpg') }}" alt="" class="img-fluid w-100" />
@@ -154,17 +154,19 @@
                         </div>
                     </div>
                 </div>
-                <div class="cta-content">
-                    <h3>YOU & HAPTON</h3>
-                    <p>At Hapton our whole and sole focus is not just the satisfaction of our customers, but sheer
-                        joy and immense pleasure in using our products. We are continuously developing new products
-                        and upgrading our successful ranges.
-                    </p>
-                    <div class="he-btn-wrap">    
-                        <a itemprop="url" href="#" target="_self" class="he-btn he-btn-simple">
-                            <span class="he-btn-repeating-linear"></span>
-                            <span class="he-btn-text">Read More</span>
-                        </a>
+                <div class="he-lw-content">
+                    <div class="cta-content">
+                        <h3>YOU & HAPTON</h3>
+                        <p>At Hapton our whole and sole focus is not just the satisfaction of our customers, but sheer
+                            joy and immense pleasure in using our products. We are continuously developing new products
+                            and upgrading our successful ranges.
+                        </p>
+                        <div class="he-btn-wrap">
+                            <a itemprop="url" href="#" target="_self" class="he-btn he-btn-simple">
+                                <span class="he-btn-repeating-linear"></span>
+                                <span class="he-btn-text">Read More</span>
+                            </a>
+                        </div>
                     </div>
                 </div>
             </div>
@@ -210,7 +212,7 @@
     </section>
 
     <section id="gallery">
-        <div class="container"> 
+        <div class="container">
             <div class="section-header text-center">
                 <h6 class="section-header--subtitle">Superb Quality Switches, Amazing Lights</h6>
                 <h2 class="section-header--title">Switches ... Lights ... Sensors</h2>
@@ -225,7 +227,7 @@
                     <div class="img-wrap p-2"><img src="{{ asset('/assets/g3.jpg') }}" alt="3" class="img-fluid w-100" /></div>
                     <div class="img-wrap p-2"><img src="{{ asset('/assets/g4.jpg') }}" alt="4" class="img-fluid w-100" /></div>
                     <div class="img-wrap p-2"><img src="{{ asset('/assets/g5.jpg') }}" alt="5" class="img-fluid w-100" /></div>
-                    
+
                 </div>
                 <div class="col-lg-4 gallery-col">
                     <div class="img-wrap p-2"><img src="{{ asset('/assets/g6.jpg') }}" alt="6" class="img-fluid w-100" /></div>
@@ -238,39 +240,39 @@
 
     <section id="values">
         <div class="container">
-            <div class="row">
-                <div class="col-lg-6">
-                    <div>
-                        <h3 class="mb-4">The Core Company Values</h3>
+            <div class="d-flex flex-wrap">
+                <div class="value-col-1 d-flex">
+                    <div class="col-inner">
+                        <h3>The Core Company Values</h3>
                         <h6>Keeping the end user in our mind, we are always at work for the optimum output.</h6>
                         <p>Whether its a residential project or a commercial one, we've developed the Hapton range to win
                             the heart and mind of the clients. We offer the longest life products in the given categories and class.
                         </p>
                     </div>
                 </div>
-                <div class="col-lg-6">
-                    <div class="row">
-                        <div class="col-lg-6">
-                            <h5 class="mb-4">World Wide</h5>
-                            <ul class="list-unstyled">
-                                <li>- Western Europe</li>
-                                <li>- North America</li>
-                                <li>- Arabian Gulf</li>
-                                <li>- South East Asia</li>
-                                <li>- North Africa</li>
-                                <li>- South Africa</li>
-                            </ul>
+                <div class="value-col-2">
+                    <div>
+                        <div><h4>World Wide</h4></div>
+                        <div>
+                            <p>– Western Europe</p>
+                            <p>– North America</p>
+                            <p>– Arabian Gulf</p>
+                            <p>– South East Asia</p>
+                            <p>– North Africa</p>
+                            <p>– South Africa</p>
                         </div>
-                        <div class="col-lg-6">
-                            <h5 class="mb-4">Products</h5>
-                            <ul class="list-unstyled">
-                                <li>- Electical Switches</li>
-                                <li>- Spotlights</li>
-                                <li>- Downlights</li>
-                                <li>- Linear Lights</li>
-                                <li>- Sensors</li>
-                                <li>- Emergency Lights</li>
-                            </ul>
+                    </div>
+                </div>
+                <div class="value-col-3">
+                    <div>
+                        <div><h4>Products</h4></div>
+                        <div>
+                            <p>– Electrical Switches</p>
+                            <p>– Spotlights</p>
+                            <p>– Downlights</p>
+                            <p>– Linear Lights</p>
+                            <p>– Sensors</p>
+                            <p>– Emergency Lights</p>
                         </div>
                     </div>
                 </div>
@@ -281,20 +283,23 @@
     <div id="assist-cta">
         <div class="container">
             <div class="content text-center">
-                <h2 class="mb-5">LET US ASSIST YOU</h2>
-                <a href="#" class="cta-btn">Read More</a>
+                <h1>LET US ASSIST YOU</h1>
+                <a itemprop="url" href="#" target="_self" class="he-btn he-btn-medium he-btn-solid">
+                    <span class="he-btn-border-holder"></span>
+                    <span class="he-btn-line-holder"></span>
+                    <span class="he-btn-text">Read More</span>
+                </a>
             </div>
-            <!-- <img src="{{ asset('/assets/assist-cta.jpg') }}" alt="" class="img-fluid w-100" /> -->
         </div>
     </div>
 
     <section id="products-range">
         <div class="container">
-            <div class="row no-gutters">
-                <div class="col-lg-6">
-                    <img src="assets/house-blueprint.jpg" alt="" class="img-fluid w-100" />
+            <div class="he-layout-wrapper d-flex flex-wrap">
+                <div class="he-lw-image" style="background-image: url({{ asset('/assets/home-3-img-2.jpg') }});background-repeat: no-repeat;background-size: cover;">
+                    <img src="{{ asset('/assets/home-3-img-2.jpg') }}" alt="" class="img-fluid d-none">
                 </div>
-                <div class="col-lg-6 products-range-tabs">
+                <div class="he-lw-content" style="background-color: #1B1B1B">
                     <div class="products-range-tabs--inner">
                         <ul class="nav nav-tabs" id="myTab" role="tablist">
                             <li class="nav-item">
@@ -306,69 +311,121 @@
                             <li class="nav-item">
                                 <a class="nav-link" id="sensors-tab" data-toggle="tab" href="#sensors" role="tab" aria-controls="sensors" aria-selected="false">Sensors & EM Lights</a>
                             </li>
-                            </ul>
-                            <div class="tab-content pt-3" id="myTabContent">
+                        </ul>
+                        <div class="tab-content pt-3" id="myTabContent">
                             <div class="tab-pane fade show active" id="switches" role="tabpanel" aria-labelledby="switches-tab">
                                 <p>Hapton Switches are among the finest in the world. Fliton Metal range is a grandiose line of pure class.
                                     Bexly PVC range is aesthetically marvelous and Bakelite range is economical & sturdy.
                                 </p>
-                                <ul class="list-col-2">
-                                    <li>Fliton - Brushed Steel</li>
-                                    <li>Fliton - Antique Brass</li>
-                                    <li>Fliton - Polished Gold</li>
-                                    <li>Brock - Bakelite White</li>
-                                    <li>Fliton - Brushed Gold</li>
-                                    <li>Bexly - PVC White</li>
-                                    <li>Fliton - Polished Nickel</li>  
-                                    <li>Bexly - PVC Gold</li>
-                                </ul>
+                                <div class="row no-gutters">
+                                    <div class="col-md-6 p-2">
+                                        <ul class="p-0 m-0">
+                                            <li>Fliton - Brushed Steel</li>
+                                            <li>Fliton - Polished Gold</li>
+                                            <li>Fliton - Brushed Gold</li>
+                                            <li>Fliton - Polished Nickel</li>
+                                        </ul>
+                                    </div>
+                                    <div class="col-md-6 p-2">
+                                        <ul class="p-0 m-0">
+                                            <li>Fliton - Antique Brass</li>
+                                            <li>Brock - Bakelite White</li>
+                                            <li>Bexly - PVC White</li>
+                                            <li>Bexly - PVC Gold</li>
+                                        </ul>
+                                    </div>
+                                </div>
                             </div>
-                            <div class="tab-pane fade" id="lights" role="tabpanel" aria-labelledby="lights-tab">...</div>
-                            <div class="tab-pane fade" id="sensors" role="tabpanel" aria-labelledby="sensors-tab">...</div>
+                            <div class="tab-pane fade" id="lights" role="tabpanel" aria-labelledby="lights-tab">
+                                <p>Hapton Switches are among the finest in the world. Fliton Metal range is a grandiose line of pure class.
+                                    Bexly PVC range is aesthetically marvelous and Bakelite range is economical & sturdy.
+                                </p>
+                                <div class="row no-gutters">
+                                    <div class="col-md-6 p-2">
+                                        <ul class="p-0 m-0">
+                                            <li>Fliton - Brushed Steel</li>
+                                            <li>Fliton - Polished Gold</li>
+                                            <li>Fliton - Brushed Gold</li>
+                                            <li>Fliton - Polished Nickel</li>
+                                        </ul>
+                                    </div>
+                                    <div class="col-md-6 p-2">
+                                        <ul class="p-0 m-0">
+                                            <li>Fliton - Antique Brass</li>
+                                            <li>Brock - Bakelite White</li>
+                                            <li>Bexly - PVC White</li>
+                                            <li>Bexly - PVC Gold</li>
+                                        </ul>
+                                    </div>
+                                </div>
                             </div>
+                            <div class="tab-pane fade" id="sensors" role="tabpanel" aria-labelledby="sensors-tab">
+                                <p>Hapton Switches are among the finest in the world. Fliton Metal range is a grandiose line of pure class.
+                                    Bexly PVC range is aesthetically marvelous and Bakelite range is economical & sturdy.
+                                </p>
+                                <div class="row no-gutters">
+                                    <div class="col-md-6 p-2">
+                                        <ul class="p-0 m-0">
+                                            <li>Fliton - Brushed Steel</li>
+                                            <li>Fliton - Polished Gold</li>
+                                            <li>Fliton - Brushed Gold</li>
+                                            <li>Fliton - Polished Nickel</li>
+                                        </ul>
+                                    </div>
+                                    <div class="col-md-6 p-2">
+                                        <ul class="p-0 m-0">
+                                            <li>Fliton - Antique Brass</li>
+                                            <li>Brock - Bakelite White</li>
+                                            <li>Bexly - PVC White</li>
+                                            <li>Bexly - PVC Gold</li>
+                                        </ul>
+                                    </div>
+                                </div>
+                            </div>
+                        </div>
                     </div>
                 </div>
             </div>
         </div>
     </section>
 
-    <section id="features" class="container-fluid">
+    <section id="features">
         <div class="features-inner">
             <div class="container">
-                <div class="row">
+                <div class="row no-gutters">
                     <div class="col-lg-3">
-                        <div class="text-center">
+                        <div class="feature text-center">
                             <div class="circle" id="circle-a">
                                 <strong></strong>
                             </div>
-                            <h5 class="mb-3">ENERGY SAVING</h5>
+                            <h5>ENERGY SAVING</h5>
                             <p>Upto 90% Energy saving with world class LED chips and drivers.</p>
                         </div>
                     </div>
                     <div class="col-lg-3">
-                        <div class="text-center">
+                        <div class="feature text-center">
                             <div class="circle" id="circle-b">
                                 <strong></strong>
                             </div>
-                            <h5 class="mb-3">COST SAVING</h5>
+                            <h5>COST SAVING</h5>
                             <p>Upto 70% cost saving in terms of maintenance and repairs.</p>
                         </div>
                     </div>
                     <div class="col-lg-3">
-                        <div class="text-center">
+                        <div class="feature text-center">
                             <div class="circle" id="circle-c">
                                 <strong></strong>
                             </div>
-                            <h5 class="mb-3">PEACE OF MIND</h5>
+                            <h5>PEACE OF MIND</h5>
                             <p>A complete peace of mind for you with our after-sales services.</p>
                         </div>
                     </div>
                     <div class="col-lg-3">
-                        <div class="text-center">
+                        <div class="feature text-center">
                             <div class="circle" id="circle-d">
                                 <strong></strong>
                             </div>
-                            <h5 class="mb-3">REPLACEMENT GUARANTEE</h5>
+                            <h5>REPLACEMENT GUARANTEE</h5>
                             <p>No interruption in your daily life, get instant replacement and guarantee.</p>
                         </div>
                     </div>
