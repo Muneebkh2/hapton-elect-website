@@ -20,6 +20,8 @@
         integrity="sha384-AYmEC3Yw5cVb3ZcuHtOA93w35dYTsvhLPVnYs9eStHfGJvOvKxVfELGroGkvsg+p"
         crossorigin="anonymous"/>
 
+        <link rel="stylesheet" href="https://cdn.linearicons.com/free/1.0.0/icon-font.min.css">
+
         <link rel="stylesheet" href="{{ asset('/css/style.css') }}">
 
         <title>{{ config('app.name') . ' | ' . ucfirst($title) }}</title>
@@ -27,18 +29,24 @@
     <body>
         <div id="wrapper">
 
-        @include('includes.header')
+            @include('includes.header')
 
 
-        <!-- Main Start -->
-        <main id="main" class="content">
-            @yield('content')
-        </main>
+            <!-- Main Start -->
+            <main id="main" class="content">
 
+                <div class="he-grid-lines-holder">
+                    <div class="he-grid-line"></div>
+                    <div class="he-grid-line"></div>
+                    <div class="he-grid-line"></div>
+                    <div class="he-grid-line"></div>
+                </div>
 
-        @include('includes.footer')
+                @yield('content')
+            </main>
 
-        <div class="page-borders"><div class="page-borders borders-inner"></div></div>
+            @include('includes.footer')
+
         </div>
 
         <script
@@ -50,6 +58,7 @@
 
         <script src="{{ asset('/js/bootstrap.min.js') }}"></script>
         <script src="{{ asset('/js/owl.carousel.min.js') }}"></script>
+        <script src="{{ asset('/js/parallax.min.js') }}"></script>
 
 
 
@@ -125,11 +134,29 @@
                 });
 
 
-                $('.navigation-toggle').on('click', function() {
+                $('.he-menu-opener').on('click', function() {
                     $('body').toggleClass('nav-open');
-                    $(this).toggleClass('animate');
+                    $(this).toggleClass('he-fm-opened');
                     $('#site-navigation').toggleClass('open');
-                })
+                });
+
+                $(window).on('scroll', function() {
+                    $(".he-animated-layout-wrapper").each(function() {
+                        if (isScrolledIntoView($(this))) {
+                            $(this).addClass('he-item-appear');
+                        }
+                    });
+                });
+
+                function isScrolledIntoView(elem) {
+                    var docViewTop = $(window).scrollTop();
+                    var docViewBottom = docViewTop + $(window).height();
+
+                    var elemTop = $(elem).offset().top;
+                    var elemBottom = elemTop + $(elem).height();
+
+                    return ((elemBottom <= docViewBottom) && (elemTop >= docViewTop));
+                }
 
             });
         </script>

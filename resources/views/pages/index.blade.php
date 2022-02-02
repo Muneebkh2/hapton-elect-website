@@ -69,10 +69,8 @@
             <div class="row">
                     <div class="col-lg-4 mb-5">
                         <div class="icon-box">
-                            <span class="icon">
-                            <img src="{{ asset('/assets/icon-home.png') }}" alt="">
-                            </span>
-                            <div>
+                            <span class="icon"><span class="lnr lnr-home"></span></span>
+                            <div class="icon-box--content">
                                 <h5>Home Deserves Better</h5>
                                 <p>Your elegant home deserves the Hapton Switches and Luminaries for upscale class and optimum performance.</p>
                             </div>
@@ -80,21 +78,17 @@
                     </div>
                     <div class="col-lg-4 mb-5">
                     <div class="icon-box">
-                        <span class="icon">
-                            <img src="{{ asset('/assets/icon-building.png') }}" alt="">
-                        </span>
-                        <div>
+                        <span class="icon"><span class="lnr lnr-apartment"></span></span>
+                        <div class="icon-box--content">
                             <h5>Commercial Durability</h5>
-                            <p>Commercial usage is far more rigid than domestic and we at Hapton understand it very well. Robust switches and Luminaries will last a lot longer.</p>
+                            <p>Commercial usage is far more rigid than  domestic and we at Hapton understand it very well. Robust switches and Luminaries will last a lot longer.</p>
                         </div>
                     </div>
                 </div>
                 <div class="col-lg-4 mb-5">
                     <div class="icon-box">
-                        <span class="icon">
-                            <img src="{{ asset('/assets/icon-globe.png') }}" alt="">
-                        </span>
-                        <div>
+                        <span class="icon"><span class="lnr lnr-earth"></span></span>
+                        <div class="icon-box--content">
                             <h5>Global Presence</h5>
                             <p>We've a worldwide excellent distribution network so no matter wherever you are. Hapton will be there to serve you best.</p>
                         </div>
@@ -102,10 +96,8 @@
                 </div>
                 <div class="col-lg-4 mb-5">
                     <div class="icon-box">
-                        <span class="icon">
-                            <img src="{{ asset('/assets/icon-gear.png') }}" alt="">
-                        </span>
-                        <div>
+                        <span class="icon"><span class="lnr lnr-cog"></span></span>
+                        <div class="icon-box--content">
                             <h5>Innovation Continued</h5>
                             <p>Technology is changing, for good, at an amazing speed and Hapton is always improving and developing new ranges for you.</p>
                         </div>
@@ -113,10 +105,8 @@
                 </div>
                 <div class="col-lg-4 mb-5">
                     <div class="icon-box">
-                        <span class="icon">
-                            <img src="{{ asset('/assets/icon-leaf.png') }}" alt="">
-                        </span>
-                        <div>
+                        <span class="icon"><span class="lnr lnr-leaf"></span></span>
+                        <div class="icon-box--content">
                             <h5>Green Future</h5>
                             <p>We are all responsible for greener and safer future for us the generations to come. All Hapton products are made with eco friendly materials.</p>
                         </div>
@@ -124,10 +114,8 @@
                 </div>
                 <div class="col-lg-4 mb-5">
                     <div class="icon-box">
-                        <span class="icon">
-                            <img src="{{ asset('/assets/icon-support.png') }}" alt="">
-                        </span>
-                        <div>
+                        <span class="icon"><span class="lnr lnr-history"></span></span>
+                        <div class="icon-box--content">
                             <h5>Unparalleled Support</h5>
                             <p>Our distribution partners are among the best in that region and you will feel complete peace of mind with pre and after sales services.</p>
                         </div>
@@ -140,7 +128,7 @@
 
     <div id="split-cta">
         <div class="container">
-            <div class="he-layout-wrapper d-flex flex-wrap">
+            <div class="he-layout-wrapper he-animated-layout-wrapper d-flex flex-wrap">
                 <div class="he-lw-slider-images">
                     <div id="slider-2" class="owl-carousel owl-theme">
                         <div class="slide item">
@@ -173,7 +161,7 @@
         </div>
     </div>
 
-    <section id="stats" class="parallax">
+    <section id="stats" class="parallax" data-parallax="scroll" data-image-src="{{ asset('/assets/home-3-parallax-1.jpg') }}">
         <div class="container">
             <div class="row no-gutters">
                 <div class="col">
@@ -280,7 +268,7 @@
         </div>
     </section>
 
-    <div id="assist-cta">
+    <div id="assist-cta" data-parallax="scroll" data-image-src="{{ asset('/assets/home-3-parallax-2.jpg') }}">
         <div class="container">
             <div class="content text-center">
                 <h1>LET US ASSIST YOU</h1>
@@ -295,7 +283,7 @@
 
     <section id="products-range">
         <div class="container">
-            <div class="he-layout-wrapper d-flex flex-wrap">
+            <div class="he-layout-wrapper he-animated-layout-wrapper d-flex flex-wrap">
                 <div class="he-lw-image" style="background-image: url({{ asset('/assets/home-3-img-2.jpg') }});background-repeat: no-repeat;background-size: cover;">
                     <img src="{{ asset('/assets/home-3-img-2.jpg') }}" alt="" class="img-fluid d-none">
                 </div>
@@ -389,7 +377,7 @@
         </div>
     </section>
 
-    <section id="features">
+    <section id="features" data-parallax="scroll" data-image-src="{{ asset('/assets/parallax-img-new-1.jpg') }}">
         <div class="features-inner">
             <div class="container">
                 <div class="row no-gutters">

@@ -6,7 +6,23 @@
                 <a href="{{ route('home') }}"><img src="assets/Hapton-Logo.png" alt="Hapton" class="img-fluid"></a>
             </div>
 
-            <div class="navigation-toggle"></div>
+            <div class="navigation-toggle">
+                <a href="javascript:void(0)" class="he-menu-opener">
+                    <span class="he-menu-close-icon">
+                        <span class="he-hm-lines">
+                        <span class="he-hm-line he-line-1"></span>
+                        <span class="he-hm-line he-line-2"></span>
+                        </span>
+                    </span>
+                    <span class="he-menu-opener-icon">
+                        <span class="he-hm-lines">
+                            <span class="he-hm-line he-line-1"></span>
+                            <span class="he-hm-line he-line-2"></span>
+                            <span class="he-hm-line he-line-3"></span>
+                        </span>
+                    </span>
+                </a>
+            </div>
 
             <nav id="site-navigation">
                 <div class="nav-container">
