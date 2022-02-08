@@ -6,17 +6,21 @@
         <div class="slide item">
             <img src="assets/slide1.jpg" alt="" class="img-fluid w-100" />
             <div class="slide-content-box">
-                <h1>HAPTON ELECT SWITCHES</h1>
-                <p>Turn on your home with style with the Hapton Switches comprehensive range to suit your home.</p>
-                <img src="assets/slide-switches.jpg" alt="" class="img-fluid" />
+                <div class="slide-content-box--inner">
+                    <h1>HAPTON ELECT SWITCHES</h1>
+                    <p>Turn on your home with style with the Hapton Switches comprehensive range to suit your home.</p>
+                    <img src="assets/slide-switches.jpg" alt="" class="img-fluid" />
+                </div>
             </div>
         </div>
         <div class="slide item">
             <img src="assets/slide2.jpg" alt="" class="img-fluid w-100" />
             <div class="slide-content-box">
-                <h1>LIGHTS <br>TO <br> AMAZE U</h1>
-                <p>Turn on your home with style with the Hapton Switches comprehensive range to suit your home.</p>
-                <img src="assets/slide-switches.jpg" alt="" class="img-fluid" />
+                <div class="slide-content-box--inner">
+                    <h1>LIGHTS <br>TO <br> AMAZE U</h1>
+                    <p>Turn on your home with style with the Hapton Switches comprehensive range to suit your home.</p>
+                    <img src="assets/slide-switches.jpg" alt="" class="img-fluid" />
+                </div>
             </div>
         </div>
     </div>
@@ -208,19 +212,107 @@
             </div>
             <div class="row no-gutters">
                 <div class="col-lg-4 gallery-col">
-                    <div class="img-wrap p-2"><img src="{{ asset('/assets/g1.jpg') }}" alt="1" class="img-fluid w-100" /></div>
-                    <div class="img-wrap p-2"><img src="{{ asset('/assets/g2.jpg') }}" alt="2" class="img-fluid w-100" /></div>
+                    <div class="img-wrap p-3 he-animated-layout-wrapper">
+                        <div class="img-wrap--image"><a href="#"><img src="{{ asset('/assets/g1.jpg') }}" alt="1" class="img-fluid w-100" /></a></div>
+                        <div class="img-wrap--text">
+                            <div class="text-wrapper">
+                                <div class="text">
+                                    <h5><a href="#">Title</a></h5>
+                                    <span><a href="#">Category</a></span>
+                                </div>
+                            </div>
+                        </div>
+                        <a href="#" class="img-wrap--link"></a>
+                    </div>
+                    <div class="img-wrap p-3 he-animated-layout-wrapper">
+                        <div class="img-wrap--image"><a href="#"><img src="{{ asset('/assets/g2.jpg') }}" alt="2" class="img-fluid w-100" /></a></div>
+                        <div class="img-wrap--text">
+                            <div class="text-wrapper">
+                                <div class="text">
+                                    <h5><a href="#">Title</a></h5>
+                                    <span><a href="#">Category</a></span>
+                                </div>
+                            </div>
+                        </div>
+                        <a href="#" class="img-wrap--link"></a>
+                    </div>
                 </div>
                 <div class="col-lg-4 gallery-col">
-                    <div class="img-wrap p-2"><img src="{{ asset('/assets/g3.jpg') }}" alt="3" class="img-fluid w-100" /></div>
-                    <div class="img-wrap p-2"><img src="{{ asset('/assets/g4.jpg') }}" alt="4" class="img-fluid w-100" /></div>
-                    <div class="img-wrap p-2"><img src="{{ asset('/assets/g5.jpg') }}" alt="5" class="img-fluid w-100" /></div>
+                    <div class="img-wrap p-3 he-animated-layout-wrapper">
+                        <div class="img-wrap--image"><a href="#"><img src="{{ asset('/assets/g3.jpg') }}" alt="3" class="img-fluid w-100" /></a></div>
+                        <div class="img-wrap--text">
+                            <div class="text-wrapper">
+                                <div class="text">
+                                    <h5><a href="#">Title</a></h5>
+                                    <span><a href="#">Category</a></span>
+                                </div>
+                            </div>
+                        </div>
+                        <a href="#" class="img-wrap--link"></a>
+                    </div>
+                    <div class="img-wrap p-3 he-animated-layout-wrapper">
+                        <div class="img-wrap--image"><a href="#"><img src="{{ asset('/assets/g4.jpg') }}" alt="4" class="img-fluid w-100" /></a></div>
+                        <div class="img-wrap--text">
+                            <div class="text-wrapper">
+                                <div class="text">
+                                    <h5><a href="#">Title</a></h5>
+                                    <span><a href="#">Category</a></span>
+                                </div>
+                            </div>
+                        </div>
+                        <a href="#" class="img-wrap--link"></a>
+                    </div>
+                    <div class="img-wrap p-3 he-animated-layout-wrapper">
+                        <div class="img-wrap--image"><a href="#"><img src="{{ asset('/assets/g5.jpg') }}" alt="5" class="img-fluid w-100" /></a></div>
+                        <div class="img-wrap--text">
+                            <div class="text-wrapper">
+                                <div class="text">
+                                    <h5><a href="#">Title</a></h5>
+                                    <span><a href="#">Category</a></span>
+                                </div>
+                            </div>
+                        </div>
+                        <a href="#" class="img-wrap--link"></a>
+                    </div>
 
                 </div>
                 <div class="col-lg-4 gallery-col">
-                    <div class="img-wrap p-2"><img src="{{ asset('/assets/g6.jpg') }}" alt="6" class="img-fluid w-100" /></div>
-                    <div class="img-wrap p-2"><img src="{{ asset('/assets/g7.jpg') }}" alt="7" class="img-fluid w-100" /></div>
-                    <div class="img-wrap p-2"><img src="{{ asset('/assets/g8.jpg') }}" alt="8 " class="img-fluid w-100" /></div>
+                    <div class="img-wrap p-3 he-animated-layout-wrapper">
+                        <div class="img-wrap--image"><a href="#"><img src="{{ asset('/assets/g6.jpg') }}" alt="6" class="img-fluid w-100" /></a></div>
+                        <div class="img-wrap--text">
+                            <div class="text-wrapper">
+                                <div class="text">
+                                    <h5><a href="#">Title</a></h5>
+                                    <span><a href="#">Category</a></span>
+                                </div>
+                            </div>
+                        </div>
+                        <a href="#" class="img-wrap--link"></a>
+                    </div>
+                    <div class="img-wrap p-3 he-animated-layout-wrapper">
+                        <div class="img-wrap--image"><a href="#"><img src="{{ asset('/assets/g7.jpg') }}" alt="7" class="img-fluid w-100" /></a></div>
+                        <div class="img-wrap--text">
+                            <div class="text-wrapper">
+                                <div class="text">
+                                    <h5><a href="#">Title</a></h5>
+                                    <span><a href="#">Category</a></span>
+                                </div>
+                            </div>
+                        </div>
+                        <a href="#" class="img-wrap--link"></a>
+                    </div>
+                    <div class="img-wrap p-3 he-animated-layout-wrapper">
+                        <div class="img-wrap--image"><a href="#"><img src="{{ asset('/assets/g8.jpg') }}" alt="8" class="img-fluid w-100" /></a></div>
+                        <div class="img-wrap--text">
+                            <div class="text-wrapper">
+                                <div class="text">
+                                    <h5><a href="#">Title</a></h5>
+                                    <span><a href="#">Category</a></span>
+                                </div>
+                            </div>
+                        </div>
+                        <a href="#" class="img-wrap--link"></a>
+                    </div>
                 </div>
             </div>
         </div>

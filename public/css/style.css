@@ -79,6 +79,17 @@ a, p a {
     transition: color .2s ease-out;
 }
 
+h1 a, h2 a, h3 a, h4 a, h5 a {
+    color: inherit;
+    font-family: inherit;
+    font-size: inherit;
+    font-weight: inherit;
+    font-style: inherit;
+    line-height: inherit;
+    letter-spacing: inherit;
+    text-transform: inherit;
+}
+
 a:hover, p a:hover {
     color: #fff;
     text-decoration: none;
@@ -890,6 +901,120 @@ textarea {
     margin-top: 60px;
 }
 
+.img-wrap {
+    position: relative;
+    overflow: hidden;
+    display: inline-block;
+    width: 100%;
+    vertical-align: middle;
+}
+
+.img-wrap--image {
+    position: relative;
+    display: inline-block;
+    width: 100%;
+    vertical-align: middle;
+}
+.img-wrap--image img {
+    display: block;
+}
+
+.img-wrap--text {
+    position: absolute;
+    display: block;
+    width: 100%;
+    height: 100%;
+    top: 0;
+    left: 0;
+    padding: 20px;
+    background-color: rgba(0,0,0,.8);
+    opacity: 0;
+    text-align: center;
+    -webkit-box-sizing: border-box;
+    box-sizing: border-box;
+    -webkit-transition: .4s;
+    -o-transition: .4s;
+    transition: .4s;
+}
+.img-wrap:hover .img-wrap--text {
+    opacity: 1;
+}
+.img-wrap--text .text-wrapper {
+    position: relative;
+    table-layout: fixed;
+    height: 100%;
+    width: 100%;
+    display: -webkit-box;
+    display: -ms-flexbox;
+    display: flex;
+    -webkit-box-pack: center;
+    -ms-flex-pack: center;
+    justify-content: center;
+    -webkit-box-orient: vertical;
+    -webkit-box-direction: normal;
+    -ms-flex-direction: column;
+    flex-direction: column;
+    -webkit-box-align: center;
+    -ms-flex-align: center;
+    align-items: center;
+}
+.img-wrap--text .text-wrapper .text {
+    display: block;
+    width: initial;
+    height: initial;
+    position: relative;
+    vertical-align: middle;
+}
+
+.img-wrap--text .text-wrapper .text h5 {
+    opacity: 0;
+    -webkit-transform: translateY(10px);
+    -ms-transform: translateY(10px);
+    transform: translateY(10px);
+    -webkit-transition: .3s .15s;
+    -o-transition: .3s .15s;
+    transition: .3s .15s;
+    margin: 0;
+}
+
+.img-wrap--text .text-wrapper .text span {
+    opacity: 0;
+    -webkit-transform: translateY(10px);
+    -ms-transform: translateY(10px);
+    transform: translateY(10px);
+    -webkit-transition: .3s .15s;
+    -o-transition: .3s .15s;
+    transition: .3s .15s;
+    z-index: 1235;
+    position: relative;
+    display: block;
+    margin: 5px 0 0;
+}
+.img-wrap:hover .text-wrapper .text span,
+.img-wrap:hover .text-wrapper .text h5 {
+    opacity: 1;
+    -webkit-transform: translateY(0);
+    -ms-transform: translateY(0);
+    transform: translateY(0);
+}
+.img-wrap--text .text-wrapper .text span a {
+    position: relative;
+    font-family: 'Alegreya', serif;
+    font-size: 19px;
+    font-weight: 400;
+    font-style: italic;
+    color: #d8d8d8;
+    z-index: 8;
+}
+.img-wrap--link {
+    position: absolute;
+    display: block;
+    width: 100%;
+    height: 100%;
+    top: 0;
+    left: 0;
+}
+
 /* Values */
 #values {
     padding: 132px 0px 124px 0px;
@@ -1266,7 +1391,7 @@ textarea {
 }
 
 
-/* Grid Lines */
+/* Grid Lines Start */
 main#main {
     position: relative;
     z-index: 100;
@@ -1324,8 +1449,9 @@ main#main {
     transform-origin: bottom right;
     transition-transform: .75s cubic-bezier(.47,.94,.04,.98) .4s;
 }
+/* Grid Lines End */
 
-/* Revealing Animations */
+/* Revealing Animations Start */
 .he-animated-layout-wrapper>div:not(.he-lw-content) {
     -webkit-clip-path: inset(0 100% 0 0);
     clip-path: inset(0 100% 0 0);
@@ -1366,8 +1492,93 @@ main#main {
     -o-transition: 1s .1s cubic-bezier(.91,.13,.26,.88);
     transition: 1s .1s cubic-bezier(.91,.13,.26,.88);
 }
+/* Revealing Animations End */
 
-/* Menu Toggle */
+/* Gallery Image Reveal Starts */
+.img-wrap.he-animated-layout-wrapper>.img-wrap--image {
+    -webkit-clip-path: inset(100% 0 0 0);
+    clip-path: inset(100% 0 0 0);
+    -webkit-transform: translateX(0);
+    -ms-transform: translateX(0);
+    transform: translateX(0);
+    -webkit-transition: 1s;
+    -o-transition: 1s;
+    transition: 1s;
+}
+.img-wrap.he-animated-layout-wrapper.he-item-appear>.img-wrap--image {
+    -webkit-clip-path: inset(0 0 0 0);
+    clip-path: inset(0 0 0 0);
+    /*-webkit-transform: translateX(0);*/
+    /*-ms-transform: translateX(0);*/
+    /*transform: translateX(0);*/
+    -webkit-transition: 1s .1s cubic-bezier(.91,.13,.26,.88);
+    -o-transition: 1s .1s cubic-bezier(.91,.13,.26,.88);
+    transition: 1s .1s cubic-bezier(.91,.13,.26,.88);
+}
+/* Gallery Image Reveal Ends */
+
+/* Slider Box Animations Start */
+.slide-content-box {
+    -webkit-clip-path: inset(0 0 0 100%);
+    clip-path: inset(0 0 0 100%);
+    -webkit-transform: translateX(40px);
+    -ms-transform: translateX(40px);
+    transform: translateX(40px);
+    -webkit-transition: 1s;
+    -o-transition: 1s;
+    transition: 1s;
+}
+
+.slide-content-box--inner {
+    overflow: hidden;
+}
+
+.slide-content-box h1,
+.slide-content-box p {
+    transform: translateX(10%);
+    opacity: 0;
+    -webkit-transition: 1s;
+    -o-transition: 1s;
+    transition: 1s;
+}
+
+.slide-content-box img {
+    transform: translateX(100%);
+    -webkit-transition: 1s;
+    -o-transition: 1s;
+    transition: 1s;
+}
+
+.slide-content-box.he-item-appear {
+    -webkit-clip-path: inset(0 0 0 0);
+    clip-path: inset(0 0 0 0);
+    -webkit-transform: translateX(0);
+    -ms-transform: translateX(0);
+    transform: translateX(0);
+    -webkit-transition: .5s .1s cubic-bezier(.91,.13,.26,.88);
+    -o-transition: .5s .1s cubic-bezier(.91,.13,.26,.88);
+    transition: .5s .1s cubic-bezier(.91,.13,.26,.88);
+}
+
+.slide-content-box.he-item-appear h1,
+.slide-content-box.he-item-appear p {
+    transform: translateX(0%);
+    opacity: 1;
+    -webkit-transition: .5s .7s linear;
+    -o-transition: .5s .7s linear;
+    transition: .5s .7s linear;
+}
+
+.slide-content-box.he-item-appear img {
+    transform: translateX(0%);
+    -webkit-transition: .5s .8s linear;
+    -o-transition: .5s .8s linear;
+    transition: .5s .8s linear;
+}
+/* Slider Box Animations End */
+
+
+/* Menu Toggle Starts */
 .he-menu-opener {
     position: relative;
     display: inline-block;
@@ -1602,3 +1813,4 @@ main#main {
         transform:rotate(-45deg) scaleY(1)
     }
 }
+/* Menu Toggle Ends */
