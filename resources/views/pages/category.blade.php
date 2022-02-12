@@ -20,7 +20,7 @@
 
             {{-- @dd($category->subcategory) --}}
 
-            @if (@count($category->subcategory))
+            @if ($type != "category")
                 @foreach ($category->subcategory as $subcategory)
                     <div class="col-md-6 category-col">
                         <div class="category">
@@ -32,17 +32,19 @@
                     </div>
                 @endforeach
             @else
-            <div class="col-md-6 category-col">
-                <div class="category">
-                    <a href="#">
-                        <h5 class="category-title"><a href="category/{{$category->slug}}">{{$category->name}}</a></h5>
-                        <img src="./assets/category/Brushed-steel-fliton.png" alt="Brushed-steel-fliton" class="img-fluid" />
-                    </a>
+                <div class="col-md-6 category-col">
+                    <div class="category">
+                        <a href="#">
+                            <h5 class="category-title"><a href="{{$category->slug}}">{{$category->name}}</a></h5>
+                            <img src="./assets/category/Brushed-steel-fliton.png" alt="Brushed-steel-fliton" class="img-fluid" />
+                        </a>
+                    </div>
                 </div>
-            </div>
             @endif
+
             @endforeach
         </div>
+
     </section>
 
 
