@@ -10,11 +10,17 @@
         <link rel="stylesheet" href="{{ asset('/css/owl.carousel.min.css') }}">
         <link rel="stylesheet" href="{{ asset('/css/owl.theme.default.min.css') }}">
 
-        <link 
-        rel="stylesheet" 
-        href="https://pro.fontawesome.com/releases/v5.10.0/css/all.css" 
-        integrity="sha384-AYmEC3Yw5cVb3ZcuHtOA93w35dYTsvhLPVnYs9eStHfGJvOvKxVfELGroGkvsg+p" 
+        <link rel="preconnect" href="https://fonts.googleapis.com">
+        <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+        <link href="https://fonts.googleapis.com/css2?family=Alegreya:ital@1&family=Montserrat:wght@200;300;400;500;600;700&family=Raleway:wght@300;400;500;600;700&family=Roboto:wght@300;400;500;700&display=swap" rel="stylesheet">
+
+        <link
+        rel="stylesheet"
+        href="https://pro.fontawesome.com/releases/v5.10.0/css/all.css"
+        integrity="sha384-AYmEC3Yw5cVb3ZcuHtOA93w35dYTsvhLPVnYs9eStHfGJvOvKxVfELGroGkvsg+p"
         crossorigin="anonymous"/>
+
+        <link rel="stylesheet" href="https://cdn.linearicons.com/free/1.0.0/icon-font.min.css">
 
         <link rel="stylesheet" href="{{ asset('/css/style.css') }}">
 
@@ -23,34 +29,53 @@
     <body>
         <div id="wrapper">
 
-        @include('includes.header')
+            @include('includes.header')
 
 
-        <!-- Main Start -->
-        <main id="main" class="content">
-            @yield('content')
-        </main>
+            <!-- Main Start -->
+            <main id="main" class="content">
 
+                <div class="he-grid-lines-holder">
+                    <div class="he-grid-line"></div>
+                    <div class="he-grid-line"></div>
+                    <div class="he-grid-line"></div>
+                    <div class="he-grid-line"></div>
+                </div>
 
-        @include('includes.footer')
+                @yield('content')
+            </main>
 
-        <div class="page-borders"><div class="page-borders borders-inner"></div></div>
+            @include('includes.footer')
+
         </div>
 
-        <script 
-        src="https://code.jquery.com/jquery-2.2.4.min.js" 
-        integrity="sha256-BbhdlvQf/xTY9gja0Dq3HiwQF8LaCRTXxZKRutelT44=" 
+        <script
+        src="https://code.jquery.com/jquery-2.2.4.min.js"
+        integrity="sha256-BbhdlvQf/xTY9gja0Dq3HiwQF8LaCRTXxZKRutelT44="
         crossorigin="anonymous"></script>
 
         <script src="https://cdnjs.cloudflare.com/ajax/libs/jquery-circle-progress/1.1.3/circle-progress.min.js"></script>
 
         <script src="{{ asset('/js/bootstrap.min.js') }}"></script>
         <script src="{{ asset('/js/owl.carousel.min.js') }}"></script>
+        <script src="{{ asset('/js/parallax.min.js') }}"></script>
 
 
 
         <script>
+
+            $(window).load(function() {
+                // $('.slide-content-box').addClass('he-item-appear');
+            });
+
             $(document).ready(function() {
+
+                window.addEventListener("scroll", function() {
+                    const distance = window.scrollY;
+                    document.querySelector(".parallax").style.backgroundPosition = `50% ${distance /
+                    100 * 2}px`;
+                });
+
                 $('#main-slider').owlCarousel({
                     autoplay: true,
                     autoplayTimeout: 10000,
@@ -65,14 +90,26 @@
                         },
                     },
                     animateIn: 'fadeIn',
-                    animateOut: 'fadeOut'
+                    animateOut: 'fadeOut',
+                    onInitialized: addOwlAnim,
+                    onTranslated: addOwlAnim,
+
                 });
+
+                function addOwlAnim(event) {
+
+                    $('.slide-content-box').removeClass('he-item-appear');
+
+                    var current = event.item.index;
+                    var slideContent = $(event.target).find('.owl-item').eq(current).find('.slide-content-box');
+                    slideContent.addClass('he-item-appear');
+                }
 
                 $('#slider-2').owlCarousel({
                     autoplay: true,
                     autoplayTimeout: 5000,
                     loop: true,
-                    nav: true,
+                    nav: false,
                     dots: false,
                     responsiveClass:true,
                     responsive:{
@@ -87,7 +124,7 @@
                 */
                 var progressBarOptions = {
                     startAngle: -1.55,
-                    size: 150,
+                    size: 176,
                     thickness: 2,
                     fill: {
                         color: '#6e6e6e'
@@ -114,11 +151,29 @@
                 });
 
 
-                $('.navigation-toggle').on('click', function() {
+                $('.he-menu-opener').on('click', function() {
                     $('body').toggleClass('nav-open');
-                    $(this).toggleClass('animate');
+                    $(this).toggleClass('he-fm-opened');
                     $('#site-navigation').toggleClass('open');
-                })
+                });
+
+                $(window).on('scroll', function() {
+                    $(".he-animated-layout-wrapper").each(function() {
+                        if (isScrolledIntoView($(this))) {
+                            $(this).addClass('he-item-appear');
+                        }
+                    });
+                });
+
+                function isScrolledIntoView(elem) {
+                    var docViewTop = $(window).scrollTop();
+                    var docViewBottom = docViewTop + $(window).height();
+
+                    var elemTop = $(elem).offset().top;
+                    var elemBottom = elemTop + $(elem).height();
+
+                    return ((elemBottom <= docViewBottom) && (elemTop >= docViewTop));
+                }
 
             });
         </script>
