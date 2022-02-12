@@ -35,7 +35,7 @@
                 <div class="col-md-6 category-col">
                     <div class="category">
                         <a href="#">
-                            <h5 class="category-title"><a href="{{$category->slug}}">{{$category->name}}</a></h5>
+                            <h5 class="category-title"><a href="{{Request::url()}}/{{$category->slug}}">{{$category->name}}</a></h5>
                             <img src="./assets/category/Brushed-steel-fliton.png" alt="Brushed-steel-fliton" class="img-fluid" />
                         </a>
                     </div>

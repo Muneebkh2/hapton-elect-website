@@ -14,7 +14,7 @@ class CategoriesTableSeeder extends Seeder
      */
     public function run()
     {
-        Category::truncate();
+        // Category::truncate();
 
         $categories = [
             [
