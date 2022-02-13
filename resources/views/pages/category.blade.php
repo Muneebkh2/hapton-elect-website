@@ -1,12 +1,6 @@
-@extends('layouts.default', ['title' => 'Hapton Switches Ranges'])
+@extends('layouts.default', ['title' => 'Hapton Switches Ranges', 'page' => 'category'])
 
 @section('content')
-
-    <div class="page-header mt-3 mb-5">
-        <div class="container">
-            <h1 class="page-title text-right">Hapton Switches Ranges</h1>
-        </div>
-    </div>
 
     <section id="categories-grid">
         <div class="row no-gutters category-row" style="background: url('./assets/category/bg1.png') no-repeat center / cover;">
