@@ -15,6 +15,8 @@ use Illuminate\Support\Facades\Route;
 |
 */
 
+
+
 Route::get('/', function () {
     return view('pages.index');
 })->name('home');
@@ -34,3 +36,8 @@ Route::get('/category/{subCategory}/{childCategory}', [CategoryController::class
 Route::get('/product', function () {
     return view('pages.product');
 })->name('product');
+
+\Auth::routes();
+Route::get('/logout', '\App\Http\Controllers\Auth\LoginController@logout');
+
+// Route::get('/home', [App\Http\Controllers\HomeController::class, 'index'])->name('home');

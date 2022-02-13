@@ -32,6 +32,15 @@
                         <li class="menu-item"><a href="{{ route('product') }}">Product</a></li>
                         <li class="menu-item"><a href="{{ route('category') }}">Category</a></li>
                         <li class="menu-item"><a href="#">Contact</a></li>
+                        @if (Auth::check())
+                        <li class="menu-item">
+                            <a href="{{ url('/logout') }}"> Logout </a>
+                        </li>
+                        @else
+                        <li class="menu-item">
+                            <a href="{{ url('/login') }}"> Login </a>
+                        </li>
+                        @endif
                     </ul>
                 </div>
             </nav>
