@@ -165,41 +165,43 @@
         </div>
     </div>
 
-    <section id="stats" class="parallax" data-parallax="scroll" data-image-src="{{ asset('/assets/home-3-parallax-1.jpg') }}">
-        <div class="container">
-            <div class="row no-gutters">
-                <div class="col">
-                    <div class="text-center">
-                        <span class="counter">34</span>
-                        <h6 class="counter-title">World wide distributors</h6>
+    <section>
+        <div id="stats" class="parallax" data-parallax="scroll" data-image-src="{{ asset('/assets/home-3-parallax-1.jpg') }}">
+            <div class="container">
+                <div class="row no-gutters">
+                    <div class="col">
+                        <div class="text-center">
+                            <span class="counter">34</span>
+                            <h6 class="counter-title">World wide distributors</h6>
+                        </div>
+                    </div>
+                    <div class="col">
+                        <div class="text-center">
+                            <span class="counter">680</span>
+                            <h6 class="counter-title">Product Ranges</p>
+                        </div>
+                    </div>
+                    <div class="col">
+                        <div class="text-center">
+                            <span class="counter">100</span>
+                            <h6 class="counter-title">% Customer Satisfaction</h6>
+                        </div>
+                    </div>
+                    <div class="col">
+                        <div class="text-center">
+                            <span class="counter">5</span>
+                            <h6 class="counter-title">Million Products Sold</h6>
+                        </div>
+                    </div>
+                    <div class="col">
+                        <div class="text-center">
+                            <span class="counter">749</span>
+                            <h6 class="counter-title">New Products in line</h6>
+                        </div>
                     </div>
                 </div>
-                <div class="col">
-                    <div class="text-center">
-                        <span class="counter">680</span>
-                        <h6 class="counter-title">Product Ranges</p>
-                    </div>
-                </div>
-                <div class="col">
-                    <div class="text-center">
-                        <span class="counter">100</span>
-                        <h6 class="counter-title">% Customer Satisfaction</h6>
-                    </div>
-                </div>
-                <div class="col">
-                    <div class="text-center">
-                        <span class="counter">5</span>
-                        <h6 class="counter-title">Million Products Sold</h6>
-                    </div>
-                </div>
-                <div class="col">
-                    <div class="text-center">
-                        <span class="counter">749</span>
-                        <h6 class="counter-title">New Products in line</h6>
-                    </div>
-                </div>
+                <!-- <img src="assets/stats-bg.jpg" alt="" class="img-fluid w-100" /> -->
             </div>
-            <!-- <img src="assets/stats-bg.jpg" alt="" class="img-fluid w-100" /> -->
         </div>
     </section>
 

@@ -43,6 +43,8 @@
                 </div>
 
                 @yield('content')
+
+                @include('includes.main-contact')
             </main>
 
             @include('includes.footer')

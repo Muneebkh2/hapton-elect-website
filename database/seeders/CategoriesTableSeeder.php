@@ -19,15 +19,23 @@ class CategoriesTableSeeder extends Seeder
         $categories = [
             [
                 'name' => 'Electrical Switches',
+                'image' => 'assets/category/images/electrical_switches.png',
+                'bg_image' => 'assets/category/images/electrical_switches_bg.jpg'
             ],
             [
                 'name' => 'Commercial Lights',
+                'image' => 'assets/category/images/commercial_lights.png',
+                'bg_image' => 'assets/category/images/commercial_lights_bg.jpg'
             ],
             [
                 'name' => 'Emergency Lights',
+                'image' => 'assets/category/images/emergency_lights.png',
+                'bg_image' => 'assets/category/images/emergency_lights_bg.jpg'
             ],
             [
                 'name' => 'Sensors',
+                'image' => 'assets/category/images/sensors.png',
+                'bg_image' => 'assets/category/images/sensors_bg.jpg'
             ],
             [
                 'name' => 'Fliton',

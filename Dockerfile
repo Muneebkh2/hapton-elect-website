@@ -102,4 +102,4 @@ COPY docker/nginx/conf.d/default.conf /etc/nginx/conf.d/
 
 WORKDIR /var/www/
 
-COPY --from=app_php /var/www/public public/
+# COPY --from=app_php /var/www/public public/

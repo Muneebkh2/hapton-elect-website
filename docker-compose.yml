@@ -9,6 +9,8 @@ services:
     build:
       context: .
       target: app_nginx
+    volumes:
+      - ./public:/var/www/public
     depends_on:
       - php-fpm
       - mysql
