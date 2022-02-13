@@ -434,7 +434,7 @@ textarea {
     position: fixed;
     transition: left 0s calc(150ms * 2), transform 0s calc(150ms * 2);
     width: 100%;
-    z-index: 100;
+    z-index: 101;
 }
 #site-navigation::before, #site-navigation::after {
     content: '';
@@ -708,6 +708,31 @@ textarea {
     transform: translateY(50%);
     text-transform: uppercase;
     transition: 0.2s all;
+}
+
+.category-row  .category-row-title {
+    padding: 15px 10px;
+    position: absolute;
+    /* bottom: 0;
+    left: 20px; */
+    right: 20px;
+    background-color: #1c1c1c;
+    color: #fff;
+    transform: translateY(50%);
+    text-transform: uppercase;
+    /* transition: 0.2s all; */
+    background: linear-gradient(to right, white 50%, black 50%);
+    background-size: 200% 100%;
+    background-position: right bottom;
+    transition: all .5s ease-out;
+}
+
+.category-row .category:hover .category-row-title {
+    background-position: left bottom;
+}
+
+.category-row .category:hover .category-row-title a{
+    color: black!important;
 }
 
 #categories .category a:hover .category-title {
@@ -1255,8 +1280,8 @@ textarea {
 */
 /* Contact */
 #contact {
-    border-top: 1px solid rgba(255,255,255,0.07);
-    margin-top: 20px;
+    border-top: 10px solid rgba(255,255,255,0.07);
+    /* margin-top: 20px; */
     padding: 130px 0px 140px 0px;
 }
 
@@ -1272,13 +1297,23 @@ textarea {
 }
 
 .footer-top {
-    padding-top: 80px;
-    padding-bottom: 40px;
+    /* padding-top: 80px;
+    padding-bottom: 40px; */
+    background-color: #1c1c1c;
+}
+
+.footer-top > div {
+    padding: 80px 0px;
 }
 
 .footer-bottom {
-    padding-top: 10px;
-    padding-bottom: 10px;
+    background-color: #000;
+    /* padding-top: 10px;
+    padding-bottom: 10px; */
+}
+
+.footer-bottom > div {
+    padding: 40px 0px;
 }
 
 .site-footer h4 {
@@ -1306,6 +1341,16 @@ textarea {
 .newsletter-form .newsletter-submit {
     font-size: 14px;
     padding: 0.5rem 1.5rem;
+    color: #000;
+    border-radius: 0px;
+    border: 1px solid transparent;
+}
+
+.newsletter-form .newsletter-submit:hover {
+    background-color: #000;
+    color: #fff;
+    transition: 0.4s all;
+    border-color: #fff;
 }
 
 .footer-bottom .social-menu > a {
@@ -1356,11 +1401,12 @@ textarea {
 }
 
 .category-col {
-    border: 1px solid rgba(0,0,0,.15);
+    /* border: 1px solid rgba(0,0,0,.15); */
+    /* height: 608px!important; */
 }
 
 .category-row .category {
-    padding: 30px 50px 80px;
+    /* padding: 30px 50px 80px; */
 }
 
 .category-row .category .category-title {
@@ -1555,9 +1601,9 @@ main#main {
     -webkit-transform: translateX(0);
     -ms-transform: translateX(0);
     transform: translateX(0);
-    -webkit-transition: .5s .1s cubic-bezier(.91,.13,.26,.88);
-    -o-transition: .5s .1s cubic-bezier(.91,.13,.26,.88);
-    transition: .5s .1s cubic-bezier(.91,.13,.26,.88);
+    -webkit-transition: .8s .3s cubic-bezier(.91,.13,.26,.88);
+    -o-transition: .8s .3s cubic-bezier(.91,.13,.26,.88);
+    transition: .8s .3s cubic-bezier(.91,.13,.26,.88);
 }
 
 .slide-content-box.he-item-appear h1,

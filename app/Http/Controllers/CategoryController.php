@@ -12,13 +12,17 @@ class CategoryController extends Controller
         $categories = Category::whereNull('parent_id')->get();
         // return response()->json($categories);
         // $categories = Category::where("parent_id", null)->get();
-        return view("pages.category", ["categories" => $categories, "type" => "category"]);
+        $title = "Main Categories";
+        return view("pages.category", ["categories" => $categories, "type" => "category", "title" => $title]);
     }
 
     public function getSubCategoriesPage($subCategory) {
         $subCategory = Category::where("slug", $subCategory)->with('subcategory')->get();
         // echo "<pre>";print_r($subCategory);exit;
-        return view("pages.category", ["categories" => $subCategory, "type" => "sub-category"]);
+        $currentURL = URL::current();
+        preg_match("/[^\/]+$/", $currentURL, $matches);
+        $title = $matches[0];
+        return view("pages.category", ["categories" => $subCategory, "type" => "sub-category", "title" => $title]);
     }
 
     public function getChildSubCatgoriesPage($subCategory) {
@@ -35,6 +39,6 @@ class CategoryController extends Controller
         $subCategory = Category::where("slug", $last_url_param)->with('subcategory')->get();
         // return response()->json($subCategory);
         // echo "<pre>";print_r($subCategory);echo"</pre>";die();
-        return view("pages.category", ["categories" => $subCategory, "type" => "child-category"]);
+        return view("pages.category", ["categories" => $subCategory, "type" => "child-category", "title" => $last_url_param]);
     }
 }
