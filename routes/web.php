@@ -37,7 +37,12 @@ Route::get('/product', function () {
     return view('pages.product');
 })->name('product');
 
+
 \Auth::routes();
 Route::get('/logout', '\App\Http\Controllers\Auth\LoginController@logout');
+
+Route::group(['namespace' => '\App\Http\Controllers\Admin', 'as' => 'admin::', 'prefix' => 'admin'], function() {
+    Route::resource('products', ProductController::class);
+});
 
 // Route::get('/home', [App\Http\Controllers\HomeController::class, 'index'])->name('home');

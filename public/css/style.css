@@ -1941,3 +1941,10 @@ section.auth input[type="submit"] {
 }
 
 /* Auth Pages Styling */
+
+/* Product Create Page Styling */
+select.form-control:not([size]):not([multiple]) {
+    height: calc(2.25rem + 12px) !important;
+    cursor: pointer !important;
+}
+/* Product Create Page Styling */

@@ -19,19 +19,23 @@ class ProductSeeder extends Seeder
         $products = [
             [
                 'name' => 'Product One',
-                'category_id' => 10
+                'category_id' => 10,
+                'image' => '/assets/Switches.jpg'
             ],
             [
                 'name' => 'Product Two',
-                'category_id' => 11
+                'category_id' => 11,
+                'image' => '/assets/Switches.jpg'
             ],
             [
                 'name' => 'Product Three',
-                'category_id' => 12
+                'category_id' => 12,
+                'image' => '/assets/Switches.jpg'
             ],
             [
                 'name' => 'Product Four',
-                'category_id' => 13
+                'category_id' => 13,
+                'image' => '/assets/Switches.jpg'
             ]
         ];
 
