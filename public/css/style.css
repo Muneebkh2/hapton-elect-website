@@ -1403,8 +1403,56 @@ textarea {
     CATEGORY PAGE
 *--------------------*/
 
-.page-header .page-title {
+.category-page .site-header .site-logo {
+    position: relative;
+}
+
+.category-page .site-header .site-logo::before,
+.category-page .site-header .site-logo::after {
+    content: "";
+    display: block;
+    position: absolute;
+    top: -20px;
+    bottom: -20px;
+    left: -100px;
+    width: 300px;
+    background: #fff;
+    transform: skewX(31deg);
+    z-index: -1;
+}
+
+.category-page .site-header .site-logo::after {
+    left: -75px;
+    background: #007be7;
+    z-index: -2;
+}
+
+.category-header-right {
+    display: flex;
+    flex-direction: column;
+    justify-content: space-evenly;
+}
+.category-page .site-header .menu {
+    list-style: none;
+    margin: 0 0 10px;
+    padding: 0;
+    display: flex;
+    align-items: center;
+    justify-content: flex-end;
+}
+
+.category-page .site-header .menu a {
+    padding: 5px 10px;
+}
+
+.category-page .site-header .page-title {
+    text-transform: capitalize;
+    margin-right: 100px;
+}
+
+.page-title {
     font-size: 2rem;
+    margin: 0;
 }
 
 .category-col {

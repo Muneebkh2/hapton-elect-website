@@ -1,4 +1,4 @@
-@extends('layouts.default')
+@extends('layouts.default', ['title' => 'Hapton Switches Ranges', 'page' => 'category'])
 
 @section('content')
 {{--
