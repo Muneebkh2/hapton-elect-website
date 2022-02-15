@@ -20,11 +20,11 @@
 
                 @if ($type != "category")
                     @foreach ($category->subcategory as $subcategory)
-                        <div class="col-md-6 category-col">
+                        <div class="col-md-6 category-col" style="background: url('{{url($subcategory->bg_image)}}') no-repeat 100% / 100%;">
                             <div class="category">
                                 <a href="#">
                                     <h5 class="category-row-title"><a href="{{Request::url()}}/{{$subcategory->slug}}">{{$subcategory->name}}</a></h5>
-                                    <img src="./assets/category/Brushed-steel-fliton.png" alt="Brushed-steel-fliton" class="img-fluid" />
+                                    <img src="{{asset($subcategory->image)}}" alt="Brushed-steel-fliton" class="img-fluid" />
                                 </a>
                             </div>
                         </div>

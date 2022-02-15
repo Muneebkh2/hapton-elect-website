@@ -15,7 +15,7 @@ services:
       - php-fpm
       - mysql
     ports:
-      - "80:80"
+      - "81:81"
     networks:
       - hapton-elect
 

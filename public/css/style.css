@@ -697,6 +697,12 @@ textarea {
     position: relative;
 }
 
+.col-md-6.category-col:nth-child(2n+1),
+.col-md-6.category-col:nth-child(2n) 
+{
+    border-right: 2px solid #000;
+}
+
 .category-title {
     padding: 15px 10px;
     position: absolute;
