@@ -697,6 +697,12 @@ textarea {
     position: relative;
 }
 
+.col-md-6.category-col:nth-child(2n+1),
+.col-md-6.category-col:nth-child(2n) 
+{
+    border-right: 2px solid #000;
+}
+
 .category-title {
     padding: 15px 10px;
     position: absolute;
@@ -715,6 +721,7 @@ textarea {
     position: absolute;
     /* bottom: 0;
     left: 20px; */
+    top: 10px;
     right: 20px;
     background-color: #1c1c1c;
     color: #fff;
