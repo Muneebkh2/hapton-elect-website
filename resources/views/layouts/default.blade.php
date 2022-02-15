@@ -29,9 +29,7 @@
     <body class="{{ $page.'-page' }}">
         <div id="wrapper">
 
-            @if($page == 'category')
-                @include('includes.category-header')
-            @else
+            @if($page != 'category')
                 @include('includes.header')
             @endif
 

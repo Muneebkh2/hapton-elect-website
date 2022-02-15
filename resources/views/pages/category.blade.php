@@ -1,16 +1,18 @@
 @extends('layouts.default', ['title' => 'Hapton Switches Ranges', 'page' => 'category'])
 
+@include('includes.category-header', ['title' => $title])
+
 @section('content')
 {{--
 @php
     dd($category);
 @endphp --}}
 
-    <div class="page-header mt-3 mb-5">
+    <!-- <div class="page-header mt-3 mb-5">
         <div class="container">
             <h1 class="page-title text-right">{{$title}}</h1>
         </div>
-    </div>
+    </div> -->
 
     <section id="categories-grid">
 

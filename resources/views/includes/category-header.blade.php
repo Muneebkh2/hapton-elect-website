@@ -3,26 +3,8 @@
     <div class="container-fluid">
         <div class="d-flex justify-content-between">
             <div class="site-logo">
-                <a href="{{ route('home') }}"><img src="assets/Hapton-Logo1.png" alt="Hapton" class="img-fluid"></a>
+                <a href="{{ route('home') }}"><img src="{{asset('assets/Hapton-Logo1.png')}}" alt="Hapton" class="img-fluid"></a>
             </div>
-
-{{--            <div class="navigation-toggle">--}}
-{{--                <a href="javascript:void(0)" class="he-menu-opener">--}}
-{{--                    <span class="he-menu-close-icon">--}}
-{{--                        <span class="he-hm-lines">--}}
-{{--                        <span class="he-hm-line he-line-1"></span>--}}
-{{--                        <span class="he-hm-line he-line-2"></span>--}}
-{{--                        </span>--}}
-{{--                    </span>--}}
-{{--                    <span class="he-menu-opener-icon">--}}
-{{--                        <span class="he-hm-lines">--}}
-{{--                            <span class="he-hm-line he-line-1"></span>--}}
-{{--                            <span class="he-hm-line he-line-2"></span>--}}
-{{--                            <span class="he-hm-line he-line-3"></span>--}}
-{{--                        </span>--}}
-{{--                    </span>--}}
-{{--                </a>--}}
-{{--            </div>--}}
 
             <div class="category-header-right">
                 <nav id="category-page-navigation">
