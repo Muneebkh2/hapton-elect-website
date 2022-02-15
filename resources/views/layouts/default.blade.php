@@ -33,8 +33,6 @@
                 @include('includes.header')
             @endif
 
-
-
             <!-- Main Start -->
             <main id="main" class="content">
 
