@@ -6,6 +6,8 @@ use App\Models\Product;
 use App\Http\Requests\StoreProductRequest;
 use App\Http\Requests\UpdateProductRequest;
 
+use function GuzzleHttp\Promise\all;
+
 class ProductController extends Controller
 {
     /**
@@ -36,13 +38,21 @@ class ProductController extends Controller
      */
     public function store(StoreProductRequest $request)
     {
-        //
+        if( count($request->attribute_name) > 0)
+        {
+            foreach($request->attribute_name as $key => $attribute){
+                
+            }
+        }
+
+        $product =  Product::create($request->all());
+
     }
 
     /**
      * Display the specified resource.
      *
-     * @param  \App\Models\Product  $product
+     * @param  \App\Models\Product  $productz
      * @return \Illuminate\Http\Response
      */
     public function show(Product $product)

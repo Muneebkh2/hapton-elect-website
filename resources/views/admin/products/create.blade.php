@@ -3,25 +3,32 @@
 @section('content')
 <div class="container mt-5">
     <h1>Add Product</h1>
-    <form action="{{ url('products') }}" method="post">
+    <form action="{{ url('admin/products') }}" method="post" enctype='multipart/form-data'>
         @csrf
         <div class="row">
             <div class="col-md-6 form-group">
-                <label for="name">Name</label>
-                <input class="form-control" type="text" name="name">
+                <label for="name" class="@error('name') text-danger @enderror">Name <span class="text-danger">*</span></label>
+                <input class="form-control mb-1" type="text" name="name">
+                @error('name')
+                    <span class="form-text text-danger">{{ $message }}</span>
+                @enderror
+
             </div>
             <div class="col-md-6 form-group">
-                <label for="name">Category</label>
-                <select class="form-control" name="category">
+                <label for="category" class="@error('category_id') text-danger @enderror">Category <span class="text-danger">*</label>
+                <select class="form-control" name="category_id">
+                    <option value="" disabled selected> Please select category </option>
                     @foreach ($categories as $category)
                     <option value="{{ $category->id }}"> {{ $category->name }} </option>
                     @endforeach
                 </select>
+                @error('category_id')
+                    <span class="form-text text-danger">{{ $message }}</span>
+                @enderror
             </div>
             <div class="col-12 form-group">
                 <div class="upload-wrapper one">
                     <div class="upload-element">
-                        <form data-validation="true" action="#" method="post" enctype="multipart/form-data">
                             <div class="upload-element-inner">
                                 <div class="upload-element-content">
                                     <div class="image-upload"> <label style="cursor: pointer;" for="file_upload"> <img src="" alt="" class="uploaded-image">
@@ -33,13 +40,15 @@
                                                     </div>
                                                 </div>
                                             </div>
-                                            <!--upload-content--> <input data-required="image" type="file" name="image_name" id="file_upload" class="image-input" data-traget-resolution="image_resolution" value="">
+                                            <!--upload-content--> <input data-required="image" type="file" name="product_image" id="file_upload" class="image-input" data-traget-resolution="image_resolution" value="">
                                         </label> </div>
                                 </div>
                                 <!--item-content-->
                             </div>
                             <!--item-inner-->
-                        </form>
+                            @error('product_image')
+                                <span class="form-text text-danger">{{ $message }}</span>
+                            @enderror
                     </div>
                     <!--item-->
                 </div>
@@ -83,12 +92,15 @@
                     </tfoot>
                 </table>
             </div>
-            <div class="col-12">
+            <div class="col-12 form-group">
+                <h3>Manufacturing Partner</h3>
+                <input type="file" name="manufacturer_partners[]" multiple id="gallery-photo-add">
+                <div class="gallery"></div>
+            </div>
+            <div class="col-12 d-flex justify-content-center">
                 <input type="submit" class="btn btn-lg btn-block " id="btn_submit" value="Create" />
             </div>
-            {{-- <div class="col-md-12 form-group">
-                div.
-            </div> --}}
+
 
 
         </div>
@@ -97,6 +109,8 @@
 @endsection
 
 @push('css')
+<link rel="stylesheet" href="//code.jquery.com/ui/1.12.1/themes/base/jquery-ui.css">
+
 <style type="text/css">
 .upload-wrapper h5, h6 {
     color: black !important;
@@ -118,6 +132,15 @@
     overflow: hidden
 }
 
+#btn_submit{
+    width: 80%;
+    margin-top: 20px;
+}
+
+#product-image{
+    background: transparent;
+    color: white;
+}
 .upload-wrapper img {
     margin-bottom: 20px;
     width: auto;
@@ -158,10 +181,83 @@
     border-radius: 4px;
     margin-bottom: 20px
 }
+
+
+
+
+.preview-images-zone {
+    width: 100%;
+    border: 1px solid #ddd;
+    min-height: 180px;
+    /* display: flex; */
+    padding: 5px 5px 0px 5px;
+    position: relative;
+    overflow:auto;
+}
+.preview-images-zone > .preview-image:first-child {
+    height: 185px;
+    width: 185px;
+    position: relative;
+    margin-right: 5px;
+}
+.preview-images-zone > .preview-image {
+    height: 90px;
+    width: 90px;
+    position: relative;
+    margin-right: 5px;
+    float: left;
+    margin-bottom: 5px;
+}
+.preview-images-zone > .preview-image > .image-zone {
+    width: 100%;
+    height: 100%;
+}
+.preview-images-zone > .preview-image > .image-zone > img {
+    width: 100%;
+    height: 100%;
+}
+.preview-images-zone > .preview-image > .tools-edit-image {
+    position: absolute;
+    z-index: 100;
+    color: #fff;
+    bottom: 0;
+    width: 100%;
+    text-align: center;
+    margin-bottom: 10px;
+    display: none;
+}
+.preview-images-zone > .preview-image > .image-cancel {
+    font-size: 18px;
+    position: absolute;
+    top: 0;
+    right: 0;
+    font-weight: bold;
+    margin-right: 10px;
+    cursor: pointer;
+    display: none;
+    z-index: 100;
+}
+.preview-image:hover > .image-zone {
+    cursor: move;
+    opacity: .5;
+}
+.preview-image:hover > .tools-edit-image,
+.preview-image:hover > .image-cancel {
+    display: block;
+}
+.ui-sortable-helper {
+    width: 90px !important;
+    height: 90px !important;
+}
+
+.container {
+    padding-top: 50px;
+}
 </style>
 @endpush
 
 @push('js')
+<script src="https://code.jquery.com/ui/1.12.1/jquery-ui.js"></script>
 <script type="text/javascript">
 $(document).ready(function () {
     var counter = 0;
@@ -188,6 +284,31 @@ $(document).ready(function () {
     });
 
 
+});
+
+$(function() {
+    // Multiple images preview in browser
+    var imagesPreview = function(input, placeToInsertImagePreview) {
+
+        if (input.files) {
+            var filesAmount = input.files.length;
+
+            for (i = 0; i < filesAmount; i++) {
+                var reader = new FileReader();
+
+                reader.onload = function(event) {
+                    $($.parseHTML('<img style="width:100px; height:100px">')).attr('src', event.target.result).appendTo(placeToInsertImagePreview);
+                }
+
+                reader.readAsDataURL(input.files[i]);
+            }
+        }
+
+    };
+
+    $('#gallery-photo-add').on('change', function() {
+        imagesPreview(this, 'div.gallery');
+    });
 });
 
 
