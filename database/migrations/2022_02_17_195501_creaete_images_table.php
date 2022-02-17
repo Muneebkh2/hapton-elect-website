@@ -32,6 +32,6 @@ class CreaeteImagesTable extends Migration
      */
     public function down()
     {
-        //
+        Schema::dropIfExists('images');
     }
 }

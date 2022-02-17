@@ -6,6 +6,7 @@ use App\Http\Controllers\Controller;
 use App\Models\Product;
 use App\Http\Requests\StoreProductRequest;
 use App\Http\Requests\UpdateProductRequest;
+use App\Models\Attribute;
 use App\Models\Category;
 
 class ProductController extends Controller
@@ -39,7 +40,17 @@ class ProductController extends Controller
      */
     public function store(StoreProductRequest $request)
     {
-        dd($request->all());
+        $product =  Product::create($request->all());
+        if( count($request->attribute_name) > 0)
+        {
+            foreach($request->attribute_name as $key => $attribute){
+                $attributes['name'] = $request->attribute_name[$key];
+                $attributes['type'] = $request->attribute_name[$key];
+                $attributes['value'] = $request->attribute_type[$key];
+                $product->attributes()->create($attributes);
+            }
+        }
+        return redirect()->back();
     }
 
     /**

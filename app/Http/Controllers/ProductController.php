@@ -38,14 +38,7 @@ class ProductController extends Controller
      */
     public function store(StoreProductRequest $request)
     {
-        if( count($request->attribute_name) > 0)
-        {
-            foreach($request->attribute_name as $key => $attribute){
-                
-            }
-        }
-
-        $product =  Product::create($request->all());
+       //
 
     }
 
