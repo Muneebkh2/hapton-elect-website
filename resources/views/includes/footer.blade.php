@@ -4,7 +4,7 @@
         <div class="container">
             <div class="row">
     
-                <div class="col-lg-5 pr-5">
+                <div class="col-lg-5 pr-md-5">
                     <div>
                         <h4>newsletter</h4>
                         <p>Sign up to our newsletter to receive updates on our latest products.</p>
@@ -76,11 +76,11 @@
         <div class="container">
             <div class="row">
                 <div class="col-lg-4">
-                    <p>© 2022 Hapton Elect UK, All Rights Reserved</p>
+                    <p class="text-center text-md-left">© 2022 Hapton Elect UK, All Rights Reserved</p>
                 </div>
                 <div class="col-lg-4"></div>
                 <div class="col-lg-4">
-                    <div class="d-flex align-items-center justify-content-end">
+                    <div class="d-flex align-items-center justify-content-center justify-content-md-end">
                         <span class="mr-2">connect with us</span>
                         <div class="social-menu d-flex align-items-center">
                             <a href="#" target="_blank"><i class="fab fa-instagram"></i></a>

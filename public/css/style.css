@@ -2042,3 +2042,99 @@ section.auth input[type="submit"] {
 }
 
 /* Auth Pages Styling */
+
+
+/**** Hannan's CSS Start ****/
+.product .table td, .product .table th{border-top: none;}
+.product table.table td {
+    border-bottom: 1px solid #dee2e6;
+}
+.product .table-responsive::-webkit-scrollbar {
+    height: 5px;
+}
+.product .table-responsive::-webkit-scrollbar-track {
+    background: #f1f1f1; 
+}
+.product .table-responsive::-webkit-scrollbar-thumb {
+    background: #888;
+}
+.product .table-responsive::-webkit-scrollbar-thumb:hover {
+    background: #555;
+    
+}
+@media (max-width: 767px){
+    h1 {font-size: 50px;}    
+    h2 {font-size: 34px;}
+    h3 {font-size: 30px;}    
+    #main-slider .slide-content-box{
+        width: 80%;
+    }
+    #main-slider .slide-content-box h1 {font-size: 2rem;}
+    #main-slider .slide-content-box h1 br{
+        display: none;
+    }
+    #categories {
+        margin: 50px 0;
+    }
+    #categories .section-header {
+        margin-bottom: 50px;
+    }
+    .category-title {
+        position: relative;
+        display: block;
+        width: 100%;
+        left: 0;
+        bottom: 0;
+        right: 0;
+        top: -30px;
+        transform: unset;
+    }
+    #stats .counter{font-size: 50px;}
+    #values h6{padding: 0;}
+    #values p {
+        padding: 0;
+    }
+    .he-grid-lines-holder {
+        display: none;
+    }
+    #split-cta, #products-range{display: none;}
+    #contact, #gallery .section-header, #values, #assist-cta {
+        padding: 50px 0px;
+    }
+    .contact-content {
+        padding: 0px 10px;
+        margin-top: 30px;
+    }
+    .footer-top > div,
+    .footer-bottom > div{
+        padding: 0 15px;
+    }
+    .footer-bottom{padding-bottom: 10px;}
+
+    /* Product page css */
+    h1.product-title {
+        font-size: 28px;
+    }
+    ul.specification-list {
+        padding-left: 0;
+    }
+    /* Category page css */
+    .category-page .category-header-right {
+        display: block;
+        margin-top: 30px;
+    }
+    .category-page .site-header .menu {
+        flex-wrap: wrap;
+        justify-content: space-between;
+    }
+    .category-page .site-header .menu a {
+        padding: 5px 8px;
+    }
+    .category-page header.site-header {
+        padding: 20px 0;
+    }
+    .category-page .site-header .page-title {
+        margin-right: 0;
+    }
+}
+/**** Hannan's CSS End ****/

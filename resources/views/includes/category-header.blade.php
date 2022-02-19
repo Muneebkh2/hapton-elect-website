@@ -1,7 +1,7 @@
 <!-- Header Start -->
 <header class="site-header {{ $header_class ?? '' }}">
     <div class="container-fluid">
-        <div class="d-flex justify-content-between">
+        <div class="d-md-flex justify-content-md-between">
             <div class="site-logo">
                 <a href="{{ route('home') }}"><img src="{{asset('assets/Hapton-Logo1.png')}}" alt="Hapton" class="img-fluid"></a>
             </div>

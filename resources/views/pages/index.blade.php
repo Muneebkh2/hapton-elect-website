@@ -39,7 +39,7 @@
                         </a>
                     </div>
                 </div>
-                <div class="col-lg-auto mt-4">
+                <div class="col-lg-auto mt-md-4">
                     <div class="category text-center">
                         <a href="#">
                             <img src="{{ asset('/assets/Lights.jpg') }}" alt="" class="img-fluid" />
@@ -55,7 +55,7 @@
                         </a>
                     </div>
                 </div>
-                <div class="col-lg-auto mt-4">
+                <div class="col-lg-auto mt-md-4">
                     <div class="category text-center">
                         <a href="#">
                             <img src="{{ asset('/assets/EM-Lights.jpg') }}" alt="" class="img-fluid" />
@@ -321,7 +321,7 @@
 
     <section id="values">
         <div class="container">
-            <div class="d-flex flex-wrap">
+            <div class="d-flex flex-wrap justify-content-between">
                 <div class="value-col-1 d-flex">
                     <div class="col-inner">
                         <h3>The Core Company Values</h3>
