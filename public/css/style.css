@@ -2097,7 +2097,6 @@ section.auth input[type="submit"] {
     .he-grid-lines-holder {
         display: none;
     }
-    #split-cta, #products-range{display: none;}
     #contact, #gallery .section-header, #values, #assist-cta {
         padding: 50px 0px;
     }
@@ -2135,6 +2134,23 @@ section.auth input[type="submit"] {
     }
     .category-page .site-header .page-title {
         margin-right: 0;
+    }
+
+    .he-layout-wrapper .he-lw-content, .he-layout-wrapper .he-lw-image, .he-layout-wrapper .he-lw-slider-images {
+        width: 100%;
+    }
+    .he-layout-wrapper .he-lw-content {
+        padding: 20px;
+        margin: 20px 0;
+    }
+    .he-layout-wrapper .he-lw-content h3 {
+        margin-top: 0;
+    }
+    #products-range {
+        padding: 50px 0;
+    }
+    .features-inner {
+        padding: 50px 0;
     }
 }
 /**** Hannan's CSS End ****/
