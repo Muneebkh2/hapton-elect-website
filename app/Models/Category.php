@@ -24,14 +24,19 @@ class Category extends Model
             ->saveSlugsTo('slug');
     }
 
-    public function subcategory()
+    public function subcategories()
     {
-        return $this->hasMany(\App\Models\Category::class, "parent_id");
+        return $this->hasMany(Category::class, "parent_id");
     }
 
     public function parent()
     {
-        return $this->belongsTo(\App\Models\Category::class, "parent_id");
+        return $this->belongsTo(Category::class, "parent_id");
+    }
+
+    public function products()
+    {
+        return $this->hasMany(Product::class);
     }
 
     /**

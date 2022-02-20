@@ -1,7 +1,8 @@
 @extends('layouts.app', ['title' => 'Add Product'])
 
 @section('content')
-<div class="container mt-5">
+@include('common.partials.flash')
+<div class="container my-5" style="padding-left:150px; padding-right:150px;">
     <h1>Add Product</h1>
     <form action="{{ url('admin/products') }}" method="post" enctype='multipart/form-data'>
         @csrf
@@ -81,24 +82,18 @@
                             </td>
                         </tr>
                     </tbody>
-                    <tfoot>
-                        <tr>
-                            <td colspan="5" style="text-align: left;">
-                                <input type="button" class="btn btn-lg btn-block " id="add_attribute" value="Add Attribute" />
-                            </td>
-                        </tr>
-                        <tr>
-                        </tr>
-                    </tfoot>
                 </table>
+                <div class=" d-flex justify-content-end">
+                    <input type="button" class="btn btn-lg  btn-style" id="add_attribute" value="Add Attribute" />
+                </div>
             </div>
             <div class="col-12 form-group">
                 <h3>Manufacturing Partner</h3>
                 <input type="file" name="manufacturer_partners[]" multiple id="gallery-photo-add">
                 <div class="gallery"></div>
             </div>
-            <div class="col-12 d-flex justify-content-center">
-                <input type="submit" class="btn btn-lg btn-block " id="btn_submit" value="Create" />
+            <div class="col-12 d-flex justify-content-end">
+                <input type="submit" class="btn btn-lg btn-block btn-style" id="btn_submit" value="Create" />
             </div>
 
 
@@ -132,8 +127,8 @@
     overflow: hidden
 }
 
-#btn_submit{
-    width: 80%;
+.btn-style{
+    width: 20% !important;
     margin-top: 20px;
 }
 

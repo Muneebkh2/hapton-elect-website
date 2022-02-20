@@ -29,7 +29,7 @@ class StoreProductRequest extends FormRequest
             'category_id' => ['required', 'exists:categories,id'],
             'product_image' => ['required', 'image'],
             'manufacturer_partners' => ['nullable', 'array'],
-            'manufacturer_partners.*' => ['max:5120', 'image', 'mimes: jpg, jpeg, png, webp, bmp'],
+            'manufacturer_partners.*' => ['max:5120', 'image'],
         ];
     }
 

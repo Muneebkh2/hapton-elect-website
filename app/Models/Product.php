@@ -8,14 +8,18 @@ use Illuminate\Database\Eloquent\Model;
 class Product extends Model
 {
     use HasFactory;
-    protected $fillable = ['name', 'category_id', 'image'];
+    protected $fillable = ['name', 'category_id', 'image', 'slug'];
 
     /**
      * Get all of the product's images.
      */
-    public function images()
+    public function files()
     {
-        return $this->morphMany(Image::class, 'imageable');
+        return $this->morphMany(File::class, 'fileable');
+    }
+    public function file()
+    {
+        return $this->morphOne(File::class, 'fileable');
     }
 
     /**

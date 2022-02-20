@@ -5,16 +5,16 @@ namespace App\Models;
 use Illuminate\Database\Eloquent\Factories\HasFactory;
 use Illuminate\Database\Eloquent\Model;
 
-class Image extends Model
+class File extends Model
 {
     use HasFactory;
-    protected $fillable = ['name', 'original_name', 'path', 'type', 'imageable_id', 'imageable_type'];
+    protected $fillable = ['name', 'original_name', 'path', 'type', 'fileable_id', 'fileable_type'];
 
 
     /**
      * Get the parent imageable model (products or video).
      */
-    public function imageable()
+    public function fileable()
     {
         return $this->morphTo();
     }

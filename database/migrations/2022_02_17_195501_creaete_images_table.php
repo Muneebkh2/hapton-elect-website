@@ -13,14 +13,14 @@ class CreaeteImagesTable extends Migration
      */
     public function up()
     {
-        Schema::create('images', function (Blueprint $table) {
+        Schema::create('files', function (Blueprint $table) {
             $table->id();
             $table->string("name")->nullable();
             $table->string("original_name")->nullable();
             $table->text("path");
             $table->string("type")->nullable();
-            $table->unsignedBigInteger("imageable_id");
-            $table->string("imageable_type");
+            $table->unsignedBigInteger("fileable_id")->nullable();
+            $table->string("fileable_type")->nullable();
             $table->timestamps();
         });
     }

@@ -8,6 +8,8 @@ use App\Http\Requests\StoreProductRequest;
 use App\Http\Requests\UpdateProductRequest;
 use App\Models\Attribute;
 use App\Models\Category;
+use App\Services\HelperService;
+use Illuminate\Support\Str;
 
 class ProductController extends Controller
 {
@@ -40,17 +42,21 @@ class ProductController extends Controller
      */
     public function store(StoreProductRequest $request)
     {
-        $product =  Product::create($request->all());
+        $data = $request->all();
+        $data['slug'] = Str::slug($request->name);
+        $product =  Product::create($data);
         if( count($request->attribute_name) > 0)
         {
             foreach($request->attribute_name as $key => $attribute){
                 $attributes['name'] = $request->attribute_name[$key];
-                $attributes['type'] = $request->attribute_name[$key];
-                $attributes['value'] = $request->attribute_type[$key];
+                $attributes['type'] = $request->attribute_type[$key];
+                $attributes['value'] = $request->attribute_value[$key];
                 $product->attributes()->create($attributes);
             }
         }
-        return redirect()->back();
+        HelperService::uploadFile($request->product_image, $product->id, Product::class, 'product_image', 'product');
+        HelperService::uploadFiles($request->manufacturer_partners, $product->id, Product::class, 'manufacturer_partners', 'product');
+        return redirect()->back()->with('success', 'Product hasbeen created successfully');
     }
 
     /**
