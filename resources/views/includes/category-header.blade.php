@@ -1,7 +1,7 @@
 <!-- Header Start -->
 <header class="site-header {{ $header_class ?? '' }}">
     <div class="container-fluid">
-        <div class="d-flex align-items-start justify-content-between">
+        <div class="d-flex align-items-start align-items-lg-stretch justify-content-between">
             <div class="site-logo">
                 <a href="{{ route('home') }}"><img src="assets/Hapton-Logo1.png" alt="Hapton" class="img-fluid"></a>
             </div>
@@ -36,7 +36,7 @@
                 </div>
             </nav>
 
-            <div class="category-header-right d-none d-lg-block">
+            <div class="category-header-right d-none d-lg-flex">
                 <nav id="category-page-navigation">
                     <div class="nav-container">
                         <ul class="menu">
