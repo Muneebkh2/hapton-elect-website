@@ -26,10 +26,10 @@
 
         <title>{{ config('app.name') . ' | ' . ucfirst($title) }}</title>
     </head>
-    <body class="{{ $page.'-page' }}">
+    <body class="{{ $pages.'-page' }}">
         <div id="wrapper">
 
-            @if($page != 'category')
+            @if($pages != 'category')
                 @include('includes.header')
             @endif
 

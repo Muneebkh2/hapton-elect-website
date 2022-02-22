@@ -1,18 +1,14 @@
-@extends('layouts.default', ['title' => 'Hapton Switches Ranges', 'page' => 'category'])
+@extends('layouts.default', ['title' => $title, 'pages' => 'category'])
 
-@include('includes.category-header', ['title' => $title])
+@include('includes.category-header', ['title' => $title ?? 'null'])
 
 @section('content')
-{{--
-@php
-    dd($category);
-@endphp --}}
 
-    <!-- <div class="page-header mt-3 mb-5">
+    {{-- <div class="page-header mt-3 mb-5">
         <div class="container">
             <h1 class="page-title text-right">{{$title}}</h1>
         </div>
-    </div> -->
+    </div> --}}
 
     <section id="categories-grid">
 
@@ -32,7 +28,7 @@
                         </div>
                     @endforeach
                 @else
-                    <div class="col-md-6 category-col" style="background: url('{{url($category->bg_image)}}') no-repeat 100% / 100%;">
+                    <div class="col-md-6 category-col" style="background: url('{{$category->bg_image ? url($category->bg_image) : ''}}') no-repeat 100% / 100%;">
                         <div class="category">
                             <a href="#">
                                 <h5 class="category-row-title"><a href="{{Request::url()}}/{{$category->slug}}">{{$category->name}}</a></h5>

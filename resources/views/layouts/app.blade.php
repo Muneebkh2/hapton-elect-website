@@ -1,83 +1,185 @@
-<!doctype html>
+<!DOCTYPE html>
 <html lang="{{ str_replace('_', '-', app()->getLocale()) }}">
-<head>
-    <meta charset="utf-8">
-    <meta name="viewport" content="width=device-width, initial-scale=1">
+    <head>
+        <meta charset="UTF-8">
+        <meta http-equiv="X-UA-Compatible" content="IE=edge">
+        <meta name="viewport" content="width=device-width, initial-scale=1.0">
 
-    <!-- CSRF Token -->
-    <meta name="csrf-token" content="{{ csrf_token() }}">
+        <link rel="stylesheet" href="{{ asset('/css/bootstrap.min.css') }}">
 
-    <title>{{ config('app.name', 'Laravel') }}</title>
+        <link rel="stylesheet" href="{{ asset('/css/owl.carousel.min.css') }}">
+        <link rel="stylesheet" href="{{ asset('/css/owl.theme.default.min.css') }}">
 
-    <!-- Scripts -->
-    <script src="{{ asset('js/app.js') }}" defer></script>
+        <link rel="preconnect" href="https://fonts.googleapis.com">
+        <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+        <link href="https://fonts.googleapis.com/css2?family=Alegreya:ital@1&family=Montserrat:wght@200;300;400;500;600;700&family=Raleway:wght@300;400;500;600;700&family=Roboto:wght@300;400;500;700&display=swap" rel="stylesheet">
 
-    <!-- Fonts -->
-    <link rel="dns-prefetch" href="//fonts.gstatic.com">
-    <link href="https://fonts.googleapis.com/css?family=Nunito" rel="stylesheet">
+        <link
+        rel="stylesheet"
+        href="https://pro.fontawesome.com/releases/v5.10.0/css/all.css"
+        integrity="sha384-AYmEC3Yw5cVb3ZcuHtOA93w35dYTsvhLPVnYs9eStHfGJvOvKxVfELGroGkvsg+p"
+        crossorigin="anonymous"/>
 
-    <!-- Styles -->
-    <link href="{{ asset('css/app.css') }}" rel="stylesheet">
-</head>
-<body>
-    <div id="app">
-        <nav class="navbar navbar-expand-md navbar-light bg-white shadow-sm">
-            <div class="container">
-                <a class="navbar-brand" href="{{ url('/') }}">
-                    {{ config('app.name', 'Laravel') }}
-                </a>
-                <button class="navbar-toggler" type="button" data-bs-toggle="collapse" data-bs-target="#navbarSupportedContent" aria-controls="navbarSupportedContent" aria-expanded="false" aria-label="{{ __('Toggle navigation') }}">
-                    <span class="navbar-toggler-icon"></span>
-                </button>
+        <link rel="stylesheet" href="https://cdn.linearicons.com/free/1.0.0/icon-font.min.css">
 
-                <div class="collapse navbar-collapse" id="navbarSupportedContent">
-                    <!-- Left Side Of Navbar -->
-                    <ul class="navbar-nav me-auto">
+        <link rel="stylesheet" href="{{ asset('/css/style.css') }}">
 
-                    </ul>
+        @stack('css')
 
-                    <!-- Right Side Of Navbar -->
-                    <ul class="navbar-nav ms-auto">
-                        <!-- Authentication Links -->
-                        @guest
-                            @if (Route::has('login'))
-                                <li class="nav-item">
-                                    <a class="nav-link" href="{{ route('login') }}">{{ __('Login') }}</a>
-                                </li>
-                            @endif
+        <title>{{ config('app.name') . ' | ' . ucfirst($title) }}</title>
+    </head>
+    <body>
+        <div id="wrapper">
 
-                            @if (Route::has('register'))
-                                <li class="nav-item">
-                                    <a class="nav-link" href="{{ route('register') }}">{{ __('Register') }}</a>
-                                </li>
-                            @endif
-                        @else
-                            <li class="nav-item dropdown">
-                                <a id="navbarDropdown" class="nav-link dropdown-toggle" href="#" role="button" data-bs-toggle="dropdown" aria-haspopup="true" aria-expanded="false" v-pre>
-                                    {{ Auth::user()->name }}
-                                </a>
+            @include('includes.header')
 
-                                <div class="dropdown-menu dropdown-menu-end" aria-labelledby="navbarDropdown">
-                                    <a class="dropdown-item" href="{{ route('logout') }}"
-                                       onclick="event.preventDefault();
-                                                     document.getElementById('logout-form').submit();">
-                                        {{ __('Logout') }}
-                                    </a>
 
-                                    <form id="logout-form" action="{{ route('logout') }}" method="POST" class="d-none">
-                                        @csrf
-                                    </form>
-                                </div>
-                            </li>
-                        @endguest
-                    </ul>
+            <!-- Main Start -->
+            <main id="main" class="content">
+
+                <div class="he-grid-lines-holder">
+                    <div class="he-grid-line"></div>
+                    <div class="he-grid-line"></div>
+                    <div class="he-grid-line"></div>
+                    <div class="he-grid-line"></div>
                 </div>
-            </div>
-        </nav>
 
-        <main class="py-4">
-            @yield('content')
-        </main>
-    </div>
-</body>
+                @yield('content')
+            </main>
+
+            {{-- @include('includes.footer') --}}
+
+        </div>
+
+        <script
+        src="https://code.jquery.com/jquery-2.2.4.min.js"
+        integrity="sha256-BbhdlvQf/xTY9gja0Dq3HiwQF8LaCRTXxZKRutelT44="
+        crossorigin="anonymous"></script>
+
+        <script src="https://cdnjs.cloudflare.com/ajax/libs/jquery-circle-progress/1.1.3/circle-progress.min.js"></script>
+
+        <script src="{{ asset('/js/bootstrap.min.js') }}"></script>
+        <script src="{{ asset('/js/owl.carousel.min.js') }}"></script>
+        <script src="{{ asset('/js/parallax.min.js') }}"></script>
+
+
+
+        <script>
+
+            $(window).load(function() {
+                // $('.slide-content-box').addClass('he-item-appear');
+            });
+
+            $(document).ready(function() {
+
+                window.addEventListener("scroll", function() {
+                    const distance = window.scrollY;
+                    document.querySelector(".parallax").style.backgroundPosition = `50% ${distance /
+                    100 * 2}px`;
+                });
+
+                $('#main-slider').owlCarousel({
+                    autoplay: true,
+                    autoplayTimeout: 10000,
+                    loop: false,
+                    nav: false,
+                    dots: true,
+                    mouseDrag: false,
+                    responsiveClass:true,
+                    responsive:{
+                        0:{
+                            items:1,
+                        },
+                    },
+                    animateIn: 'fadeIn',
+                    animateOut: 'fadeOut',
+                    onInitialized: addOwlAnim,
+                    onTranslated: addOwlAnim,
+
+                });
+
+                function addOwlAnim(event) {
+
+                    $('.slide-content-box').removeClass('he-item-appear');
+
+                    var current = event.item.index;
+                    var slideContent = $(event.target).find('.owl-item').eq(current).find('.slide-content-box');
+                    slideContent.addClass('he-item-appear');
+                }
+
+                $('#slider-2').owlCarousel({
+                    autoplay: true,
+                    autoplayTimeout: 5000,
+                    loop: true,
+                    nav: false,
+                    dots: false,
+                    responsiveClass:true,
+                    responsive:{
+                        0:{
+                            items:1,
+                        },
+                    },
+                });
+
+                /**
+                *Exampe from https://kottenator.github.io/jquery-circle-progress/
+                */
+                var progressBarOptions = {
+                    startAngle: -1.55,
+                    size: 176,
+                    thickness: 2,
+                    fill: {
+                        color: '#6e6e6e'
+                    }
+                }
+
+                $('#circle-a').circleProgress({
+                    value : .9,
+                });
+                $('#circle-b').circleProgress({
+                    value : .7,
+                });
+
+                $('.circle').circleProgress(progressBarOptions).on('circle-animation-progress', function(event, progress, stepValue) {
+                    // console.log("Step", stepValue);
+                    // console.log("Progress", progress);
+                    $(this).find('strong').text(String(stepValue.toFixed(2)).substr(2) + '%');
+                });
+
+                $('#circle-c, #circle-d').circleProgress({
+                    value: 1
+                }).on('circle-animation-progress', function(event, progress) {
+                    $(this).find('strong').html(Math.round(100 * progress) + '%');
+                });
+
+
+                $('.he-menu-opener').on('click', function() {
+                    $('body').toggleClass('nav-open');
+                    $(this).toggleClass('he-fm-opened');
+                    $('#site-navigation').toggleClass('open');
+                });
+
+                $(window).on('scroll', function() {
+                    $(".he-animated-layout-wrapper").each(function() {
+                        if (isScrolledIntoView($(this))) {
+                            $(this).addClass('he-item-appear');
+                        }
+                    });
+                });
+
+                function isScrolledIntoView(elem) {
+                    var docViewTop = $(window).scrollTop();
+                    var docViewBottom = docViewTop + $(window).height();
+
+                    var elemTop = $(elem).offset().top;
+                    var elemBottom = elemTop + $(elem).height();
+
+                    return ((elemBottom <= docViewBottom) && (elemTop >= docViewTop));
+                }
+
+            });
+        </script>
+
+        @stack('js')
+    </body>
 </html>

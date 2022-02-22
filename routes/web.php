@@ -1,6 +1,7 @@
 <?php
 
 use App\Http\Controllers\CategoryController;
+use App\Http\Controllers\ProductController;
 use App\Models\Category;
 use Illuminate\Support\Facades\Route;
 
@@ -24,20 +25,25 @@ Route::get('/', function () {
 Route::get('/about', function () {
     return view('pages.about');
 })->name('about');
+Route::get('/category/{category}/product/{product}', [ProductController::class, 'show'])->name('category.products.show');
 
 Route::get('/category', [CategoryController::class, 'getCategoriesPage'])->name('category');
-Route::get('/category/{subCategory}', [CategoryController::class, 'getSubCategoriesPage'])->name('sub_category');
-Route::get('/category/{subCategory}/{childCategory}', [CategoryController::class, 'getChildSubCatgoriesPage'])->name('child_category');
-// Route::get('/category', function () {
-//     $categories = Category::where('parent_id', null)->get();
-//     return view('pages.category', ['categories' => $categories]);
-// })->name('category');
+Route::get('/category/{category}', [CategoryController::class, 'getSubCategoriesPage'])->name('sub_category');
+Route::get('/category/{category}/{subCategory}', [CategoryController::class, 'getChildSubCatgoriesPage'])->name('child_category');
 
-Route::get('/product', function () {
-    return view('pages.product');
-})->name('product');
+Route::get('/category/{category}/{subCategory}/{childCategory}', [ProductController::class, 'getChildCategoryProducts'])->name('category.subCategory.ChildCategory.products');
+
+Route::get('/category/{category}/{subCategory}/{childCategory}/{product:slug}', [ProductController::class, 'showChildCategoryProduct'])->name('category.subCategory.ChildCategory.product');
+
+
+
+
 
 \Auth::routes();
 Route::get('/logout', '\App\Http\Controllers\Auth\LoginController@logout');
+
+Route::group(['namespace' => '\App\Http\Controllers\Admin', 'as' => 'admin::', 'prefix' => 'admin', 'middleware' => 'auth'], function() {
+    Route::resource('products', \ProductController::class);
+});
 
 // Route::get('/home', [App\Http\Controllers\HomeController::class, 'index'])->name('home');

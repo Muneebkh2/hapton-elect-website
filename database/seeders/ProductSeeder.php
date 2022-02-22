@@ -4,6 +4,7 @@ namespace Database\Seeders;
 
 use App\Models\Product;
 use Illuminate\Database\Seeder;
+use Illuminate\Support\Str;
 
 class ProductSeeder extends Seeder
 {
@@ -14,24 +15,34 @@ class ProductSeeder extends Seeder
      */
     public function run()
     {
+
+\DB::statement('SET FOREIGN_KEY_CHECKS=0');
         Product::truncate();
 
         $products = [
             [
                 'name' => 'Product One',
-                'category_id' => 10
+                'slug' => Str::slug('Product One', '-'),
+                'category_id' => 10,
+                'image' => '/assets/Switches.jpg'
             ],
             [
                 'name' => 'Product Two',
-                'category_id' => 11
+                'slug' => Str::slug('Product Two', '-'),
+                'category_id' => 11,
+                'image' => '/assets/Switches.jpg'
             ],
             [
                 'name' => 'Product Three',
-                'category_id' => 12
+                'slug' => Str::slug( 'Product Thre', '-'),
+                'category_id' => 12,
+                'image' => '/assets/Switches.jpg'
             ],
             [
                 'name' => 'Product Four',
-                'category_id' => 13
+                'slug' => Str::slug( 'Product Four', '-'),
+                'category_id' => 13,
+                'image' => '/assets/Switches.jpg'
             ]
         ];
 

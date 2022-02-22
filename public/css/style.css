@@ -698,7 +698,7 @@ textarea {
 }
 
 .col-md-6.category-col:nth-child(2n+1),
-.col-md-6.category-col:nth-child(2n) 
+.col-md-6.category-col:nth-child(2n)
 {
     border-right: 2px solid #000;
 }
@@ -2043,6 +2043,12 @@ section.auth input[type="submit"] {
 
 /* Auth Pages Styling */
 
+/* Product Create Page Styling */
+select.form-control:not([size]):not([multiple]) {
+    height: calc(2.25rem + 12px) !important;
+    cursor: pointer !important;
+}
+/* Product Create Page Styling */
 
 /**** Hannan's CSS Start ****/
 .product .table td, .product .table th{border-top: none;}
@@ -2053,19 +2059,19 @@ section.auth input[type="submit"] {
     height: 5px;
 }
 .product .table-responsive::-webkit-scrollbar-track {
-    background: #f1f1f1; 
+    background: #f1f1f1;
 }
 .product .table-responsive::-webkit-scrollbar-thumb {
     background: #888;
 }
 .product .table-responsive::-webkit-scrollbar-thumb:hover {
     background: #555;
-    
+
 }
 @media (max-width: 767px){
-    h1 {font-size: 50px;}    
+    h1 {font-size: 50px;}
     h2 {font-size: 34px;}
-    h3 {font-size: 30px;}    
+    h3 {font-size: 30px;}
     #main-slider .slide-content-box{
         width: 80%;
     }

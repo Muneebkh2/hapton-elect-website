@@ -1,33 +1,41 @@
-@extends('layouts.default', ['title' => 'Recessed Downlights', 'pages' => 'product'])
+@extends('layouts.default', ['title' => $product->name])
 
 @section('content')
 <div class="breadcrumbs my-2">
     <div class="container">
-        <a href="#">Lights</a> > <a href="#">Recessed Downlights</a> > <span>HD3P1</span>
+        @if (isset($category))
+        <a href="#">{{$category->name }}</a>
+        @endif
+
+        @if (isset($subCategory))
+        >  <a href="#">{{$subCategory->name }}</a>
+        @endif
+
+        @if (isset($childCategory))
+        >  <a href="#">{{$childCategory->name }}</a>
+        @endif
+
+        > <span>{{$product->name}}</span>
     </div>
 </div>
-
 <div class="product mb-5">
     <div class="container">
         <div class="row">
             <div class="col-lg-6 product-featured-image">
-                <img src="./assets/product-featured-img.jpg" alt="" class="img-fluid">
+                @if ($product->file)
+                <img src="{{asset('storage/'.$product->file->path)}}" alt="" class="img-fluid">
+                @endif
             </div>
             <div class="col-lg-6 product-summary">
-                <h1 class="product-title mb-md-5">Radiant Downlight Fittings</h1>
+                <h1 class="product-title mb-5">{{$product->name}}</h1>
                 <ul class="specification-list">
-                    <li><span>Housing:</span> Anodized aluminium with glass & PVC.</li>
-                    <li><span>Diffuser:</span> Highly reflective & dispersive.</li>
-                    <li><span>Voltage:</span> 160V - 260V Wide range operational voltage.</li>
-                    <li><span>LED:</span> Reducing energy consumption with 50,000 hrs lifetime working under temp (-20<sub>o</sub>C to 50<sub>o</sub>C)</li>
-                    <li><span>Standards:</span> Manufactured in accordance with & tested as per PTPS IEC 62722</li>
-                    <li><span>Chip:</span> Samsung Integrated SMD Chip</li>
-                    <li><span>Color:</span> White</li>
+                    @forelse ($product->attributes as $attribute)
+                    <li><span class="point-heading">{{$attribute->name}} :&nbsp;&nbsp;</span> {{$attribute->value}}</li>
+                    @empty
+                    @endforelse
                 </ul>
 
-                <h5>Adjustable applications</h5>
-
-                <h4>Models</h4>
+                {{-- <h4>Models</h4>
                 <div class="table-responsive">
                     <table class="table">
                         <thead>
@@ -68,49 +76,56 @@
                             </tr>
                         </tbody>
                     </table>
-                </div>
+                </div> --}}
 
+                <h4>Manufacturing Partners</h4>
+                <div>
+                    @forelse ($product->files as $manufacturingPartner)
+                    <img class="m-partner-img" src="{{asset('storage/'. $manufacturingPartner->path)}}" alt="">
+                    @empty
+                    @endforelse
+                </div>
             </div>
         </div>
     </div>
 </div>
 
 <section id="related-products">
+
     <div class="container">
         <div class="row">
+            @forelse ($relatedProducts as $relatedProduct)
             <div class="col-lg-3">
                 <div class="product text-center">
                     <div class="img-box d-flex align-items-center justify-content-center">
-                        <img src="./assets/related-1.png" alt="" class="img-fluid">
+                        @if ($relatedProduct->file)
+                        <img src="{{asset('storage/'. $relatedProduct->file->path)}}" alt="" class="img-fluid">
+                        @else
+                        <img src="{{asset('assets/no-image.png')}}" alt="" class="img-fluid">
+                        @endif
                     </div>
-                    <h5>HD3-P6</h5>
+                    <h5>{{$relatedProduct->name}}</h5>
                 </div>
             </div>
-            <div class="col-lg-3">
-                <div class="product text-center">
-                    <div class="img-box d-flex align-items-center justify-content-center">
-                        <img src="./assets/related-2.png" alt="" class="img-fluid">
-                    </div>
-                    <h5>HD4-P3R</h5>
-                </div>
-            </div>
-            <div class="col-lg-3">
-                <div class="product text-center">
-                    <div class="img-box d-flex align-items-center justify-content-center">
-                        <img src="./assets/related-1.png" alt="" class="img-fluid">
-                    </div>
-                    <h5>HD4-P3S</h5>
-                </div>
-            </div>
-            <div class="col-lg-3">
-                <div class="product text-center">
-                    <div class="img-box d-flex align-items-center justify-content-center">
-                        <img src="./assets/related-2.png" alt="" class="img-fluid">
-                    </div>
-                    <h5>HD3-V2</h5>
-                </div>
-            </div>
+            @empty
+            @endforelse
+
         </div>
     </div>
 </section>
 @stop
+
+<style>
+.specification-list{
+    list-style: none;
+}
+
+.point-heading{
+    font-weight: 800;
+    font-size: 18px;
+}
+.m-partner-img{
+    width: 70px;
+    height 70px;
+}
+</style>
