@@ -20,7 +20,9 @@ class ProductController extends Controller
      */
     public function index()
     {
-        //
+        $products = Product::with('attributes','files')->get();
+        // return response()->json($products);
+        return view('admin.products.index')->with('products', $products);
     }
 
     /**

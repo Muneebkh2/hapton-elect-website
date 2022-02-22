@@ -23,9 +23,6 @@ class ProductController extends Controller
     }
 
 
-
-
-
     public function getChildCategoryProducts(Category $category, Category $subCategory, $slug){
         $childCategory = Category::where('slug', $slug)->first();
          $products = $childCategory ? $childCategory->products()->with('file')->get() : '';

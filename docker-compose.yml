@@ -9,11 +9,13 @@ services:
     build:
       context: .
       target: app_nginx
+    volumes:
+      - ./public:/var/www/public
     depends_on:
       - php-fpm
       - mysql
     ports:
-      - "80:80"
+      - "81:81"
     networks:
       - hapton-elect
 

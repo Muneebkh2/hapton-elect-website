@@ -1,24 +1,43 @@
-@extends('layouts.default', ['title' => 'Hapton Switches Ranges'])
+@extends('layouts.default', ['title' => $title, 'pages' => 'category'])
+
+@include('includes.category-header', ['title' => $title ?? 'null'])
+
 @section('content')
 
-    <div class="page-header mt-3 mb-5">
+    {{-- <div class="page-header mt-3 mb-5">
         <div class="container">
-            <h1 class="page-title text-right">Hapton Switches Ranges</h1>
+            <h1 class="page-title text-right">{{$title}}</h1>
         </div>
-    </div>
+    </div> --}}
 
     <section id="categories-grid">
 
-        <div class="row no-gutters category-row" style="background: url('./assets/category/bg1.png') no-repeat center / cover;">
+        <!-- <div class="row no-gutters category-row" style="background: url('./assets/category/bg1.png') no-repeat center / cover;"> -->
+        <div class="row no-gutters category-row">
             @foreach ($categories as $category)
-                <div class="col-md-6 category-col">
-                    <div class="category">
-                        <a href="#">
-                            <h5 class="category-title"><a href="{{Request::url()}}/{{$category->slug}}">{{$category->name}}</a></h5>
-                            <img src="./assets/category/Brushed-steel-fliton.png" alt="Brushed-steel-fliton" class="img-fluid" />
-                        </a>
+
+                @if ($type != "category")
+                    @foreach ($category->subcategory as $subcategory)
+                        <div class="col-md-6 category-col" style="background: url('{{url($subcategory->bg_image)}}') no-repeat 100% / 100%;">
+                            <div class="category">
+                                <a href="#">
+                                    <h5 class="category-row-title"><a href="{{Request::url()}}/{{$subcategory->slug}}">{{$subcategory->name}}</a></h5>
+                                    <img src="{{asset($subcategory->image)}}" alt="Brushed-steel-fliton" class="img-fluid" />
+                                </a>
+                            </div>
+                        </div>
+                    @endforeach
+                @else
+                    <div class="col-md-6 category-col" style="background: url('{{$category->bg_image ? url($category->bg_image) : ''}}') no-repeat 100% / 100%;">
+                        <div class="category">
+                            <a href="#">
+                                <h5 class="category-row-title"><a href="{{Request::url()}}/{{$category->slug}}">{{$category->name}}</a></h5>
+                                <img src="{{asset($category->image)}}" alt="Brushed-steel-fliton" class="img-fluid" />
+                            </a>
+                        </div>
                     </div>
-                </div>
+                @endif
+
             @endforeach
         </div>
 

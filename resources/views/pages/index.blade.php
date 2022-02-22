@@ -1,10 +1,9 @@
-@extends('layouts.default', ['header_class' => 'header-transparent', 'title' => 'Home'])
-
+@extends('layouts.default', ['header_class' => 'header-transparent', 'title' => 'Home', 'pages' => 'home'])
 
 @section('content')
     <div id="main-slider" class="owl-carousel owl-theme">
         <div class="slide item">
-            <img src="assets/slide1.jpg" alt="" class="img-fluid w-100" />
+            <img src="assets/slider1.jpeg" alt="" class="img-fluid w-100" />
             <div class="slide-content-box">
                 <div class="slide-content-box--inner">
                     <h1>HAPTON ELECT SWITCHES</h1>
@@ -14,12 +13,22 @@
             </div>
         </div>
         <div class="slide item">
-            <img src="assets/slide2.jpg" alt="" class="img-fluid w-100" />
+            <img src="assets/slider2.jpeg" alt="" class="img-fluid w-100" />
             <div class="slide-content-box">
                 <div class="slide-content-box--inner">
                     <h1>LIGHTS <br>TO <br> AMAZE U</h1>
-                    <p>Turn on your home with style with the Hapton Switches comprehensive range to suit your home.</p>
-                    <img src="assets/slide-switches.jpg" alt="" class="img-fluid" />
+                    <p>Perfect lighting for your elegant interiors. Hapton Downlights & Spotlights are made for you.</p>
+                    <img src="assets/slide-img-2.png" alt="" class="img-fluid" />
+                </div>
+            </div>
+        </div>
+        <div class="slide item">
+            <img src="assets/slider3.jpeg" alt="" class="img-fluid w-100" />
+            <div class="slide-content-box">
+                <div class="slide-content-box--inner">
+                    <h1>KEEPING <br/> IT <br/> ON ALWAYS</h1>
+                    <p>Emergency Lights and Kits, illuminate the way when it matter the most.</p>
+                    <img src="assets/slide-img-3.png" alt="" class="img-fluid" />
                 </div>
             </div>
         </div>
@@ -40,7 +49,7 @@
                         </a>
                     </div>
                 </div>
-                <div class="col-lg-auto mt-4">
+                <div class="col-lg-auto mt-md-4">
                     <div class="category text-center">
                         <a href="#">
                             <img src="{{ asset('/assets/Lights.jpg') }}" alt="" class="img-fluid" />
@@ -56,7 +65,7 @@
                         </a>
                     </div>
                 </div>
-                <div class="col-lg-auto mt-4">
+                <div class="col-lg-auto mt-md-4">
                     <div class="category text-center">
                         <a href="#">
                             <img src="{{ asset('/assets/EM-Lights.jpg') }}" alt="" class="img-fluid" />
@@ -136,13 +145,10 @@
                 <div class="he-lw-slider-images">
                     <div id="slider-2" class="owl-carousel owl-theme">
                         <div class="slide item">
-                            <img src="{{ asset('/assets/split-cta-image.jpg') }}" alt="" class="img-fluid w-100" />
+                            <img src="{{ asset('/assets/split-cta-image-1.jpeg') }}" alt="" class="img-fluid w-100" />
                         </div>
                         <div class="slide item">
-                            <img src="{{ asset('/assets/split-cta-image.jpg') }}" alt="" class="img-fluid w-100" />
-                        </div>
-                        <div class="slide item">
-                            <img src="{{ asset('/assets/split-cta-image.jpg') }}" alt="" class="img-fluid w-100" />
+                            <img src="{{ asset('/assets/split-cta-image-2.jpeg') }}" alt="" class="img-fluid w-100" />
                         </div>
                     </div>
                 </div>
@@ -165,41 +171,43 @@
         </div>
     </div>
 
-    <section id="stats" class="parallax" data-parallax="scroll" data-image-src="{{ asset('/assets/home-3-parallax-1.jpg') }}">
-        <div class="container">
-            <div class="row no-gutters">
-                <div class="col">
-                    <div class="text-center">
-                        <span class="counter">34</span>
-                        <h6 class="counter-title">World wide distributors</h6>
+    <section>
+        <div id="stats" class="parallax" data-parallax="scroll" data-image-src="{{ asset('/assets/home-3-parallax-1.jpg') }}">
+            <div class="container">
+                <div class="row no-gutters">
+                    <div class="col">
+                        <div class="text-center">
+                            <span class="counter">34</span>
+                            <h6 class="counter-title">World wide distributors</h6>
+                        </div>
+                    </div>
+                    <div class="col">
+                        <div class="text-center">
+                            <span class="counter">680</span>
+                            <h6 class="counter-title">Product Ranges</p>
+                        </div>
+                    </div>
+                    <div class="col">
+                        <div class="text-center">
+                            <span class="counter">100</span>
+                            <h6 class="counter-title">% Customer Satisfaction</h6>
+                        </div>
+                    </div>
+                    <div class="col">
+                        <div class="text-center">
+                            <span class="counter">5</span>
+                            <h6 class="counter-title">Million Products Sold</h6>
+                        </div>
+                    </div>
+                    <div class="col">
+                        <div class="text-center">
+                            <span class="counter">749</span>
+                            <h6 class="counter-title">New Products in line</h6>
+                        </div>
                     </div>
                 </div>
-                <div class="col">
-                    <div class="text-center">
-                        <span class="counter">680</span>
-                        <h6 class="counter-title">Product Ranges</p>
-                    </div>
-                </div>
-                <div class="col">
-                    <div class="text-center">
-                        <span class="counter">100</span>
-                        <h6 class="counter-title">% Customer Satisfaction</h6>
-                    </div>
-                </div>
-                <div class="col">
-                    <div class="text-center">
-                        <span class="counter">5</span>
-                        <h6 class="counter-title">Million Products Sold</h6>
-                    </div>
-                </div>
-                <div class="col">
-                    <div class="text-center">
-                        <span class="counter">749</span>
-                        <h6 class="counter-title">New Products in line</h6>
-                    </div>
-                </div>
+                <!-- <img src="assets/stats-bg.jpg" alt="" class="img-fluid w-100" /> -->
             </div>
-            <!-- <img src="assets/stats-bg.jpg" alt="" class="img-fluid w-100" /> -->
         </div>
     </section>
 
@@ -320,7 +328,7 @@
 
     <section id="values">
         <div class="container">
-            <div class="d-flex flex-wrap">
+            <div class="d-flex flex-wrap justify-content-between">
                 <div class="value-col-1 d-flex">
                     <div class="col-inner">
                         <h3>The Core Company Values</h3>
@@ -417,47 +425,42 @@
                                 </div>
                             </div>
                             <div class="tab-pane fade" id="lights" role="tabpanel" aria-labelledby="lights-tab">
-                                <p>Hapton Switches are among the finest in the world. Fliton Metal range is a grandiose line of pure class.
-                                    Bexly PVC range is aesthetically marvelous and Bakelite range is economical & sturdy.
-                                </p>
+                                <p>Hapton has a glorious range of Spotlights, Downlights, and Linear Lights, using the best LED chips and drivers to give best possible performance. Different IP ratings are also available.</p>
                                 <div class="row no-gutters">
                                     <div class="col-md-6 p-2">
                                         <ul class="p-0 m-0">
-                                            <li>Fliton - Brushed Steel</li>
-                                            <li>Fliton - Polished Gold</li>
-                                            <li>Fliton - Brushed Gold</li>
-                                            <li>Fliton - Polished Nickel</li>
+                                            <li>Mini Spotlight</li>
+                                            <li>Narrow angle Spotlight</li>
+                                            <li>Spotlight Frames</li>
+                                            <li>Super Bright Downlights</li>
                                         </ul>
                                     </div>
                                     <div class="col-md-6 p-2">
                                         <ul class="p-0 m-0">
-                                            <li>Fliton - Antique Brass</li>
-                                            <li>Brock - Bakelite White</li>
-                                            <li>Bexly - PVC White</li>
-                                            <li>Bexly - PVC Gold</li>
+                                            <li>IP65 Downlights</li>
+                                            <li>Deep Cut Downlights</li>
+                                            <li>Linear Lights with Profile</li>
+                                            <li>Linear Lights with Channels</li>
                                         </ul>
                                     </div>
                                 </div>
                             </div>
                             <div class="tab-pane fade" id="sensors" role="tabpanel" aria-labelledby="sensors-tab">
-                                <p>Hapton Switches are among the finest in the world. Fliton Metal range is a grandiose line of pure class.
-                                    Bexly PVC range is aesthetically marvelous and Bakelite range is economical & sturdy.
-                                </p>
+                                <p>We have a very comprehensive range of sensors, like PIR, Microwave, Photocell etc. Emergency Exit lights and Emergency Kits are as per defined government regulations and certified.</p>
                                 <div class="row no-gutters">
                                     <div class="col-md-6 p-2">
                                         <ul class="p-0 m-0">
-                                            <li>Fliton - Brushed Steel</li>
-                                            <li>Fliton - Polished Gold</li>
-                                            <li>Fliton - Brushed Gold</li>
-                                            <li>Fliton - Polished Nickel</li>
+                                            <li>PIR Motion Sensors</li>
+                                            <li>Microwave Motion Sensors</li>
+                                            <li>Photocell Light Sensors</li>
+                                            <li>Emergency Lights.</li>
                                         </ul>
                                     </div>
                                     <div class="col-md-6 p-2">
                                         <ul class="p-0 m-0">
-                                            <li>Fliton - Antique Brass</li>
-                                            <li>Brock - Bakelite White</li>
-                                            <li>Bexly - PVC White</li>
-                                            <li>Bexly - PVC Gold</li>
+                                            <li>Em. Exit Lights</li>
+                                            <li>Em. Kits for LED Luminaries</li>
+                                            <li>Em. Kits for Std. Luminaries.</li>
                                         </ul>
                                     </div>
                                 </div>

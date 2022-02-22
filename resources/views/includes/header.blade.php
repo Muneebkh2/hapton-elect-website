@@ -28,10 +28,11 @@
                 <div class="nav-container">
                     <ul class="menu">
                         <li class="menu-item"><a href="{{ route('home') }}">Home</a></li>
-                        <li class="menu-item"><a href="{{ route('about') }}">About</a></li>
                         <li class="menu-item"><a href="{{ route('category') }}">Category</a></li>
-                        <li class="menu-item"><a href="#">Contact</a></li>
                         @if (Auth::check())
+                        <li class="menu-item">
+                            <a href="{{ url('/admin/products/create') }}"> Add New Product </a>
+                        </li>
                         <li class="menu-item">
                             <a href="{{ url('/logout') }}"> Logout </a>
                         </li>

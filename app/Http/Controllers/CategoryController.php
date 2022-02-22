@@ -11,15 +11,32 @@ class CategoryController extends Controller
 {
     public function getCategoriesPage() {
         $categories = Category::whereNull('parent_id')->get();
-        return view("pages.category", ["categories" => $categories, "type" => "category"]);
+        return view("pages.category", ["categories" => $categories, "type" => "category", "title" => "Main Categories"]);
     }
+/*
+    public function getCategoriesPage() {
+        $categories = Category::whereNull('parent_id')->get();
+    // return response()->json($categories);
+        // $categories = Category::where("parent_id", null)->get();
+        $title = "Main Categories";
+        return view("pages.category", ["categories" => $categories, "type" => "category", "title" => $title]);
+    }
+
+    public function getSubCategoriesPage($subCategory) {
+        $subCategory = Category::where("slug", $subCategory)->with('subcategory')->get();
+        // echo "<pre>";print_r($subCategory);exit;
+        $currentURL = URL::current();
+        preg_match("/[^\/]+$/", $currentURL, $matches);
+        $title = $matches[0];
+        return view("pages.category", ["categories" => $subCategory, "type" => "sub-category", "title" => $title]);
+*/
 
     public function getSubCategoriesPage(Category $category) {
         if(count($category->subcategories)){
-            return view("pages.category", ["categories" => $category->subcategories]);
+            return view("pages.category", ["categories" => $category->subcategories, "type" => "category", "title" => $this->getPageTitle()]);
         }
         else{
-            return view("pages.products.index", ['category' => $category , "products" => $category->products]);
+            return view("pages.products.index", ['category' => $category , "products" => $category->products, "title" => $this->getPageTitle()]);
         }
     }
 
@@ -29,13 +46,30 @@ class CategoryController extends Controller
         ->with(["attributes", "file" => function($q){$q->where('type', 'product_image');}, "files" => function($q){$q->where('type', 'manufacturer_partners');}])->first();
 
         if($subCategory && count($subCategory->subcategories)){
-            return view("pages.category", ["categories" => $subCategory->subcategories]);
-            }elseif($subCategory){
-                return view("pages.products.index", ['category' => $subCategory , "products" => $subCategory->products]);
-            }
-            elseif($product){
-                $relatedProducts = Product::where([['id', '!=', $product->id], ['category_id', '=', $product->category_id]])->with(["file" => function($q){$q->where('type', 'product_image');}])->take(4)->get();
+            // dd($subCategory->subcategories);die();
+            return view("pages.category", ["categories" => $subCategory->subcategories, "type" => "category", "title" => $this->getPageTitle()]);
+        } else if($subCategory) {
+            return view("pages.products.index", ['category' => $subCategory , "products" => $subCategory->products, "title" => $this->getPageTitle()]);
+        } else if($product) {
+            // echo "hahah";
+            // dd($product);die();
+            $relatedProducts = Product::where([
+                ['id', '!=', $product->id],
+                ['category_id', '=', $product->category_id]
+            ])->with([
+                "file" => function($q) {
+                    $q->where('type', 'product_image');
+                }
+            ])->take(4)->get();
             return view("pages.products.detail", ["product" => $product, "category" => $category, 'relatedProducts' => $relatedProducts]);
         }
+    }
+
+    private function getPageTitle() {
+        $currentURL = URL::current();
+        preg_match("/[^\/]+$/", $currentURL, $matches);
+        $title = $matches[0];
+
+        return $title;
     }
 }

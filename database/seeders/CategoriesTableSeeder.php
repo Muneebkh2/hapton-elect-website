@@ -18,37 +18,99 @@ class CategoriesTableSeeder extends Seeder
 
         $categories = [
             [
-                'name' => 'Electrical Switches',
+                // 'name' => 'Electrical Switches',
+                'name' => 'METAL, PVC, BL & WP SWITCHES',
+                // 'image' => 'assets/category/images/electrical_switches.png',
+                'image' => 'assets/category/images/switches_category.png',
+                'bg_image' => 'assets/category/images/electrical_switches_bg.jpg'
             ],
             [
-                'name' => 'Commercial Lights',
+                // 'name' => 'Commercial Lights',
+                'name' => 'MODERN LUMI`NAIRES',
+                // 'image' => 'assets/category/images/commercial_lights.png',
+                'image' => 'assets/category/images/lights_category.png',
+                'bg_image' => 'assets/category/images/commercial_lights_bg.jpg'
             ],
             [
-                'name' => 'Emergency Lights',
+                // 'name' => 'Emergency Lights',
+                'name' => 'EMERGENCY STD & EXIT LIGHTS',
+                'image' => 'assets/category/images/emergency_lights_category.png',
+                'bg_image' => 'assets/category/images/emergency_lights_category_bg.jpg'
             ],
             [
-                'name' => 'Sensors',
+                // 'name' => 'Sensors',
+                'name' => 'PIR & MICROWAVE MOTION SENSORS',
+                'image' => 'assets/category/images/sensors_category.png',
+                'bg_image' => 'assets/category/images/sensors_category_bg.jpg'
             ],
             [
-                'name' => 'Fliton',
-                'parent_id' => 1
+                'name' => 'BRUSHED STEEL - FLITON',
+                'parent_id' => 1,
+                'image' => 'assets/category/images/switches/switches_brushed_steel.png',
+                'bg_image' => 'assets/category/images/switches/switches_brushed_steel_bg.jpg'
             ],
             [
-                'name' => 'Brock',
-                'parent_id' => 1
+                'name' => 'POLISHED NICKEL - FLITON',
+                'parent_id' => 1,
+                'image' => 'assets/category/images/switches/switches_polished_nickel.png',
+                'bg_image' => 'assets/category/images/switches/switches_polished_nickel_bg.jpg'
             ],
             [
-                'name' => 'Balfon',
-                'parent_id' => 1
+                'name' => 'POLISHED GOLD - FLITON',
+                'parent_id' => 1,
+                'image' => 'assets/category/images/switches/switches_polished_gold.png',
+                'bg_image' => 'assets/category/images/switches/switches_polished_gold_bg.jpg'
             ],
             [
-                'name' => 'Euro Module',
-                'parent_id' => 1
+                'name' => 'WIDE WHITE - BALFON',
+                'parent_id' => 1,
+                'image' => 'assets/category/images/switches/switches_white_balfon.png',
+                'bg_image' => 'assets/category/images/switches/switches_white_balfon_bg.jpg'
             ],
             [
-                'name' => 'Robust',
-                'parent_id' => 1
+                'name' => 'BAKELITE - BROCK',
+                'parent_id' => 1,
+                'image' => 'assets/category/images/switches/switches_baklite_brock.png',
+                'bg_image' => 'assets/category/images/switches/switches_baklite_brock_bg.jpg'
             ],
+            [
+                'name' => 'EURO MODULES & ACCESS',
+                'parent_id' => 1,
+                'image' => 'assets/category/images/switches/switches_euro_module.png',
+                'bg_image' => 'assets/category/images/switches/switches_euro_module_bg.jpg'
+            ],
+            [
+                'name' => 'METAL CLAD - ROBUST',
+                'parent_id' => 1,
+                'image' => 'assets/category/images/switches/switches_metal_clad.png',
+                'bg_image' => 'assets/category/images/switches/switches_metal_clad_bg.jpg'
+            ],
+            [
+                'name' => 'WEATHERPROOF - ROBUST',
+                'parent_id' => 1,
+                'image' => 'assets/category/images/switches/switches_weatherproof.png',
+                'bg_image' => 'assets/category/images/switches/switches_weatherproof_bg.jpg'
+            ],
+            // [
+            //     'name' => 'Fliton',
+            //     'parent_id' => 1
+            // ],
+            // [
+            //     'name' => 'Brock',
+            //     'parent_id' => 1
+            // ],
+            // [
+            //     'name' => 'Balfon',
+            //     'parent_id' => 1
+            // ],
+            // [
+            //     'name' => 'Euro Module',
+            //     'parent_id' => 1
+            // ],
+            // [
+            //     'name' => 'Robust',
+            //     'parent_id' => 1
+            // ],
             [
                 'name' => 'Indoor Lighting',
                 'parent_id' => 2

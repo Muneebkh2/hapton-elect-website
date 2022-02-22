@@ -35,6 +35,49 @@
                     @endforelse
                 </ul>
 
+                {{-- <h4>Models</h4>
+                <div class="table-responsive">
+                    <table class="table">
+                        <thead>
+                            <tr>
+                                <th scope="col">#</th>
+                                <th scope="col">First</th>
+                                <th scope="col">Last</th>
+                                <th scope="col">Handle</th>
+                                <th scope="col">Handle</th>
+                                <th scope="col">Handle</th>
+                                <th scope="col">Handle</th>
+                                <th scope="col">Handle</th>
+                                <th scope="col">Handle</th>
+                            </tr>
+                        </thead>
+                        <tbody>
+                            <tr>
+                                <td>1</td>
+                                <td>Mark</td>
+                                <td>Otto</td>
+                                <td>@mdo</td>
+                                <td>@mdo</td>
+                                <td>@mdo</td>
+                                <td>@mdo</td>
+                                <td>@mdo</td>
+                                <td>@mdo</td>
+                            </tr>
+                            <tr>
+                                <td>2</td>
+                                <td>Jacob</td>
+                                <td>Thornton</td>
+                                <td>@fat</td>
+                                <td>@fat</td>
+                                <td>@fat</td>
+                                <td>@fat</td>
+                                <td>@fat</td>
+                                <td>@fat</td>
+                            </tr>
+                        </tbody>
+                    </table>
+                </div> --}}
+
                 <h4>Manufacturing Partners</h4>
                 <div>
                     @forelse ($product->files as $manufacturingPartner)
@@ -48,6 +91,7 @@
 </div>
 
 <section id="related-products">
+
     <div class="container">
         <div class="row">
             @forelse ($relatedProducts as $relatedProduct)
