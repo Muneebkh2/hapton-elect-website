@@ -1,0 +1,52 @@
+version: '3.4'
+
+networks: 
+  hapton-elect:
+
+services:
+  nginx:
+    container_name: nginx
+    build:
+      context: .
+      target: app_nginx
+    volumes:
+      - ./public:/var/www/public
+    depends_on:
+      - php-fpm
+      - mysql
+    ports:
+      - "81:81"
+    networks:
+      - hapton-elect
+
+  mysql:
+    image: mariadb:10.6
+    container_name: mysql
+    restart: unless-stopped
+    tty: true
+    ports:
+      - "3306:3306"
+    environment:
+      MYSQL_DATABASE: homestead_hapton_elect
+      MYSQL_USER: homestead
+      MYSQL_PASSWORD: secret
+      MYSQL_ROOT_PASSWORD: secret
+      SERVICE_TAGS: dev
+      SERVICE_NAME: mysql
+    networks:
+      - hapton-elect
+
+  php-fpm:
+    container_name: php
+    build:
+      context: .
+      target: app_php
+    volumes:
+      - .:/var/www
+      - ./docker/php-fpm/php.ini:/usr/local/etc/php/php.ini
+      - ./docker/php-fpm/php-cli.ini:/usr/local/etc/php/php-cli.ini
+      - ./docker/php-fpm/zz-docker.conf:/usr/local/etc/php-fpm.d/zzz-docker.conf
+    depends_on:
+      - mysql
+    networks:
+      - hapton-elect

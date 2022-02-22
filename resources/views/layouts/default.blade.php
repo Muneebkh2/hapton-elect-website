@@ -26,16 +26,12 @@
 
         <title>{{ config('app.name') . ' | ' . ucfirst($title) }}</title>
     </head>
-    <body class="{{ $page.'-page' }}">
+    <body class="{{ $pages.'-page' }}">
         <div id="wrapper">
 
-            @if($page == 'category')
-                @include('includes.category-header')
-            @else
+            @if($pages != 'category')
                 @include('includes.header')
             @endif
-
-
 
             <!-- Main Start -->
             <main id="main" class="content">
@@ -48,6 +44,8 @@
                 </div>
 
                 @yield('content')
+
+                @include('includes.main-contact')
             </main>
 
             @include('includes.footer')

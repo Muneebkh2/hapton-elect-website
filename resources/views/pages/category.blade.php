@@ -1,72 +1,46 @@
-@extends('layouts.default', ['title' => 'Hapton Switches Ranges', 'page' => 'category'])
+@extends('layouts.default', ['title' => $title, 'pages' => 'category'])
+
+@include('includes.category-header', ['title' => $title ?? 'null'])
 
 @section('content')
 
+    {{-- <div class="page-header mt-3 mb-5">
+        <div class="container">
+            <h1 class="page-title text-right">{{$title}}</h1>
+        </div>
+    </div> --}}
+
     <section id="categories-grid">
-        <div class="row no-gutters category-row" style="background: url('./assets/category/bg1.png') no-repeat center / cover;">
-            <div class="col-md-6 category-col">
-                <div class="category">
-                    <a href="#">
-                        <h5 class="category-title">BRUSHED STEEL - FLITON</h5>
-                        <img src="./assets/category/Brushed-steel-fliton.png" alt="Brushed-steel-fliton" class="img-fluid" />
-                    </a>
-                </div>
-            </div>
-            <div class="col-md-6 category-col">
-                <div class="category">
-                    <a href="#">
-                        <h5 class="category-title">POLISHED GOLD - FLITON</h5>
-                        <img src="./assets/category/Polished-gold-fliton.png" alt="Polished-gold-fliton" class="img-fluid" />
-                    </a>
-                </div>
-            </div>
+
+        <!-- <div class="row no-gutters category-row" style="background: url('./assets/category/bg1.png') no-repeat center / cover;"> -->
+        <div class="row no-gutters category-row">
+            @foreach ($categories as $category)
+
+                @if ($type != "category")
+                    @foreach ($category->subcategory as $subcategory)
+                        <div class="col-md-6 category-col" style="background: url('{{url($subcategory->bg_image)}}') no-repeat 100% / 100%;">
+                            <div class="category">
+                                <a href="#">
+                                    <h5 class="category-row-title"><a href="{{Request::url()}}/{{$subcategory->slug}}">{{$subcategory->name}}</a></h5>
+                                    <img src="{{asset($subcategory->image)}}" alt="Brushed-steel-fliton" class="img-fluid" />
+                                </a>
+                            </div>
+                        </div>
+                    @endforeach
+                @else
+                    <div class="col-md-6 category-col" style="background: url('{{$category->bg_image ? url($category->bg_image) : ''}}') no-repeat 100% / 100%;">
+                        <div class="category">
+                            <a href="#">
+                                <h5 class="category-row-title"><a href="{{Request::url()}}/{{$category->slug}}">{{$category->name}}</a></h5>
+                                <img src="{{asset($category->image)}}" alt="Brushed-steel-fliton" class="img-fluid" />
+                            </a>
+                        </div>
+                    </div>
+                @endif
+
+            @endforeach
         </div>
-        <div class="row no-gutters category-row" style="background: url('./assets/category/bg2.png') no-repeat center / cover;">
-            <div class="col-md-6 category-col">
-                <div class="category">
-                    <a href="#">
-                        <h5 class="category-title">POLISHED NICKEL - FLITON</h5>
-                        <img src="./assets/category/Polished-nickel-fliton.png" alt="Polished-nickel-fliton" class="img-fluid" />
-                    </a>
-                </div>
-            </div>
-            <div class="col-md-6 category-col">
-                <div class="category">
-                    <a href="#">
-                        <h5 class="category-title">WHITE WHITE - BALFON</h5>
-                        <img src="./assets/category/white-white.png" alt="white-white" class="img-fluid" />
-                    </a>
-                </div>
-            </div>
-        </div>
-        <div class="row no-gutters category-row" style="background: url('./assets/category/bg3.png') no-repeat center / cover;">
-            <div class="col-md-6 category-col">
-                <div class="category">
-                    <a href="#">
-                        <h5 class="category-title">BAKELITE - BROCK</h5>
-                        <img src="./assets/category/Bakelite-brock.png" alt="Bakelite-brock-fliton" class="img-fluid" />
-                    </a>
-                </div>
-            </div>
-            <div class="col-md-6 category-col">
-                <div class="category">
-                    <a href="#">
-                        <h5 class="category-title">EURO MODULES & ACCESS</h5>
-                        <img src="./assets/category/euro-modules-access.png" alt="euro-modules-access" class="img-fluid" />
-                    </a>
-                </div>
-            </div>
-        </div>
-        <div class="row no-gutters category-row" style="background: url('./assets/category/bG4.png') no-repeat center / cover;">
-            <div class="col-md-12 category-col">
-                <div class="category">
-                    <a href="#">
-                        <h5 class="category-title">METAL CLAD & WP - ROBUST</h5>
-                        <img src="./assets/category/metal-clad-robust.png" alt="metal-clad-robust" class="img-fluid" />
-                    </a>
-                </div>
-            </div>
-        </div>
+
     </section>
 
 

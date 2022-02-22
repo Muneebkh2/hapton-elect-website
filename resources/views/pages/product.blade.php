@@ -1,4 +1,4 @@
-@extends('layouts.default', ['title' => 'Recessed Downlights'])
+@extends('layouts.default', ['title' => 'Recessed Downlights', 'pages' => 'product'])
 
 @section('content')
 <div class="breadcrumbs my-2">
@@ -14,7 +14,7 @@
                 <img src="./assets/product-featured-img.jpg" alt="" class="img-fluid">
             </div>
             <div class="col-lg-6 product-summary">
-                <h1 class="product-title mb-5">Radiant Downlight Fittings</h1>
+                <h1 class="product-title mb-md-5">Radiant Downlight Fittings</h1>
                 <ul class="specification-list">
                     <li><span>Housing:</span> Anodized aluminium with glass & PVC.</li>
                     <li><span>Diffuser:</span> Highly reflective & dispersive.</li>
@@ -28,6 +28,48 @@
                 <h5>Adjustable applications</h5>
 
                 <h4>Models</h4>
+                <div class="table-responsive">
+                    <table class="table">
+                        <thead>
+                            <tr>
+                                <th scope="col">#</th>
+                                <th scope="col">First</th>
+                                <th scope="col">Last</th>
+                                <th scope="col">Handle</th>
+                                <th scope="col">Handle</th>
+                                <th scope="col">Handle</th>
+                                <th scope="col">Handle</th>
+                                <th scope="col">Handle</th>
+                                <th scope="col">Handle</th>
+                            </tr>
+                        </thead>
+                        <tbody>
+                            <tr>
+                                <td>1</td>
+                                <td>Mark</td>
+                                <td>Otto</td>
+                                <td>@mdo</td>
+                                <td>@mdo</td>
+                                <td>@mdo</td>
+                                <td>@mdo</td>
+                                <td>@mdo</td>
+                                <td>@mdo</td>
+                            </tr>
+                            <tr>
+                                <td>2</td>
+                                <td>Jacob</td>
+                                <td>Thornton</td>
+                                <td>@fat</td>
+                                <td>@fat</td>
+                                <td>@fat</td>
+                                <td>@fat</td>
+                                <td>@fat</td>
+                                <td>@fat</td>
+                            </tr>
+                        </tbody>
+                    </table>
+                </div>
+
             </div>
         </div>
     </div>

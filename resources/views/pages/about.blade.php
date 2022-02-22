@@ -1,5 +1,4 @@
-@extends('layouts.default', ['title' => 'About Us'])
-
+@extends('layouts.default', ['title' => 'About Us', 'pages' => 'about'])
 
 @section('content')
 <section>
