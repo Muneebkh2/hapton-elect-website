@@ -1,9 +1,4 @@
-<<<<<<< HEAD
 @extends('layouts.default', ['header_class' => 'header-transparent', 'title' => 'Home', 'page' => 'home'])
-
-=======
-@extends('layouts.default', ['header_class' => 'header-transparent', 'title' => 'Home', 'pages' => 'home'])
->>>>>>> 1525c4b5d8405b02976222837c94d3ad608f83f0
 
 @section('content')
     <div id="main-slider" class="owl-carousel owl-theme">
