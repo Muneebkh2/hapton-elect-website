@@ -1,4 +1,4 @@
-@extends('layouts.default', ['header_class' => 'header-transparent', 'title' => 'Home'])
+@extends('layouts.default', ['header_class' => 'header-transparent', 'title' => 'Home', 'page' => 'home'])
 
 
 @section('content')
@@ -31,8 +31,8 @@
                 <h6>World Class Products, Outstanding services</h6>
                 <h2>Switches ... Lights ... Sensors</h2>
             </div>
-            <div class="row justify-content-around categories">
-                <div class="col-lg-auto">
+            <div class="row justify-content-around categories-row">
+                <div class="col-lg-auto mt-4 mt-lg-0">
                     <div class="category text-center">
                         <a href="#">
                             <img src="{{ asset('/assets/Switches.jpg') }}" alt="" class="img-fluid" />
@@ -48,7 +48,7 @@
                         </a>
                     </div>
                 </div>
-                <div class="col-lg-auto">
+                <div class="col-lg-auto mt-4 mt-lg-0">
                     <div class="category text-center">
                         <a href="#">
                             <img src="{{ asset('/assets/Sensors.jpg') }}" alt="" class="img-fluid" />
@@ -168,31 +168,31 @@
     <section id="stats" class="parallax" data-parallax="scroll" data-image-src="{{ asset('/assets/home-3-parallax-1.jpg') }}">
         <div class="container">
             <div class="row no-gutters">
-                <div class="col">
+                <div class="col-12 col-lg">
                     <div class="text-center">
                         <span class="counter">34</span>
                         <h6 class="counter-title">World wide distributors</h6>
                     </div>
                 </div>
-                <div class="col">
+                <div class="col-12 col-lg">
                     <div class="text-center">
                         <span class="counter">680</span>
-                        <h6 class="counter-title">Product Ranges</p>
+                        <h6 class="counter-title">Product Ranges</h6>
                     </div>
                 </div>
-                <div class="col">
+                <div class="col-12 col-lg">
                     <div class="text-center">
                         <span class="counter">100</span>
                         <h6 class="counter-title">% Customer Satisfaction</h6>
                     </div>
                 </div>
-                <div class="col">
+                <div class="col-12 col-lg">
                     <div class="text-center">
                         <span class="counter">5</span>
                         <h6 class="counter-title">Million Products Sold</h6>
                     </div>
                 </div>
-                <div class="col">
+                <div class="col-12 col-lg">
                     <div class="text-center">
                         <span class="counter">749</span>
                         <h6 class="counter-title">New Products in line</h6>

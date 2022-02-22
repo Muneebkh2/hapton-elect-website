@@ -60,20 +60,24 @@
         crossorigin="anonymous"></script>
 
         <script src="https://cdnjs.cloudflare.com/ajax/libs/jquery-circle-progress/1.1.3/circle-progress.min.js"></script>
+        <script src="//cdnjs.cloudflare.com/ajax/libs/waypoints/2.0.3/waypoints.min.js"></script>
 
         <script src="{{ asset('/js/bootstrap.min.js') }}"></script>
         <script src="{{ asset('/js/owl.carousel.min.js') }}"></script>
         <script src="{{ asset('/js/parallax.min.js') }}"></script>
+        <script src="{{ asset('/js/jquery.appear.js') }}"></script>
+        <script src="{{ asset('/js/jquery.counterup.min.js') }}"></script>
 
 
 
         <script>
 
-            $(window).load(function() {
-                // $('.slide-content-box').addClass('he-item-appear');
-            });
-
             $(document).ready(function() {
+
+                $('.counter').counterUp({
+                    delay: 10,
+                    time: 1000
+                });
 
                 window.addEventListener("scroll", function() {
                     const distance = window.scrollY;
@@ -136,25 +140,31 @@
                     }
                 }
 
-                $('#circle-a').circleProgress({
-                    value : .9,
-                });
-                $('#circle-b').circleProgress({
-                    value : .7,
-                });
-
                 $('.circle').circleProgress(progressBarOptions).on('circle-animation-progress', function(event, progress, stepValue) {
                     // console.log("Step", stepValue);
                     // console.log("Progress", progress);
                     $(this).find('strong').text(String(stepValue.toFixed(2)).substr(2) + '%');
                 });
 
-                $('#circle-c, #circle-d').circleProgress({
-                    value: 1
-                }).on('circle-animation-progress', function(event, progress) {
-                    $(this).find('strong').html(Math.round(100 * progress) + '%');
+                var el = $('#features'),
+                    inited = false;
+
+                el.appear({ force_process: true });
+
+                el.on('appear', function() {
+                    if (!inited) {
+                        $('#circle-a').circleProgress({value : .9,});
+                        $('#circle-b').circleProgress({value : .7,});
+
+                        $('#circle-c, #circle-d').circleProgress({value: 1})
+                        .on('circle-animation-progress', function(event, progress) {
+                            $(this).find('strong').html(Math.round(100 * progress) + '%');
+                        });
+                        inited = true;
+                    }
                 });
 
+                
 
                 $('.he-menu-opener').on('click', function() {
                     $('body').toggleClass('nav-open');
