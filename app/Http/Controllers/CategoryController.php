@@ -46,13 +46,10 @@ class CategoryController extends Controller
         ->with(["attributes", "file" => function($q){$q->where('type', 'product_image');}, "files" => function($q){$q->where('type', 'manufacturer_partners');}])->first();
 
         if($subCategory && count($subCategory->subcategories)){
-            // dd($subCategory->subcategories);die();
             return view("pages.category", ["categories" => $subCategory->subcategories, "type" => "category", "title" => $this->getPageTitle()]);
         } else if($subCategory) {
-            return view("pages.products.index", ['category' => $subCategory , "products" => $subCategory->products, "title" => $this->getPageTitle()]);
+            return view("pages.products.index", ['category' => $subCategory , "products" => $subCategory->products, "type" => "category", "title" => $this->getPageTitle()]);
         } else if($product) {
-            // echo "hahah";
-            // dd($product);die();
             $relatedProducts = Product::where([
                 ['id', '!=', $product->id],
                 ['category_id', '=', $product->category_id]
