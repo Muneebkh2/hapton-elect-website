@@ -22,6 +22,11 @@ class Product extends Model
         return $this->morphOne(File::class, 'fileable');
     }
 
+    public function document_files()
+    {
+        return $this->morphMany(File::class, 'fileable');
+    }
+
     /**
      * Get the attributes for the product.
      */
