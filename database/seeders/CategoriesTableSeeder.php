@@ -91,6 +91,48 @@ class CategoriesTableSeeder extends Seeder
                 'image' => 'assets/category/images/switches/switches_weatherproof.png',
                 'bg_image' => 'assets/category/images/switches/switches_weatherproof_bg.jpg'
             ],
+            [
+                'name' => 'Indoor Lighting',
+                'parent_id' => 2,
+                'image' => 'assets/category/images/switches/switches_weatherproof.png',
+                'bg_image' => 'assets/category/images/switches/switches_weatherproof_bg.jpg'
+            ],
+            [
+                'name' => 'Outdoor Lighting',
+                'parent_id' => 2,
+                'image' => 'assets/category/images/switches/switches_weatherproof.png',
+                'bg_image' => 'assets/category/images/switches/switches_weatherproof_bg.jpg'
+            ],
+            [
+                'name' => 'LED Exit Signs',
+                'parent_id' => 3,
+                'image' => 'assets/category/images/switches/switches_weatherproof.png',
+                'bg_image' => 'assets/category/images/switches/switches_weatherproof_bg.jpg'
+            ],
+            [
+                'name' => 'LED Exit Lights',
+                'parent_id' => 3,
+                'image' => 'assets/category/images/switches/switches_weatherproof.png',
+                'bg_image' => 'assets/category/images/switches/switches_weatherproof_bg.jpg'
+            ],
+            [
+                'name' => 'Emergency Drivers',
+                'parent_id' => 3,
+                'image' => 'assets/category/images/switches/switches_weatherproof.png',
+                'bg_image' => 'assets/category/images/switches/switches_weatherproof_bg.jpg'
+            ],
+            [
+                'name' => 'Microwave Sensors',
+                'parent_id' => 4,
+                'image' => 'assets/category/images/switches/switches_weatherproof.png',
+                'bg_image' => 'assets/category/images/switches/switches_weatherproof_bg.jpg'
+            ],
+            [
+                'name' => 'PIR Sensors',
+                'parent_id' => 4,
+                'image' => 'assets/category/images/switches/switches_weatherproof.png',
+                'bg_image' => 'assets/category/images/switches/switches_weatherproof_bg.jpg'
+            ],
             // [
             //     'name' => 'Fliton',
             //     'parent_id' => 1
@@ -111,46 +153,46 @@ class CategoriesTableSeeder extends Seeder
             //     'name' => 'Robust',
             //     'parent_id' => 1
             // ],
-            [
-                'name' => 'Indoor Lighting',
-                'parent_id' => 2
-            ],
-            [
-                'name' => 'Outdoor Lighting',
-                'parent_id' => 2
-            ],
-            [
-                'name' => 'LED Exit Signs',
-                'parent_id' => 3
-            ],
-            [
-                'name' => 'LED Exit Lights',
-                'parent_id' => 3
-            ],
-            [
-                'name' => 'Emergency Drivers',
-                'parent_id' => 3
-            ],
-            [
-                'name' => 'Brushed Steel',
-                'parent_id' => 5
-            ],
-            [
-                'name' => 'Polished Gold',
-                'parent_id' => 5
-            ],
-            [
-                'name' => 'Polished Nickel',
-                'parent_id' => 5
-            ],
-            [
-                'name' => 'Weatherproof',
-                'parent_id' => 9
-            ],
-            [
-                'name' => 'Metal Clad',
-                'parent_id' => 9
-            ],
+            // [
+            //     'name' => 'Indoor Lighting',
+            //     'parent_id' => 2
+            // ],
+            // [
+            //     'name' => 'Outdoor Lighting',
+            //     'parent_id' => 2
+            // ],
+            // [
+            //     'name' => 'LED Exit Signs',
+            //     'parent_id' => 3
+            // ],
+            // [
+            //     'name' => 'LED Exit Lights',
+            //     'parent_id' => 3
+            // ],
+            // [
+            //     'name' => 'Emergency Drivers',
+            //     'parent_id' => 3
+            // ],
+            // [
+            //     'name' => 'Brushed Steel',
+            //     'parent_id' => 5
+            // ],
+            // [
+            //     'name' => 'Polished Gold',
+            //     'parent_id' => 5
+            // ],
+            // [
+            //     'name' => 'Polished Nickel',
+            //     'parent_id' => 5
+            // ],
+            // [
+            //     'name' => 'Weatherproof',
+            //     'parent_id' => 9
+            // ],
+            // [
+            //     'name' => 'Metal Clad',
+            //     'parent_id' => 9
+            // ],
         ];
 
         // Servcategory::insert($categories);

@@ -1,4 +1,4 @@
-@extends('layouts.default', ['title' => $product->name])
+@extends('layouts.default', ['title' => $product->name, 'page' => 'products'])
 
 @section('content')
 <div class="breadcrumbs my-2">

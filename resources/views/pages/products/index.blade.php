@@ -1,4 +1,4 @@
-@extends('layouts.default', ['title' => $category->name . ' -Products'])
+@extends('layouts.default', ['title' => $category->name . ' -Products', 'page' => 'products'])
 @section('content')
     <div class="page-header mt-3 mb-5">
         <div class="container">
