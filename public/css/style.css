@@ -2064,6 +2064,14 @@ select.form-control:not([size]):not([multiple]) {
 /* Product Create Page Styling */
 
 /**** Hannan's CSS Start ****/
+.add-product_form input:not([type="file"]):not([type="button"]) {
+    background-color: #fff !important;
+    background-image: none;
+    color: #000;
+}
+.add-product_form input:focus {
+    color: #000;
+}
 .product .table td, .product .table th{border-top: none;}
 .product table.table td {
     border-bottom: 1px solid #dee2e6;
