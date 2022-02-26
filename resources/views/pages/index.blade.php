@@ -220,7 +220,7 @@
             <div class="row no-gutters">
                 <div class="col-lg-4 gallery-col">
                     <div class="img-wrap p-3 he-animated-layout-wrapper">
-                        <div class="img-wrap--image"><a href="#"><img src="{{ asset('/assets/g1.jpg') }}" alt="1" class="img-fluid w-100" /></a></div>
+                        <div class="img-wrap--image"><a href="#"><img src="{{ asset('/assets/gallery-5.jpg') }}" alt="1" class="img-fluid w-100" /></a></div>
                         <div class="img-wrap--text">
                             <div class="text-wrapper">
                                 <div class="text">
@@ -232,7 +232,7 @@
                         <a href="#" class="img-wrap--link"></a>
                     </div>
                     <div class="img-wrap p-3 he-animated-layout-wrapper">
-                        <div class="img-wrap--image"><a href="#"><img src="{{ asset('/assets/g2.jpg') }}" alt="2" class="img-fluid w-100" /></a></div>
+                        <div class="img-wrap--image"><a href="#"><img src="{{ asset('/assets/gallery-8.jpg') }}" alt="2" class="img-fluid w-100" /></a></div>
                         <div class="img-wrap--text">
                             <div class="text-wrapper">
                                 <div class="text">
@@ -246,7 +246,7 @@
                 </div>
                 <div class="col-lg-4 gallery-col">
                     <div class="img-wrap p-3 he-animated-layout-wrapper">
-                        <div class="img-wrap--image"><a href="#"><img src="{{ asset('/assets/g3.jpg') }}" alt="3" class="img-fluid w-100" /></a></div>
+                        <div class="img-wrap--image"><a href="#"><img src="{{ asset('/assets/gallery-1.jpg') }}" alt="3" class="img-fluid w-100" /></a></div>
                         <div class="img-wrap--text">
                             <div class="text-wrapper">
                                 <div class="text">
@@ -258,7 +258,7 @@
                         <a href="#" class="img-wrap--link"></a>
                     </div>
                     <div class="img-wrap p-3 he-animated-layout-wrapper">
-                        <div class="img-wrap--image"><a href="#"><img src="{{ asset('/assets/g4.jpg') }}" alt="4" class="img-fluid w-100" /></a></div>
+                        <div class="img-wrap--image"><a href="#"><img src="{{ asset('/assets/gallery-4.jpg') }}" alt="4" class="img-fluid w-100" /></a></div>
                         <div class="img-wrap--text">
                             <div class="text-wrapper">
                                 <div class="text">
@@ -270,7 +270,7 @@
                         <a href="#" class="img-wrap--link"></a>
                     </div>
                     <div class="img-wrap p-3 he-animated-layout-wrapper">
-                        <div class="img-wrap--image"><a href="#"><img src="{{ asset('/assets/g5.jpg') }}" alt="5" class="img-fluid w-100" /></a></div>
+                        <div class="img-wrap--image"><a href="#"><img src="{{ asset('/assets/gallery-6.jpg') }}" alt="5" class="img-fluid w-100" /></a></div>
                         <div class="img-wrap--text">
                             <div class="text-wrapper">
                                 <div class="text">
@@ -285,7 +285,7 @@
                 </div>
                 <div class="col-lg-4 gallery-col">
                     <div class="img-wrap p-3 he-animated-layout-wrapper">
-                        <div class="img-wrap--image"><a href="#"><img src="{{ asset('/assets/g6.jpg') }}" alt="6" class="img-fluid w-100" /></a></div>
+                        <div class="img-wrap--image"><a href="#"><img src="{{ asset('/assets/gallery-2.jpg') }}" alt="6" class="img-fluid w-100" /></a></div>
                         <div class="img-wrap--text">
                             <div class="text-wrapper">
                                 <div class="text">
@@ -297,7 +297,7 @@
                         <a href="#" class="img-wrap--link"></a>
                     </div>
                     <div class="img-wrap p-3 he-animated-layout-wrapper">
-                        <div class="img-wrap--image"><a href="#"><img src="{{ asset('/assets/g7.jpg') }}" alt="7" class="img-fluid w-100" /></a></div>
+                        <div class="img-wrap--image"><a href="#"><img src="{{ asset('/assets/gallery-7.jpg') }}" alt="7" class="img-fluid w-100" /></a></div>
                         <div class="img-wrap--text">
                             <div class="text-wrapper">
                                 <div class="text">
@@ -309,7 +309,7 @@
                         <a href="#" class="img-wrap--link"></a>
                     </div>
                     <div class="img-wrap p-3 he-animated-layout-wrapper">
-                        <div class="img-wrap--image"><a href="#"><img src="{{ asset('/assets/g8.jpg') }}" alt="8" class="img-fluid w-100" /></a></div>
+                        <div class="img-wrap--image"><a href="#"><img src="{{ asset('/assets/gallery-3.jpg') }}" alt="8" class="img-fluid w-100" /></a></div>
                         <div class="img-wrap--text">
                             <div class="text-wrapper">
                                 <div class="text">

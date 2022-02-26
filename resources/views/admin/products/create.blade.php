@@ -4,7 +4,7 @@
 @include('common.partials.flash')
 <div class="container my-5" style="padding-left:150px; padding-right:150px;">
     <h1>Add Product</h1>
-    <form action="{{ url('admin/products') }}" method="post" enctype='multipart/form-data'>
+    <form class="add-product_form" action="{{ url('admin/products') }}" method="post" enctype='multipart/form-data'>
         @csrf
         <div class="row">
             <div class="col-md-6 form-group">
@@ -62,6 +62,7 @@
                             <td>Attribute Name</td>
                             <td>Attribute Type</td>
                             <td>Attribute Value</td>
+                            <td>Action</td>
                         </tr>
                     </thead>
                     <tbody>
