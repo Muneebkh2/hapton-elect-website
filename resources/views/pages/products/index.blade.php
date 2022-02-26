@@ -16,7 +16,11 @@
                         @dd($product->file->name)
 
                         @endif --}}
-                            <img src="{{asset($product->file ? 'storage/'.$product->file->path : '')}}" alt="Brushed-steel-fliton" class="img-fluid" />
+                        @if ($product->file )
+                            <img src="{{asset($product->file ? 'storage/'.$product->file->path : '')}}" alt="Brushed-steel-fliton" class="img-fluid" />   
+                        @else
+                            <img src="{{ asset('/assets/no-image-available-icon.jpeg') }}" alt="Brushed-steel-fliton" class="img-fluid" />
+                        @endif
                         </a>
                     </div>
                 </div>

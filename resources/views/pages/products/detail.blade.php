@@ -127,6 +127,7 @@
 <style>
 .specification-list{
     list-style: none;
+    padding: 0;
 }
 
 .point-heading{

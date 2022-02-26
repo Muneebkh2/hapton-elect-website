@@ -27,6 +27,9 @@
         <title>{{ config('app.name') . ' | ' . ucfirst($title) }}</title>
     </head>
     <body class="{{ $page.'-page' }}">
+        <div class="loader-wrapper">
+            <div class="loader"></div>
+        </div>
         <div id="wrapper">
 
             @if($page != 'category')
@@ -69,7 +72,13 @@
 
 
         <script>
-
+            $(window).load(function(){
+                setTimeout(function(){
+                    $('.loader-wrapper').hide();
+                    $('#wrapper').css('visibility','visible');
+                    $('#wrapper').css('opacity','1');
+                }, 3000);
+            });
             $(document).ready(function() {
 
                 $('.counter').counterUp({
