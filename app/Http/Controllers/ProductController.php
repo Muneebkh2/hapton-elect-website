@@ -30,18 +30,28 @@ class ProductController extends Controller
              return view('pages.products.index', ['category' => $childCategory , 'products' => $products]);
          }else{
              $product = Product::where('slug', $slug)
-             ->with(["attributes", "file" => function($q){$q->where('type', 'product_image');}, "files" => function($q){$q->where('type', 'manufacturer_partners');}])->first();
+             ->with(["attributes", "file" => function($q){$q->where('type', 'product_image');}, "files" => function($q){$q->where('type', 'manufacturer_partners');}, "document_files" => function($q){$q->where('type', 'product_document');}])->first();
 
              $relatedProducts = Product::where([['id', '!=', $product->id], ['category_id', '=', $product->category_id]])->with(["file" => function($q){$q->where('type', 'product_image');}])->take(4)->get();
 
-            return view('pages.products.detail', ['category' => $childCategory , 'product' => $product, 'relatedProducts' => $relatedProducts]);
+            return view('pages.products.detail', ['category' => $category, 'subCategory' => $subCategory ,'childCategory' => $childCategory , 'product' => $product, 'relatedProducts' => $relatedProducts]);
          }
 
     }
 
     public function showChildCategoryProduct(Category $category, Category $subCategory, Category $childCategory, $product){
         $product = Product::where('slug', $product)
-        ->with(["attributes", "file" => function($q){$q->where('type', 'product_image');}, "files" => function($q){$q->where('type', 'manufacturer_partners');}])->first();
+        ->with([
+            "attributes",
+            "file" => function($q){
+                $q->where('type', 'product_image');
+            },
+            "files" => function($q){
+                $q->where('type', 'manufacturer_partners');
+            },
+            "document_files" => function($q){
+                $q->where('type', 'product_document');
+            }])->first();
 
         $relatedProducts = Product::where([['id', '!=', $product->id], ['category_id', '=', $product->category_id]])->with(["file" => function($q){$q->where('type', 'product_image');}])->take(4)->get();
         return view('pages.products.detail', ['category' => $category, 'subCategory' => $subCategory , 'childCategory' => $childCategory, 'product' => $product, 'relatedProducts' => $relatedProducts]);
