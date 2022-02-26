@@ -47,7 +47,7 @@ class ProductController extends Controller
         $data = $request->all();
         $data['slug'] = Str::slug($request->name);
         $product =  Product::create($data);
-        if( count($request->attribute_name) > 0)
+        if(count($request->attribute_name) > 0)
         {
             foreach($request->attribute_name as $key => $attribute){
                 $attributes['name'] = $request->attribute_name[$key];
@@ -58,7 +58,8 @@ class ProductController extends Controller
         }
         HelperService::uploadFile($request->product_image, $product->id, Product::class, 'product_image', 'product');
         HelperService::uploadFiles($request->manufacturer_partners, $product->id, Product::class, 'manufacturer_partners', 'product');
-        return redirect()->back()->with('success', 'Product hasbeen created successfully');
+        HelperService::uploadFiles($request->product_document, $product->id, Product::class, 'product_document', 'product');
+        return redirect()->route('admin::products.index')->with('success', 'Product hasbeen created successfully');
     }
 
     /**
