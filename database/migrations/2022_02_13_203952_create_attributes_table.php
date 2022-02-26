@@ -17,7 +17,7 @@ class CreateAttributesTable extends Migration
             $table->id();
             $table->foreignId('product_id')->references('id')->on('products')->onDelete('cascade');
             $table->string("name");
-            $table->string("value");
+            $table->longText("value");
             $table->timestamps();
         });
     }

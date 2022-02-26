@@ -85,6 +85,15 @@
                     @empty
                     @endforelse
                 </div>
+                @if (count($product->document_files))
+                <h4>Documents</h4>
+                <div>
+                    @forelse ($product->document_files as $productDocument)
+                    <a href="{{asset('storage/'.$productDocument->path)}}" target="_blank">Download</a>
+                    @empty
+                    @endforelse
+                </div>
+                @endif
             </div>
         </div>
     </div>
