@@ -67,15 +67,15 @@
                     <tbody>
                         <tr>
                             <td class="col-sm-4">
-                                <input type="text" name="attribute_name[]" class="form-control" />
+                                <input type="text" name="attribute_name[]" class="form-control" required />
                             </td>
                             <td class="col-sm-4">
-                                <select class="form-control" name="attribute_type[]" id="attribute_type">
+                                <select class="form-control" name="attribute_type[]" id="attribute_type" required>
                                     <option value="text">Text</option>
                                 </select>
                             </td>
                             <td class="col-sm-3">
-                                <input type="text" name="attribute_value[]"  class="form-control"/>
+                                <input type="text" name="attribute_value[]"  class="form-control" required/>
                             </td>
                             <td class="col-sm-2">
                                 <a class="deleteRow"></a>
@@ -91,6 +91,11 @@
                 <h3>Manufacturing Partner</h3>
                 <input type="file" name="manufacturer_partners[]" multiple id="gallery-photo-add">
                 <div class="gallery"></div>
+            </div>
+            <div class="col-12 form-group">
+                <h3>Product Document file</h3>
+                <input type="file" name="product_document[]" multiple id="product-document-add">
+                <div class="document_info"></div>
             </div>
             <div class="col-12 d-flex justify-content-end">
                 <input type="submit" class="btn btn-lg btn-block btn-style" id="btn_submit" value="Create" />
@@ -261,9 +266,9 @@ $(document).ready(function () {
         var newRow = $("<tr>");
         var cols = "";
 
-        cols += '<td><input type="text" class="form-control" name="attribute_name[]"/></td>';
-        cols += '<td><select class="form-control" name="attribute_type[]" id="attribute_type"><option value="text">Text</option></select></td>';
-        cols += '<td><input type="text" class="form-control" name="attribute_value[]"/></td>';
+        cols += '<td><input type="text" class="form-control" name="attribute_name[]" required/></td>';
+        cols += '<td><select class="form-control" name="attribute_type[]" id="attribute_type" required><option value="text">Text</option></select></td>';
+        cols += '<td><input type="text" class="form-control" name="attribute_value[]" required/></td>';
 
         cols += '<td><input type="button" class="ibtnDel btn btn-md btn-danger "  value="Delete"></td>';
         newRow.append(cols);
@@ -301,8 +306,27 @@ $(function() {
 
     };
 
+    var displayFileInfo = function(input, embedDivName) {
+        var documentLength = input.files.length;
+        var documentItems = input.files;
+        var documentLists = "";
+        if (documentLength) {
+            for (let index = 0; index < documentLength; index++) {
+                var documentName = documentItems[index].name;
+                var documentSize = documentItems[index].size;
+                var documentType = documentItems[index].type;
+                documentLists += "<li>" + documentName + " (<b>" + documentSize + "</b> bytes) - Type :" + documentType + "</li>";
+            }
+            $(embedDivName).append(documentLists);
+        }
+    };
+
     $('#gallery-photo-add').on('change', function() {
         imagesPreview(this, 'div.gallery');
+    });
+
+    $('#product-document-add').on('change', function () {
+        displayFileInfo(this, 'div.document_info');
     });
 });
 
