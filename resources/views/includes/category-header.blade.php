@@ -28,8 +28,7 @@
                     <ul class="menu">
                         <li class="menu-item"><a href="{{ route('home') }}">Home</a></li>
                         <li class="menu-item"><a href="{{ route('about') }}">About</a></li>
-                        <li class="menu-item"><a href="{{ route('product') }}">Product</a></li>
-                        <li class="menu-item"><a href="{{ route('category') }}">Category</a></li>
+                        <li class="menu-item"><a href="{{ route('category') }}">Categories</a></li>
                         <li class="menu-item"><a href="#">Contact</a></li>
                     </ul>
                 </div>

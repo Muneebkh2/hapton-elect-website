@@ -1,4 +1,4 @@
-@extends('layouts.default', ['title' => $title, 'pages' => 'category'])
+@extends('layouts.default', ['title' => $title, 'page' => 'category'])
 
 @include('includes.category-header', ['title' => $title ?? 'null'])
 

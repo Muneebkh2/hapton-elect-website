@@ -43,7 +43,7 @@
             <div class="row justify-content-around categories-row">
                 <div class="col-lg-auto mt-4 mt-lg-0">
                     <div class="category text-center">
-                        <a href="#">
+                        <a href="{{url('category/metal-pvc-bl-wp-switches')}}">
                             <img src="{{ asset('/assets/Switches.jpg') }}" alt="" class="img-fluid" />
                             <span class="category-title">Switches</span>
                         </a>
@@ -51,7 +51,7 @@
                 </div>
                 <div class="col-lg-auto mt-md-4">
                     <div class="category text-center">
-                        <a href="#">
+                        <a href="{{url('category/modern-luminaires')}}">
                             <img src="{{ asset('/assets/Lights.jpg') }}" alt="" class="img-fluid" />
                             <span class="category-title">Lights</span>
                         </a>
@@ -59,7 +59,7 @@
                 </div>
                 <div class="col-lg-auto mt-4 mt-lg-0">
                     <div class="category text-center">
-                        <a href="#">
+                        <a href="{{url('category/pir-microwave-motion-sensors')}}">
                             <img src="{{ asset('/assets/Sensors.jpg') }}" alt="" class="img-fluid" />
                             <span class="category-title">Sensors</span>
                         </a>
@@ -67,7 +67,7 @@
                 </div>
                 <div class="col-lg-auto mt-md-4">
                     <div class="category text-center">
-                        <a href="#">
+                        <a href="category/emergency-std-exit-lights">
                             <img src="{{ asset('/assets/EM-Lights.jpg') }}" alt="" class="img-fluid" />
                             <span class="category-title">EM Lights</span>
                         </a>
