@@ -36,7 +36,7 @@ class CategoryController extends Controller
             return view("pages.category", ["categories" => $category->subcategories, "type" => "category", "title" => $this->getPageTitle()]);
         }
         else{
-            return view("pages.products.index", ['category' => $category , "products" => $category->products, "title" => $this->getPageTitle()]);
+            return view("pages.products.index", ['category' => $category , "products" => $category->products, "type" => "category", "title" => $this->getPageTitle()]);
         }
     }
 
@@ -46,7 +46,7 @@ class CategoryController extends Controller
         ->with(["attributes", "file" => function($q){$q->where('type', 'product_image');}, "files" => function($q){$q->where('type', 'manufacturer_partners');}])->first();
 
         if($subCategory && count($subCategory->subcategories)){
-            return view("pages.category", ["categories" => $subCategory->subcategories, "type" => "category", "title" => $this->getPageTitle()]);
+            return view("pages.category", ["categories" => $subCategory->subcategories, "type" => "category", "type" => "category", "title" => $this->getPageTitle()]);
         } else if($subCategory) {
             return view("pages.products.index", ['category' => $subCategory , "products" => $subCategory->products, "type" => "category", "title" => $this->getPageTitle()]);
         } else if($product) {
@@ -58,7 +58,7 @@ class CategoryController extends Controller
                     $q->where('type', 'product_image');
                 }
             ])->take(4)->get();
-            return view("pages.products.detail", ["product" => $product, "category" => $category, 'relatedProducts' => $relatedProducts]);
+            return view("pages.products.detail", ["product" => $product, "category" => $category, "type" => "category", 'relatedProducts' => $relatedProducts]);
         }
     }
 
