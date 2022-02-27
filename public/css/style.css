@@ -2160,6 +2160,11 @@ select.form-control:not([size]):not([multiple]) {
     background: #555;
 
 }
+.product-download-btn a {
+    padding: 0px 10px 5px;
+    border-bottom: 2px solid #fff;
+    border-radius: 5px;
+}
 @media (max-width: 767px){
     h1 {font-size: 50px;}
     h2 {font-size: 34px;}
@@ -2177,7 +2182,7 @@ select.form-control:not([size]):not([multiple]) {
     #categories .section-header {
         margin-bottom: 50px;
     }
-    .category-title {
+    #categories .category .category-title{
         position: relative;
         display: block;
         width: 100%;

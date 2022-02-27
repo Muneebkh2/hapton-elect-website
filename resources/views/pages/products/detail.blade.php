@@ -26,7 +26,7 @@
                 <img src="{{asset('storage/'.$product->file->path)}}" alt="" class="img-fluid">
                 @endif
             </div>
-            <div class="col-lg-6 product-summary">
+            <div class="col-lg-6 ">
                 <h1 class="product-title mb-5">{{$product->name}}</h1>
                 <ul class="specification-list">
                     @forelse ($product->attributes as $attribute)
@@ -87,7 +87,7 @@
                 </div>
                 @if (count($product->document_files))
                 <h4>Documents</h4>
-                <div>
+                <div class="product-download-btn">
                     @forelse ($product->document_files as $productDocument)
                     <a href="{{asset('storage/'.$productDocument->path)}}" target="_blank">Download</a>
                     @empty

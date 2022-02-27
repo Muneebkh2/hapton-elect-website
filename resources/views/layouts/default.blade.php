@@ -95,7 +95,7 @@
                 $('#main-slider').owlCarousel({
                     autoplay: true,
                     autoplayTimeout: 10000,
-                    loop: false,
+                    loop: true,
                     nav: false,
                     dots: true,
                     mouseDrag: false,

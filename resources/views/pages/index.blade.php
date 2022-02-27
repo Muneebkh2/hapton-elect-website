@@ -224,8 +224,8 @@
                         <div class="img-wrap--text">
                             <div class="text-wrapper">
                                 <div class="text">
-                                    <h5><a href="#">Title</a></h5>
-                                    <span><a href="#">Category</a></span>
+                                    <h5><a href="#">Hapton</a></h5>
+                                    <span><a href="#">Commercial Luminaries</a></span>
                                 </div>
                             </div>
                         </div>
@@ -236,8 +236,8 @@
                         <div class="img-wrap--text">
                             <div class="text-wrapper">
                                 <div class="text">
-                                    <h5><a href="#">Title</a></h5>
-                                    <span><a href="#">Category</a></span>
+                                    <h5><a href="#">Hapton</a></h5>
+                                    <span><a href="#">Hospitality Luminaries</a></span>
                                 </div>
                             </div>
                         </div>
@@ -250,8 +250,8 @@
                         <div class="img-wrap--text">
                             <div class="text-wrapper">
                                 <div class="text">
-                                    <h5><a href="#">Title</a></h5>
-                                    <span><a href="#">Category</a></span>
+                                    <h5><a href="#">Hapton</a></h5>
+                                    <span><a href="#">Elegant Luminaries</a></span>
                                 </div>
                             </div>
                         </div>
@@ -262,8 +262,8 @@
                         <div class="img-wrap--text">
                             <div class="text-wrapper">
                                 <div class="text">
-                                    <h5><a href="#">Title</a></h5>
-                                    <span><a href="#">Category</a></span>
+                                    <h5><a href="#">Hapton</a></h5>
+                                    <span><a href="#">Luxurious Switches</a></span>
                                 </div>
                             </div>
                         </div>
@@ -274,8 +274,8 @@
                         <div class="img-wrap--text">
                             <div class="text-wrapper">
                                 <div class="text">
-                                    <h5><a href="#">Title</a></h5>
-                                    <span><a href="#">Category</a></span>
+                                    <h5><a href="#">Hapton</a></h5>
+                                    <span><a href="#">Emergency Exit Lights</a></span>
                                 </div>
                             </div>
                         </div>
@@ -289,8 +289,8 @@
                         <div class="img-wrap--text">
                             <div class="text-wrapper">
                                 <div class="text">
-                                    <h5><a href="#">Title</a></h5>
-                                    <span><a href="#">Category</a></span>
+                                    <h5><a href="#">Hapton</a></h5>
+                                    <span><a href="#">Office Luminaries</a></span>
                                 </div>
                             </div>
                         </div>
@@ -301,8 +301,8 @@
                         <div class="img-wrap--text">
                             <div class="text-wrapper">
                                 <div class="text">
-                                    <h5><a href="#">Title</a></h5>
-                                    <span><a href="#">Category</a></span>
+                                    <h5><a href="#">Hapton</a></h5>
+                                    <span><a href="#">Industrial Switches & Luminaries</a></span>
                                 </div>
                             </div>
                         </div>
@@ -313,8 +313,8 @@
                         <div class="img-wrap--text">
                             <div class="text-wrapper">
                                 <div class="text">
-                                    <h5><a href="#">Title</a></h5>
-                                    <span><a href="#">Category</a></span>
+                                    <h5><a href="#">Hapton</a></h5>
+                                    <span><a href="#">Emergency Lights</a></span>
                                 </div>
                             </div>
                         </div>
