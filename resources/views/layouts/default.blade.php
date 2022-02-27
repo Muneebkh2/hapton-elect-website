@@ -32,7 +32,7 @@
         </div>
         <div id="wrapper">
 
-            @if($page != 'category')
+            @if($page != 'category' && $page != 'products')
                 @include('includes.header')
             @endif
 
