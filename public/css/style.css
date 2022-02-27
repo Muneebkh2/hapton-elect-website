@@ -2221,6 +2221,12 @@ select.form-control:not([size]):not([multiple]) {
         padding-left: 0;
     }
     /* Category page css */
+    .category-row .category-row-title {
+        margin: 0;
+        top: 0;
+        right: 10px;
+        font-size: 14px;
+    }
     .category-page .category-header-right,
     .products-page .category-header-right {
         display: block;
