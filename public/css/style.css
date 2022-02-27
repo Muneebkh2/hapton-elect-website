@@ -1,4 +1,4 @@
-#wrapper{visibility: hidden; opacity: 0;}
+/* #wrapper{visibility: hidden; opacity: 0;} */
 body {
     font-family: 'Roboto', sans-serif;
     font-size: 15px;
@@ -1437,12 +1437,15 @@ textarea {
     CATEGORY PAGE
 *--------------------*/
 
-.category-page .site-header .site-logo {
+.category-page .site-header .site-logo,
+.products-page .site-header .site-logo {
     position: relative;
 }
 
 .category-page .site-header .site-logo::before,
-.category-page .site-header .site-logo::after {
+.category-page .site-header .site-logo::after,
+.products-page .site-header .site-logo::before,
+.products-page .site-header .site-logo::after {
     content: "";
     display: block;
     position: absolute;
@@ -1455,7 +1458,8 @@ textarea {
     z-index: -1;
 }
 
-.category-page .site-header .site-logo::after {
+.category-page .site-header .site-logo::after,
+.products-page .site-header .site-logo::after {
     left: -75px;
     background: #007be7;
     z-index: -2;
@@ -1466,7 +1470,8 @@ textarea {
     flex-direction: column;
     justify-content: space-evenly;
 }
-.category-page .site-header .menu {
+.category-page .site-header .menu,
+.products-page .site-header .menu {
     list-style: none;
     margin: 0 0 10px;
     padding: 0;
@@ -1475,14 +1480,16 @@ textarea {
     justify-content: flex-end;
 }
 
-.category-page .site-header .menu a {
+.category-page .site-header .menu a,
+.products-page .site-header .menu a {
     padding: 5px 10px;
     transition: color 150ms cubic-bezier(0.215, 0.61, 0.355, 1), opacity 150ms cubic-bezier(0.215, 0.61, 0.355, 1), transform 150ms cubic-bezier(0.215, 0.61, 0.355, 1);
     font-family: Montserrat,sans-serif;
     text-transform: uppercase;
 }
 
-.category-page .site-header .page-title {
+.category-page .site-header .page-title,
+.products-page .site-header .page-title {
     text-transform: capitalize;
     /* margin-right: 100px; */
     text-align: center;
@@ -2209,21 +2216,26 @@ select.form-control:not([size]):not([multiple]) {
         padding-left: 0;
     }
     /* Category page css */
-    .category-page .category-header-right {
+    .category-page .category-header-right,
+    .products-page .category-header-right {
         display: block;
         margin-top: 30px;
     }
-    .category-page .site-header .menu {
+    .category-page .site-header .menu,
+    .products-page .site-header .menu {
         flex-wrap: wrap;
         justify-content: space-between;
     }
-    .category-page .site-header .menu a {
+    .category-page .site-header .menu a,
+    .products-page .site-header .menu a {
         padding: 5px 8px;
     }
-    .category-page header.site-header {
+    .category-page header.site-header,
+    .products-page header.site-header {
         padding: 20px 0;
     }
-    .category-page .site-header .page-title {
+    .category-page .site-header .page-title,
+    .products-page .site-header .page-title {
         margin-right: 0;
     }
 
