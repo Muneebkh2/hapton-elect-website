@@ -8,7 +8,7 @@
                 <div class="slide-content-box--inner">
                     <h1>HAPTON ELECT SWITCHES</h1>
                     <p>Turn on your home with style with the Hapton Switches comprehensive range to suit your home.</p>
-                    <img src="assets/slide-switches.jpg" alt="" class="img-fluid" />
+                    <img src="assets/slide-img-1.png" alt="" class="img-fluid" />
                 </div>
             </div>
         </div>
