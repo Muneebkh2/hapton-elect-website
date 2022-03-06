@@ -26,7 +26,7 @@ class CategoriesTableSeeder extends Seeder
             ],
             [
                 // 'name' => 'Commercial Lights',
-                'name' => 'MODERN LUMI`NAIRES',
+                'name' => 'MODERN LUMINAIRES',
                 // 'image' => 'assets/category/images/commercial_lights.png',
                 'image' => 'assets/category/images/lights_category.png',
                 'bg_image' => 'assets/category/images/commercial_lights_bg.jpg'
@@ -104,22 +104,40 @@ class CategoriesTableSeeder extends Seeder
                 'bg_image' => 'assets/category/images/switches/switches_weatherproof_bg.jpg'
             ],
             [
-                'name' => 'LED Exit Signs',
+                'name' => 'MULTI-USAGE EXIT SIGN LIGHTS',
                 'parent_id' => 3,
-                'image' => 'assets/category/images/switches/switches_weatherproof.png',
-                'bg_image' => 'assets/category/images/switches/switches_weatherproof_bg.jpg'
+                'image' => 'assets/category/images/emergency/emergency_multi_exit_signlight.png',
+                'bg_image' => 'assets/category/images/emergency/emergency_multi_exit_signlight_bg.jpg'
             ],
             [
-                'name' => 'LED Exit Lights',
+                'name' => 'SPECIALIZED EXIT SIGN LIGHTS',
                 'parent_id' => 3,
-                'image' => 'assets/category/images/switches/switches_weatherproof.png',
-                'bg_image' => 'assets/category/images/switches/switches_weatherproof_bg.jpg'
+                'image' => 'assets/category/images/emergency/emergency_special_exit_signlight.png',
+                'bg_image' => 'assets/category/images/emergency/emergency_special_exit_signlight_bg.jpg'
             ],
             [
-                'name' => 'Emergency Drivers',
+                'name' => 'EMERGENCY RECESSED DOWNlIGHT',
                 'parent_id' => 3,
-                'image' => 'assets/category/images/switches/switches_weatherproof.png',
-                'bg_image' => 'assets/category/images/switches/switches_weatherproof_bg.jpg'
+                'image' => 'assets/category/images/emergency/emergency_downlight.png',
+                'bg_image' => 'assets/category/images/emergency/emergency_downlight_bg.jpg'
+            ],
+            [
+                'name' => 'EMERGENCY SURFACE DOWNlIGHT & BAR LIGHT',
+                'parent_id' => 3,
+                'image' => 'assets/category/images/emergency/emergency_downlight_bar.png',
+                'bg_image' => 'assets/category/images/emergency/emergency_downlight_bar_bg.jpg'
+            ],
+            [
+                'name' => 'EMERGENCY TWIN-SPOTLIGHT',
+                'parent_id' => 3,
+                'image' => 'assets/category/images/emergency/emergency_twinspot.png',
+                'bg_image' => 'assets/category/images/emergency/emergency_twinspot_bg.jpg'
+            ],
+            [
+                'name' => 'LED EMERGENCY DRIVERS',
+                'parent_id' => 3,
+                'image' => 'assets/category/images/emergency/emergency_drivers.png',
+                'bg_image' => 'assets/category/images/emergency/emergency_drivers_bg.jpg'
             ],
             [
                 'name' => 'Microwave Sensors',
