@@ -88,6 +88,40 @@
                     <input type="button" class="btn btn-lg  btn-style" id="add_attribute" value="Add Attribute" />
                 </div>
             </div>
+
+
+            <div class="col-12 form-group">
+                <h3>Add Product Table</h3>
+                <h4>Add Product Table Header</h4>
+                <table id="product_dynamic_table" class=" table">
+                    <thead id="product_dyn_header">
+                        <tr>
+                            <td><input type="text" name="product_tbl_header[1]" class="form-control" required /></td>
+                        </tr>
+                    </thead>
+                    <tbody id="product_dyn_body">
+                        <tr>
+                            <td >
+                                <input type="text" name="product_tbl_body[1][1]" class="form-control" required />
+                            </td>
+                            
+                            <!-- <td class="col-sm-2">
+                                <a class="deleteRow"></a>
+                            </td> -->
+                        </tr>
+                    </tbody>
+                </table>
+                <div class=" d-flex justify-content-end">
+                    <input type="button" class="btn btn-lg  btn-style" id="add_header_column" value="Add Header column" />
+                    <input type="button" class="btn btn-lg  btn-style" id="add_body_row" value="Add Table Row" />
+                    <input type="button" class="btn btn-lg  btn-style" id="remove_header_column" value="Remove Header column" />
+                    <input type="button" class="btn btn-lg  btn-style" id="remove_body_row" value="Remove Table Row" />
+                </div>
+            </div>
+
+
+
+
             <div class="col-12 form-group">
                 <h3>Manufacturing Partner</h3>
                 <input type="file" name="manufacturer_partners[]" multiple id="gallery-photo-add">
@@ -275,6 +309,69 @@ $(document).ready(function () {
         newRow.append(cols);
         $("table.order-list").append(newRow);
         counter++;
+    });
+
+
+
+    var product_dyn_count = 1;
+    $("#add_header_column").on("click", function () {
+        var newRow = $("<tr>");
+        var headercols = "";
+//        var bodycols  = "";
+        product_dyn_count++;
+        headercols += '<td><input type="text" name="product_tbl_header['+product_dyn_count+']" class="form-control" required=""></td>';
+        
+        $("#product_dyn_header tr").append(headercols);
+
+
+        var bodycols  = "";
+        var productDynBodyCount = $("#product_dyn_body tr").length
+        
+
+
+        $("#product_dyn_body tr").each(function(index, tr){
+            trIndex = ++index;
+            console.log("tr index" , index + "==> " +  trIndex);
+            bodycols = '<td><input type="text" name="product_tbl_body['+trIndex+']['+product_dyn_count+']" class="form-control" required /></td>';
+             console.log(tr)
+             $(tr).append(bodycols);
+        });
+
+    });
+
+    $("#remove_header_column").on("click", function () {
+        if($('#product_dyn_header tr:first td').length > 1){
+            product_dyn_count--;
+            $('#product_dyn_header tr:first td:last').remove(); 
+
+          $("#product_dyn_body tr").each(function(index, tr){
+             
+             $(tr).find('td:last').remove()
+          });         
+        }
+    });
+
+
+    $("#add_body_row").on("click", function(){
+        //var firstTr = $('#product_dyn_body tr:first').html()
+        var tdcol = "";
+        $('#product_dyn_body tr:first td').each(function(index, tr){
+             tdKey = ++index
+             productDynBodyCount = $("#product_dyn_body tr").length;
+             productDynBodyCount++ 
+             tdcol += '<td><input type="text" name="product_tbl_body['+productDynBodyCount+']['+tdKey+']" class="form-control" required /></td>'
+             
+          });      
+
+        var newRow = $("<tr>");
+        newRow.append(tdcol);
+        $('#product_dyn_body').append(newRow);
+    });
+
+    $("#remove_body_row").on("click", function(){
+        if($('#product_dyn_body tr').length > 1){
+            $('#product_dyn_body tr:last').remove();            
+        }
     });
 
 

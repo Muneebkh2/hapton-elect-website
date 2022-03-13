@@ -10,6 +10,7 @@ use App\Models\Attribute;
 use App\Models\Category;
 use App\Services\HelperService;
 use Illuminate\Support\Str;
+use Illuminate\Http\Request;
 
 class ProductController extends Controller
 {
@@ -42,11 +43,17 @@ class ProductController extends Controller
      * @param  \App\Http\Requests\StoreProductRequest  $request
      * @return \Illuminate\Http\Response
      */
+    //public function store(Request $request)
     public function store(StoreProductRequest $request)
     {
         $data = $request->all();
+
+        $data['dynamic_table_header'] = json_encode($request->get('product_tbl_header'));
+        $data['dynamic_table_body'] = json_encode($request->get('product_tbl_body'));
+
         $data['slug'] = Str::slug($request->name);
         $product =  Product::create($data);
+        dd($data);
         if(count($request->attribute_name) > 0)
         {
             foreach($request->attribute_name as $key => $attribute){

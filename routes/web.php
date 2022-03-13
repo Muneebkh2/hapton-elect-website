@@ -47,3 +47,48 @@ Route::group(['namespace' => '\App\Http\Controllers\Admin', 'as' => 'admin::', '
 });
 
 // Route::get('/home', [App\Http\Controllers\HomeController::class, 'index'])->name('home');
+
+
+
+
+
+$data = json_decode('{
+"table_header" : {
+  "1" : "article code",
+  "2" : "Description",
+  "3" : "Nominal Plate Size",
+  "4" : "Min. Wall Box Depth",
+  "5" : "BSI"
+  },
+  "table_values" : {
+    "1" : {
+      "1" : "FBS11A",
+      "2" : "1 Gang 1 Way 10 A Switch",
+      "3" : "87x87",
+      "4" : "25",
+      "5" : "BS EN 60669-1"
+    },
+     "2" : {
+      "1" : "FBS11B",
+      "2" : "1 Gang 2 Way 10 A Switch",
+      "3" : "87x87",
+      "4" : "25",
+      "5" : "BS EN 60669-1"
+    }
+    
+  }  
+  
+}');
+$newData = collect($data);
+
+
+// foreach ($newData["table_header"] as $key => $value) {
+// 	dump($key . " " . $value);	# code...
+// }
+
+// dd("asd");
+
+ // @foreach ($productBodyItem => $productBodyRow)
+                               
+ //                                <td></td>
+ //                            @endforeach
