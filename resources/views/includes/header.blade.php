@@ -3,7 +3,7 @@
     <div class="container-fluid">
         <div class="d-flex justify-content-between">
             <div class="site-logo">
-                <a href="{{ route('home') }}"><img src="{{ asset('assets/Hapton-Logo.png') }}" alt="Hapton" class="img-fluid"></a>
+                <a href="{{ route('home') }}"><img src="{{ asset('assets/logo/hapton-logo-white.png') }}" alt="Hapton" class="img-fluid"></a>
             </div>
 
             <div class="navigation-toggle">

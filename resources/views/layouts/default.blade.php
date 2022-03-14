@@ -77,8 +77,9 @@
                     $('.loader-wrapper').hide();
                     $('#wrapper').css('visibility','visible');
                     $('#wrapper').css('opacity','1');
-                }, 3000);
+                }, 2000);
             });
+
             $(document).ready(function() {
 
                 $('.counter').counterUp({
@@ -170,7 +171,6 @@
                         inited = true;
                     }
                 });
-
 
 
                 $('.he-menu-opener').on('click', function() {

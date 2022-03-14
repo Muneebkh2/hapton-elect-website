@@ -3,7 +3,7 @@
 @section('content')
     <div id="main-slider" class="owl-carousel owl-theme">
         <div class="slide item">
-            <img src="assets/slider1.jpeg" alt="" class="img-fluid w-100" />
+            <img src="assets/slider/slider1.jpeg" alt="" class="img-fluid w-100" />
             <div class="slide-content-box">
                 <div class="slide-content-box--inner">
                     <h1>HAPTON ELECT SWITCHES</h1>
@@ -13,7 +13,7 @@
             </div>
         </div>
         <div class="slide item">
-            <img src="assets/slider2.jpeg" alt="" class="img-fluid w-100" />
+            <img src="assets/slider/slider2.jpeg" alt="" class="img-fluid w-100" />
             <div class="slide-content-box">
                 <div class="slide-content-box--inner">
                     <h1>LIGHTS <br>TO <br> AMAZE U</h1>
@@ -23,7 +23,7 @@
             </div>
         </div>
         <div class="slide item">
-            <img src="assets/slider3.jpeg" alt="" class="img-fluid w-100" />
+            <img src="assets/slider/slider3.jpeg" alt="" class="img-fluid w-100" />
             <div class="slide-content-box">
                 <div class="slide-content-box--inner">
                     <h1>KEEPING <br/> IT <br/> ON ALWAYS</h1>
