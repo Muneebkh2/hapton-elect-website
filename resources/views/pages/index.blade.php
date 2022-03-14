@@ -16,7 +16,7 @@
             <img src="assets/slider/slider2.jpeg" alt="" class="img-fluid w-100" />
             <div class="slide-content-box">
                 <div class="slide-content-box--inner">
-                    <h1>LIGHTS <br>TO <br> AMAZE U</h1>
+                    <h1>LIGHTS <br>TO <br> AMAZE US</h1>
                     <p>Perfect lighting for your elegant interiors. Hapton Downlights & Spotlights are made for you.</p>
                     <img src="assets/slide-img-2.png" alt="" class="img-fluid" />
                 </div>
@@ -59,17 +59,17 @@
                 </div>
                 <div class="col-lg-auto mt-4 mt-lg-0">
                     <div class="category text-center">
-                        <a href="{{url('category/pir-microwave-motion-sensors')}}">
-                            <img src="{{ asset('/assets/Sensors.jpg') }}" alt="" class="img-fluid" />
-                            <span class="category-title">Sensors</span>
+                        <a href="category/emergency-std-exit-lights">
+                            <img src="{{ asset('/assets/EM-Lights.jpg') }}" alt="" class="img-fluid" />
+                            <span class="category-title">EM Lights</span>
                         </a>
                     </div>
                 </div>
                 <div class="col-lg-auto mt-md-4">
                     <div class="category text-center">
-                        <a href="category/emergency-std-exit-lights">
-                            <img src="{{ asset('/assets/EM-Lights.jpg') }}" alt="" class="img-fluid" />
-                            <span class="category-title">EM Lights</span>
+                        <a href="{{url('category/pir-microwave-motion-sensors')}}">
+                            <img src="{{ asset('/assets/Sensors.jpg') }}" alt="" class="img-fluid" />
+                            <span class="category-title">Sensors</span>
                         </a>
                     </div>
                 </div>
