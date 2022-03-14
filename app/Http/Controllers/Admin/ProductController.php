@@ -53,7 +53,7 @@ class ProductController extends Controller
 
         $data['slug'] = Str::slug($request->name);
         $product =  Product::create($data);
-        dd($data);
+        
         if(count($request->attribute_name) > 0)
         {
             foreach($request->attribute_name as $key => $attribute){
@@ -63,6 +63,7 @@ class ProductController extends Controller
                 $product->attributes()->create($attributes);
             }
         }
+        dd($data);
         HelperService::uploadFile($request->product_image, $product->id, Product::class, 'product_image', 'product');
         HelperService::uploadFiles($request->manufacturer_partners, $product->id, Product::class, 'manufacturer_partners', 'product');
         HelperService::uploadFiles($request->product_document, $product->id, Product::class, 'product_document', 'product');
@@ -78,6 +79,21 @@ class ProductController extends Controller
     public function show(Product $product)
     {
         //
+        $categories = Category::all(['id', 'name']);
+        $image = $product->files()->where('type','product_image')->first();
+        $attributes = $product->attributes;
+
+        $manufacturerPartners = $product->files()->where('type','manufacturer_partners')->get();
+        $productDocument = $product->files()->where('type','product_document')->get();
+
+        return view('admin.products.create')->with([
+            'categories' => $categories,
+            'product' => $product,
+            'image' => $image,
+            'attributes' => $attributes,
+            'manufacturerPartners' => $manufacturerPartners,
+            'productDocument' => $productDocument,
+        ]);
     }
 
     /**

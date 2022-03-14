@@ -2,6 +2,7 @@
 
 @section('content')
 @include('common.partials.flash')
+
 <div class="container my-5" style="padding-left:150px; padding-right:150px;">
     <h1>Add Product</h1>
     <form class="add-product_form" action="{{ url('admin/products') }}" method="post" enctype='multipart/form-data'>
@@ -9,7 +10,9 @@
         <div class="row">
             <div class="col-md-6 form-group">
                 <label for="name" class="@error('name') text-danger @enderror">Name <span class="text-danger">*</span></label>
-                <input class="form-control mb-1" type="text" name="name">
+                <input class="form-control mb-1" type="text" name="name"
+value="{{ isset($product)?$product->name : '' }}" 
+                >
                 @error('name')
                     <span class="form-text text-danger">{{ $message }}</span>
                 @enderror
@@ -20,7 +23,9 @@
                 <select class="form-control" name="category_id">
                     <option value="" disabled selected> Please select category </option>
                     @foreach ($categories as $category)
-                    <option value="{{ $category->id }}"> {{ $category->name }} </option>
+                    <option value="{{ $category->id }}"
+                        {{ (isset($product) && $product->category_id == $category->id) ? "selected" : ""  }}    
+                        > {{ $category->name }} </option>
                     @endforeach
                 </select>
                 @error('category_id')
@@ -66,6 +71,33 @@
                         </tr>
                     </thead>
                     <tbody>
+                        @if(isset($attributes) && count($attributes) > 0)
+
+                        @foreach($attributes as $attribute)
+                        <tr>
+                            <td class="col-sm-4">
+                                <input type="text" name="attribute_name[]" class="form-control" 
+                                value="{{ $attribute->name }}" 
+                                required />
+                            </td>
+                            <td class="col-sm-4">
+                                <select class="form-control" name="attribute_type[]" id="attribute_type" required>
+                                    <option value="text">Text</option>
+                                </select>
+                            </td>
+                            <td class="col-sm-3">
+                                <input type="text" name="attribute_value[]"  class="form-control"
+                                value="{{ $attribute->value }}"
+                                 required/>
+                            </td>
+                            <td class="col-sm-2">
+                                <a class="deleteRow"></a>
+                            </td>
+                        </tr>
+
+                        @endforeach
+
+                        @else
                         <tr>
                             <td class="col-sm-4">
                                 <input type="text" name="attribute_name[]" class="form-control" required />
@@ -82,6 +114,9 @@
                                 <a class="deleteRow"></a>
                             </td>
                         </tr>
+
+                        @endif
+                        
                     </tbody>
                 </table>
                 <div class=" d-flex justify-content-end">
@@ -94,9 +129,47 @@
                 <h3>Add Product Table</h3>
                 <h4>Add Product Table Header</h4>
                 <table id="product_dynamic_table" class=" table">
-                    <thead id="product_dyn_header">
+                    @if(isset($product)) 
+                    @php
+                        $dynamic_table_header = collect($product->dynamic_table_header);
+                        $dynamic_table_body = collect($product->dynamic_table_body);
+                    @endphp 
+                     
+                        <thead id="product_dyn_header">
+                           
+                            <tr>
+                                 @foreach($dynamic_table_header as $key => $value)
+                                <td><input type="text" name="product_tbl_header[{{ $key }}]" class="form-control"
+                                  value="{{ $value }}" 
+                                 required /></td>
+                                 @endforeach
+                            </tr>
+
+                        </thead>
+                     
+                    
+                        <tbody id="product_dyn_body">
+                            @foreach($dynamic_table_body as $key => $rowArray)
+                            <tr>
+                                @foreach($rowArray as $innerKey => $value)
+                                    <td >
+                                        <input type="text" name="product_tbl_body[{{ $key }}][{{ $innerKey }}]" 
+                                        value="{{  $value }}" 
+
+                                        class="form-control" required />
+                                    </td>
+                                @endforeach
+
+                            </tr>
+                            @endforeach
+                        </tbody>
+                     @else
+                   
+
+                   <thead id="product_dyn_header">
                         <tr>
-                            <td><input type="text" name="product_tbl_header[1]" class="form-control" required /></td>
+                            <td><input type="text" name="product_tbl_header[1]" class="form-control"
+                             required /></td>
                         </tr>
                     </thead>
                     <tbody id="product_dyn_body">
@@ -104,12 +177,11 @@
                             <td >
                                 <input type="text" name="product_tbl_body[1][1]" class="form-control" required />
                             </td>
-                            
-                            <!-- <td class="col-sm-2">
-                                <a class="deleteRow"></a>
-                            </td> -->
+                          
                         </tr>
                     </tbody>
+
+                @endif    
                 </table>
                 <div class=" d-flex justify-content-end">
                     <input type="button" class="btn btn-lg  btn-style" id="add_header_column" value="Add Header column" />

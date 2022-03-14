@@ -88,7 +88,3 @@ $newData = collect($data);
 
 // dd("asd");
 
- // @foreach ($productBodyItem => $productBodyRow)
-                               
- //                                <td></td>
- //                            @endforeach
