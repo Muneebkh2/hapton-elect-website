@@ -2317,6 +2317,20 @@ select.form-control:not([size]):not([multiple]) {
 }
 /**** Hannan's CSS End ****/
 
+nav.admin-navigation > div > ul {
+    display: flex;
+    justify-content: space-between;
+    /*float: left;*/
+    /*margin-left: auto;*/
+    position: absolute;
+}
+
+nav.admin-navigation > div > ul li {
+    list-style: none;
+    padding: 0px 20px;
+    font-weight: bold;
+}
+
 /* ----------- iPad Pro 12.9" ----------- */
 
 /* Portrait and Landscape */
