@@ -3,7 +3,10 @@
     <div class="container-fluid">
         <div class="d-flex align-items-start align-items-lg-stretch justify-content-between">
             <div class="site-logo">
-                <a href="{{ route('home') }}"><img src="{{asset('assets/Hapton-Logo1.png')}}" alt="Hapton" class="img-fluid"></a>
+                <a href="{{ route('home') }}">
+                    <img src="{{asset('assets/Hapton-Logo1.png')}}" alt="Hapton" class="img-fluid d-none d-sm-block">
+                    <img src="{{asset('assets/logo/hapton-logo-black.png')}}" alt="Hapton" class="img-fluid d-sm-none">
+                </a>
             </div>
             <div class="navigation-toggle d-block d-lg-none">
                 <a href="javascript:void(0)" class="he-menu-opener">
