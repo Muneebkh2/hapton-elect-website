@@ -138,7 +138,7 @@ value="{{ isset($product)?$product->name : '' }}"
                 <h3>Add Product Table</h3>
 
                 <table id="product_dynamic_table" class=" table">
-                    @if(isset($product)) 
+                    @if(isset($product) && $product->dynamic_table_header != null) 
                     @php
                         $dynamic_table_header = collect($product->dynamic_table_header);
                         $dynamic_table_body = collect($product->dynamic_table_body);
