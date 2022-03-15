@@ -48,7 +48,9 @@ class ProductController extends Controller
     {
         $data = $request->all();
 
-        $data['dynamic_table_header'] = json_encode($request->get('product_tbl_header'));
+        if(isJson('product_tbl_header')){
+            $data['dynamic_table_header'] = json_encode($request->get('product_tbl_header'));
+        }
         $data['dynamic_table_body'] = json_encode($request->get('product_tbl_body'));
 
         $data['slug'] = Str::slug($request->name);
@@ -63,11 +65,55 @@ class ProductController extends Controller
                 $product->attributes()->create($attributes);
             }
         }
-        dd($data);
+       
         HelperService::uploadFile($request->product_image, $product->id, Product::class, 'product_image', 'product');
         HelperService::uploadFiles($request->manufacturer_partners, $product->id, Product::class, 'manufacturer_partners', 'product');
         HelperService::uploadFiles($request->product_document, $product->id, Product::class, 'product_document', 'product');
         return redirect()->route('admin::products.index')->with('success', 'Product hasbeen created successfully');
+    }
+
+
+    public function updateProduct(UpdateProductRequest $request, Product $product)
+    {
+
+        $data = [];
+        $product->name = $request->name;
+        $product->category_id = $request->category_id; 
+        $product->slug = Str::slug($request->name);
+        $product->dynamic_table_header = json_encode($request->get('product_tbl_header'));
+        $product->dynamic_table_body = json_encode($request->get('product_tbl_body'));
+        $product->save();
+        
+
+        if(count($request->attribute_name) > 0)
+        {
+            $product->attributes()->delete();
+
+            foreach($request->attribute_name as $key => $attribute){
+                $attributes['name'] = $request->attribute_name[$key];
+                $attributes['type'] = $request->attribute_type[$key];
+                $attributes['value'] = $request->attribute_value[$key];
+                $product->attributes()->create($attributes);
+            }
+        }
+        
+        if($request->has('product_image')){  
+            $product->files()->where('type','product_document')->delete();
+            HelperService::uploadFile($request->product_image, $product->id, Product::class, 'product_image', 'product');            
+        }
+
+
+        if($request->has('manufacturer_partners')){
+            HelperService::uploadFiles($request->manufacturer_partners, $product->id, Product::class, 'manufacturer_partners', 'product');
+        }
+
+        if($request->has('product_document')){
+            HelperService::uploadFiles($request->product_document, $product->id, Product::class, 'product_document', 'product');
+        }
+        return redirect()->route('admin::products.index')->with('success', 'Product has been updated successfully');
+
+
+       
     }
 
     /**
@@ -129,4 +175,6 @@ class ProductController extends Controller
     {
         //
     }
+
+    
 }

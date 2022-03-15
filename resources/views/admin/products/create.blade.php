@@ -5,7 +5,13 @@
 
 <div class="container my-5" style="padding-left:150px; padding-right:150px;">
     <h1>Add Product</h1>
+    @if(isset($product))
+    <form class="add-product_form" action="{{ url('admin/products/'.$product->id.'/update') }}" method="post" enctype='multipart/form-data'>
+    @else
     <form class="add-product_form" action="{{ url('admin/products') }}" method="post" enctype='multipart/form-data'>
+    @endif
+
+
         @csrf
         <div class="row">
             <div class="col-md-6 form-group">
@@ -73,7 +79,7 @@ value="{{ isset($product)?$product->name : '' }}"
                     <tbody>
                         @if(isset($attributes) && count($attributes) > 0)
 
-                        @foreach($attributes as $attribute)
+                        @foreach($attributes as $key => $attribute)
                         <tr>
                             <td class="col-sm-4">
                                 <input type="text" name="attribute_name[]" class="form-control" 
@@ -91,7 +97,10 @@ value="{{ isset($product)?$product->name : '' }}"
                                  required/>
                             </td>
                             <td class="col-sm-2">
-                                <a class="deleteRow"></a>
+                                @if($key != 0)
+                                <input type="button" class="ibtnDel btn btn-md btn-danger" value="Delete">
+                                @endif
+
                             </td>
                         </tr>
 
@@ -127,7 +136,7 @@ value="{{ isset($product)?$product->name : '' }}"
 
             <div class="col-12 form-group">
                 <h3>Add Product Table</h3>
-                <h4>Add Product Table Header</h4>
+
                 <table id="product_dynamic_table" class=" table">
                     @if(isset($product)) 
                     @php
@@ -141,7 +150,7 @@ value="{{ isset($product)?$product->name : '' }}"
                                  @foreach($dynamic_table_header as $key => $value)
                                 <td><input type="text" name="product_tbl_header[{{ $key }}]" class="form-control"
                                   value="{{ $value }}" 
-                                 required /></td>
+                                  /></td>
                                  @endforeach
                             </tr>
 
@@ -156,7 +165,7 @@ value="{{ isset($product)?$product->name : '' }}"
                                         <input type="text" name="product_tbl_body[{{ $key }}][{{ $innerKey }}]" 
                                         value="{{  $value }}" 
 
-                                        class="form-control" required />
+                                        class="form-control"  />
                                     </td>
                                 @endforeach
 
@@ -168,26 +177,29 @@ value="{{ isset($product)?$product->name : '' }}"
 
                    <thead id="product_dyn_header">
                         <tr>
-                            <td><input type="text" name="product_tbl_header[1]" class="form-control"
-                             required /></td>
+                            <td>
+                                <input type="text" name="product_tbl_header[1]" class="form-control"
+                              /></td>
+                             <td><input type="text" name="product_tbl_header[2]" class="form-control" ></td>
                         </tr>
                     </thead>
                     <tbody id="product_dyn_body">
                         <tr>
                             <td >
-                                <input type="text" name="product_tbl_body[1][1]" class="form-control" required />
+                                <input type="text" name="product_tbl_body[1][1]" class="form-control"  />
                             </td>
+                            <td><input type="text" name="product_tbl_body[1][2]" class="form-control" ></td>
                           
                         </tr>
                     </tbody>
 
                 @endif    
                 </table>
-                <div class=" d-flex justify-content-end">
-                    <input type="button" class="btn btn-lg  btn-style" id="add_header_column" value="Add Header column" />
-                    <input type="button" class="btn btn-lg  btn-style" id="add_body_row" value="Add Table Row" />
-                    <input type="button" class="btn btn-lg  btn-style" id="remove_header_column" value="Remove Header column" />
-                    <input type="button" class="btn btn-lg  btn-style" id="remove_body_row" value="Remove Table Row" />
+                <div class=" d-flex justify-content-center">
+                    <input type="button" class="btn btn-lg  btn-style mr-2 btn-success" id="add_header_column" value="Add Header column" />
+                    <input type="button" class="btn btn-lg  btn-style mr-2 btn-success" id="add_body_row" value="Add Table Row" />
+                    <input type="button" class="btn btn-lg  btn-style mr-2 btn-danger" id="remove_header_column" value="Remove Header column" />
+                    <input type="button" class="btn btn-lg  btn-style mr-2 btn-danger" id="remove_body_row" value="Remove Table Row" />
                 </div>
             </div>
 
@@ -240,7 +252,7 @@ value="{{ isset($product)?$product->name : '' }}"
 }
 
 .btn-style{
-    width: 20% !important;
+    width: 25% !important;
     margin-top: 20px;
 }
 
@@ -391,7 +403,7 @@ $(document).ready(function () {
         var headercols = "";
 //        var bodycols  = "";
         product_dyn_count++;
-        headercols += '<td><input type="text" name="product_tbl_header['+product_dyn_count+']" class="form-control" required=""></td>';
+        headercols += '<td><input type="text" name="product_tbl_header['+product_dyn_count+']" class="form-control" ></td>';
         
         $("#product_dyn_header tr").append(headercols);
 
@@ -404,7 +416,7 @@ $(document).ready(function () {
         $("#product_dyn_body tr").each(function(index, tr){
             trIndex = ++index;
             console.log("tr index" , index + "==> " +  trIndex);
-            bodycols = '<td><input type="text" name="product_tbl_body['+trIndex+']['+product_dyn_count+']" class="form-control" required /></td>';
+            bodycols = '<td><input type="text" name="product_tbl_body['+trIndex+']['+product_dyn_count+']" class="form-control" /></td>';
              console.log(tr)
              $(tr).append(bodycols);
         });
@@ -431,7 +443,7 @@ $(document).ready(function () {
              tdKey = ++index
              productDynBodyCount = $("#product_dyn_body tr").length;
              productDynBodyCount++ 
-             tdcol += '<td><input type="text" name="product_tbl_body['+productDynBodyCount+']['+tdKey+']" class="form-control" required /></td>'
+             tdcol += '<td><input type="text" name="product_tbl_body['+productDynBodyCount+']['+tdKey+']" class="form-control"  /></td>'
              
           });      
 

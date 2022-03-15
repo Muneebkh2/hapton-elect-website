@@ -35,14 +35,15 @@
                     @endforelse
                 </ul>
 
-                <h1 class="product-title mb-5">Chart</h1>
+                
                 @php
                     $productHeader = collect($product->dynamic_table_header);
                     $productBody = collect($product->dynamic_table_body);
                 @endphp
 
-                @if(count($productHeader) > 0)
-                <table class=" table order-list">
+                @if(count($productHeader) > 0 && $productHeader->get('1') != null)
+                <h4 >Chart</h4>
+                <table class=" table table-bordered">
                     <thead>
                         <tr>
                             @foreach ($productHeader as $headerKey => $valueKey)

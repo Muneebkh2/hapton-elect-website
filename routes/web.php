@@ -44,6 +44,9 @@ Route::get('/logout', '\App\Http\Controllers\Auth\LoginController@logout');
 
 Route::group(['namespace' => '\App\Http\Controllers\Admin', 'as' => 'admin::', 'prefix' => 'admin', 'middleware' => 'auth'], function() {
     Route::resource('products', \ProductController::class);
+
+    Route::post('products/{product}/update', [\App\Http\Controllers\Admin\ProductController::class,'updateProduct']);
+     
 });
 
 // Route::get('/home', [App\Http\Controllers\HomeController::class, 'index'])->name('home');
