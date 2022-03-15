@@ -3,7 +3,7 @@
 @section('content')
     <div id="main-slider" class="owl-carousel owl-theme">
         <div class="slide item">
-            <img src="assets/slider1.jpeg" alt="" class="img-fluid w-100" />
+            <img src="assets/slider/slider1.jpeg" alt="" class="img-fluid w-100" />
             <div class="slide-content-box">
                 <div class="slide-content-box--inner">
                     <h1>HAPTON ELECT SWITCHES</h1>
@@ -13,17 +13,17 @@
             </div>
         </div>
         <div class="slide item">
-            <img src="assets/slider2.jpeg" alt="" class="img-fluid w-100" />
+            <img src="assets/slider/slider2.jpeg" alt="" class="img-fluid w-100" />
             <div class="slide-content-box">
                 <div class="slide-content-box--inner">
-                    <h1>LIGHTS <br>TO <br> AMAZE U</h1>
+                    <h1>LIGHTS <br>TO <br> AMAZE US</h1>
                     <p>Perfect lighting for your elegant interiors. Hapton Downlights & Spotlights are made for you.</p>
                     <img src="assets/slide-img-2.png" alt="" class="img-fluid" />
                 </div>
             </div>
         </div>
         <div class="slide item">
-            <img src="assets/slider3.jpeg" alt="" class="img-fluid w-100" />
+            <img src="assets/slider/slider3.jpeg" alt="" class="img-fluid w-100" />
             <div class="slide-content-box">
                 <div class="slide-content-box--inner">
                     <h1>KEEPING <br/> IT <br/> ON ALWAYS</h1>
@@ -41,7 +41,7 @@
                 <h2>Switches ... Lights ... Sensors</h2>
             </div>
             <div class="row justify-content-around categories-row">
-                <div class="col-lg-auto mt-4 mt-lg-0">
+                <div class="col-lg-6 col-xl-auto mt-4 mt-lg-0">
                     <div class="category text-center">
                         <a href="{{url('category/metal-pvc-bl-wp-switches')}}">
                             <img src="{{ asset('/assets/Switches.jpg') }}" alt="" class="img-fluid" />
@@ -49,7 +49,7 @@
                         </a>
                     </div>
                 </div>
-                <div class="col-lg-auto mt-md-4">
+                <div class="col-lg-6 col-xl-auto mt-xl-4">
                     <div class="category text-center">
                         <a href="{{url('category/modern-luminaires')}}">
                             <img src="{{ asset('/assets/Lights.jpg') }}" alt="" class="img-fluid" />
@@ -57,19 +57,19 @@
                         </a>
                     </div>
                 </div>
-                <div class="col-lg-auto mt-4 mt-lg-0">
-                    <div class="category text-center">
-                        <a href="{{url('category/pir-microwave-motion-sensors')}}">
-                            <img src="{{ asset('/assets/Sensors.jpg') }}" alt="" class="img-fluid" />
-                            <span class="category-title">Sensors</span>
-                        </a>
-                    </div>
-                </div>
-                <div class="col-lg-auto mt-md-4">
+                <div class="col-lg-6 col-xl-auto mt-4 mt-lg-0">
                     <div class="category text-center">
                         <a href="category/emergency-std-exit-lights">
                             <img src="{{ asset('/assets/EM-Lights.jpg') }}" alt="" class="img-fluid" />
                             <span class="category-title">EM Lights</span>
+                        </a>
+                    </div>
+                </div>
+                <div class="col-lg-6 col-xl-auto mt-xl-4">
+                    <div class="category text-center">
+                        <a href="{{url('category/pir-microwave-motion-sensors')}}">
+                            <img src="{{ asset('/assets/Sensors.jpg') }}" alt="" class="img-fluid" />
+                            <span class="category-title">Sensors</span>
                         </a>
                     </div>
                 </div>
