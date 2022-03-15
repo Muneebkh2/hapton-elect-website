@@ -48,9 +48,7 @@ class ProductController extends Controller
     {
         $data = $request->all();
 
-        if(isJson('product_tbl_header')){
-            $data['dynamic_table_header'] = json_encode($request->get('product_tbl_header'));
-        }
+        $data['dynamic_table_header'] = json_encode($request->get('product_tbl_header'));
         $data['dynamic_table_body'] = json_encode($request->get('product_tbl_body'));
 
         $data['slug'] = Str::slug($request->name);
