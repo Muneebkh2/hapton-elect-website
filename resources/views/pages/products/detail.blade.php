@@ -37,6 +37,35 @@
                     @endforelse
                 </ul>
 
+                
+                @php
+                    $productHeader = collect($product->dynamic_table_header);
+                    $productBody = collect($product->dynamic_table_body);
+                @endphp
+
+                @if(count($productHeader) > 0 && $productHeader->get('1') != null)
+                <h4 >Chart</h4>
+                <table class=" table table-bordered">
+                    <thead>
+                        <tr>
+                            @foreach ($productHeader as $headerKey => $valueKey)
+                            <td>{{$valueKey}}</td>
+                            @endforeach
+                            
+                        </tr>
+                    </thead>
+                    <tbody>
+                        @foreach ($productBody as $productBodyItem)
+                        <tr>
+                            @foreach ($productBodyItem as $productBodyRow)
+                               <td>{{ $productBodyRow }}</td>
+                            @endforeach
+                        </tr>        
+                        @endforeach
+                    </tbody>
+                </table>
+                @endif
+
                 {{-- <h4>Models</h4>
                 <div class="table-responsive">
                     <table class="table">

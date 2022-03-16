@@ -2,14 +2,23 @@
 
 @section('content')
 @include('common.partials.flash')
+
 <div class="container my-5" style="padding-left:150px; padding-right:150px;">
     <h1>Add Product</h1>
+    @if(isset($product))
+    <form class="add-product_form" action="{{ url('admin/products/'.$product->id.'/update') }}" method="post" enctype='multipart/form-data'>
+    @else
     <form class="add-product_form" action="{{ url('admin/products') }}" method="post" enctype='multipart/form-data'>
+    @endif
+
+
         @csrf
         <div class="row">
             <div class="col-md-6 form-group">
                 <label for="name" class="@error('name') text-danger @enderror">Name <span class="text-danger">*</span></label>
-                <input class="form-control mb-1" type="text" name="name">
+                <input class="form-control mb-1" type="text" name="name"
+value="{{ isset($product)?$product->name : '' }}"
+                >
                 @error('name')
                     <span class="form-text text-danger">{{ $message }}</span>
                 @enderror
@@ -20,7 +29,9 @@
                 <select class="form-control" name="category_id">
                     <option value="" disabled selected> Please select category </option>
                     @foreach ($categories as $category)
-                    <option value="{{ $category->id }}"> {{ $category->name }} </option>
+                    <option value="{{ $category->id }}"
+                        {{ (isset($product) && $product->category_id == $category->id) ? "selected" : ""  }}
+                        > {{ $category->name }} </option>
                     @endforeach
                 </select>
                 @error('category_id')
@@ -66,6 +77,36 @@
                         </tr>
                     </thead>
                     <tbody>
+                        @if(isset($attributes) && count($attributes) > 0)
+
+                        @foreach($attributes as $key => $attribute)
+                        <tr>
+                            <td class="col-sm-4">
+                                <input type="text" name="attribute_name[]" class="form-control"
+                                value="{{ $attribute->name }}"
+                                required />
+                            </td>
+                            <td class="col-sm-4">
+                                <select class="form-control" name="attribute_type[]" id="attribute_type" required>
+                                    <option value="text">Text</option>
+                                </select>
+                            </td>
+                            <td class="col-sm-3">
+                                <input type="text" name="attribute_value[]"  class="form-control"
+                                value="{{ $attribute->value }}"
+                                 required/>
+                            </td>
+                            <td class="col-sm-2">
+                                @if($key != 0)
+                                <input type="button" class="ibtnDel btn btn-md btn-danger" value="Delete">
+                                @endif
+
+                            </td>
+                        </tr>
+
+                        @endforeach
+
+                        @else
                         <tr>
                             <td class="col-sm-4">
                                 <input type="text" name="attribute_name[]" class="form-control" required />
@@ -82,12 +123,111 @@
                                 <a class="deleteRow"></a>
                             </td>
                         </tr>
+
+                        @endif
+
                     </tbody>
                 </table>
                 <div class=" d-flex justify-content-end">
                     <input type="button" class="btn btn-lg  btn-style" id="add_attribute" value="Add Attribute" />
                 </div>
             </div>
+
+            <div class="col-12 form-group">
+                <h3>Add Tabels Data</h3>
+
+                <table id="product_dynamic_table" class=" table">
+                    @if(isset($product) && $product->dynamic_table_header != null)
+                    @php
+                        $dynamic_table_header = collect($product->dynamic_table_header);
+                        $dynamic_table_body = collect($product->dynamic_table_body);
+                    @endphp
+
+                        <thead id="product_dyn_header">
+                            <tr>
+                                 @foreach($dynamic_table_header as $key => $value)
+                                    <td>
+                                        <input type="text" name="product_tbl_header[{{ $key }}]" class="form-control" value="{{ $value }}" />
+                                    </td>
+                                 @endforeach
+                            </tr>
+                        </thead>
+
+                        <tbody id="product_dyn_body">
+                            @foreach($dynamic_table_body as $key => $rowArray)
+                            <tr>
+                                @foreach($rowArray as $innerKey => $value)
+                                    <td>
+                                        <input type="text" name="product_tbl_body[{{ $key }}][{{ $innerKey }}]"
+                                        value="{{  $value }}"
+
+                                        class="form-control"  />
+                                    </td>
+                                @endforeach
+                            </tr>
+                            @endforeach
+                        </tbody>
+                     @else
+
+
+                   <thead id="product_dyn_header">
+                        <tr>
+                            <td>
+                                <input type="text" placeholder="Enter Title.." name="product_tbl_header[1]" class="form-control"/>
+                            </td>
+                            <td>
+                                <input type="text" placeholder="Enter Title.." name="product_tbl_header[2]" class="form-control"/>
+                            </td>
+                            <td>
+                                <input type="text" placeholder="Enter Title.." name="product_tbl_header[3]" class="form-control"/>
+                            </td>
+                            <td>
+                                <input type="text" placeholder="Enter Title.." name="product_tbl_header[4]" class="form-control"/>
+                            </td>
+                            <td>
+                                <input type="text" placeholder="Enter Title.." name="product_tbl_header[5]" class="form-control"/>
+                            </td>
+                            <td>
+                                <input type="text" placeholder="Enter Title.." name="product_tbl_header[6]" class="form-control"/>
+                            </td>
+                        </tr>
+                    </thead>
+                    <tbody id="product_dyn_body">
+                        <tr>
+                            <td>
+                                <input type="text" placeholder="Enter Value.." name="product_tbl_body[1][1]" class="form-control"/>
+                            </td>
+                            <td>
+                                <input type="text" placeholder="Enter Value.." name="product_tbl_body[1][2]" class="form-control"/>
+                            </td>
+                            <td>
+                                <input type="text" placeholder="Enter Value.." name="product_tbl_body[1][3]" class="form-control"/>
+                            </td>
+                            <td>
+                                <input type="text" placeholder="Enter Value.." name="product_tbl_body[1][4]" class="form-control"/>
+                            </td>
+                            <td>
+                                <input type="text" placeholder="Enter Value.." name="product_tbl_body[1][5]" class="form-control"/>
+                            </td>
+                            <td>
+                                <input type="text" placeholder="Enter Value.." name="product_tbl_body[1][6]" class="form-control"/>
+                            </td>
+                        </tr>
+                    </tbody>
+
+                @endif
+                </table>
+                <div class=" d-flex justify-content-center">
+                    <input type="button" class="btn btn-lg btn-style mr-2 btn-success cs-hide-btn" id="add_header_column" value="Add Header column" />
+                    <input type="button" class="btn btn-lg btn-style mr-2 btn-success" id="add_body_row" value="Add Table Row" />
+                    <input type="button" class="btn btn-lg btn-style mr-2 btn-danger cs-hide-btn" id="remove_header_column" value="Remove Header column" />
+                    <input type="button" class="btn btn-lg btn-style mr-2 btn-danger" id="remove_body_row" value="Remove Table Row" />
+                </div>
+            </div>
+
+
+
+
             <div class="col-12 form-group">
                 <h3>Manufacturing Partner</h3>
                 <input type="file" name="manufacturer_partners[]" multiple id="gallery-photo-add">
@@ -98,11 +238,18 @@
                 <input type="file" name="product_document[]" multiple id="product-document-add">
                 <div class="document_info"></div>
             </div>
-            <div class="col-12 d-flex justify-content-end">
-                <input type="submit" class="btn btn-lg btn-block btn-style" id="btn_submit" value="Create" />
+            <div class="col-12 form-group">
+                <h3>Product Background Image</h3>
+                <input type="file" name="bg_image" id="product-bg-image">
+                <div class="bg_image_preview"></div>
             </div>
-
-
+            <div class="col-12 d-flex justify-content-end">
+                @if(isset($product))
+                <input type="submit" class="btn btn-lg btn-block btn-style" id="btn_submit" value="Update Product" />
+                @else
+                <input type="submit" class="btn btn-lg btn-block btn-style" id="btn_submit" value="Create Product" />
+                @endif
+            </div>
 
         </div>
     </form>
@@ -113,6 +260,9 @@
 <link rel="stylesheet" href="//code.jquery.com/ui/1.12.1/themes/base/jquery-ui.css">
 
 <style type="text/css">
+.cs-hide-btn {
+    display: none;
+}
 .upload-wrapper h5, h6 {
     color: black !important;
 }
@@ -134,7 +284,7 @@
 }
 
 .btn-style{
-    width: 20% !important;
+    width: 25% !important;
     margin-top: 20px;
 }
 
@@ -279,6 +429,66 @@ $(document).ready(function () {
 
 
 
+    var product_dyn_count = 1;
+    $("#add_header_column").on("click", function () {
+        var newRow = $("<tr>");
+        var headercols = "";
+//        var bodycols  = "";
+        product_dyn_count++;
+        headercols += '<td><input type="text" placeholder="Enter Title.." name="product_tbl_header['+product_dyn_count+']" class="form-control" ></td>';
+
+        $("#product_dyn_header tr").append(headercols);
+
+
+        var bodycols  = "";
+        var productDynBodyCount = $("#product_dyn_body tr").length
+
+
+
+        $("#product_dyn_body tr").each(function(index, tr){
+            trIndex = ++index;
+            console.log("tr index" , index + "==> " +  trIndex);
+            bodycols = '<td><input type="text" placeholder="Enter Value.." name="product_tbl_body['+trIndex+']['+product_dyn_count+']" class="form-control" /></td>';
+             console.log(tr)
+             $(tr).append(bodycols);
+        });
+
+    });
+
+    $("#remove_header_column").on("click", function () {
+        if($('#product_dyn_header tr:first td').length > 1){
+            product_dyn_count--;
+            $('#product_dyn_header tr:first td:last').remove();
+          $("#product_dyn_body tr").each(function(index, tr){
+             $(tr).find('td:last').remove()
+          });
+        }
+    });
+
+
+    $("#add_body_row").on("click", function(){
+        //var firstTr = $('#product_dyn_body tr:first').html()
+        var tdcol = "";
+        $('#product_dyn_body tr:first td').each(function(index, tr){
+             tdKey = ++index
+             productDynBodyCount = $("#product_dyn_body tr").length;
+             productDynBodyCount++
+             tdcol += '<td><input type="text" placeholder="Enter Value.." name="product_tbl_body['+productDynBodyCount+']['+tdKey+']" class="form-control"  /></td>'
+          });
+
+        var newRow = $("<tr>");
+        newRow.append(tdcol);
+        $('#product_dyn_body').append(newRow);
+    });
+
+    $("#remove_body_row").on("click", function(){
+        if($('#product_dyn_body tr').length > 1){
+            $('#product_dyn_body tr:last').remove();
+        }
+    });
+
+
+
     $("table.order-list").on("click", ".ibtnDel", function (event) {
         $(this).closest("tr").remove();
         counter -= 1
@@ -328,6 +538,10 @@ $(function() {
 
     $('#product-document-add').on('change', function () {
         displayFileInfo(this, 'div.document_info');
+    });
+
+    $('#product-bg-image').on('change', function () {
+        imagesPreview(this, 'div.bg_image_preview');
     });
 });
 
