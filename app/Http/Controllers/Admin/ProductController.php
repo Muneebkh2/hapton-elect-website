@@ -6,12 +6,9 @@ use App\Http\Controllers\Controller;
 use App\Models\Product;
 use App\Http\Requests\StoreProductRequest;
 use App\Http\Requests\UpdateProductRequest;
-use App\Models\Attribute;
 use App\Models\Category;
 use App\Services\HelperService;
-use GuzzleHttp\Psr7\Request;
 use Illuminate\Support\Str;
-use Illuminate\Http\Request;
 use Yajra\DataTables\DataTables;
 
 class ProductController extends Controller
