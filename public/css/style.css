@@ -2214,6 +2214,10 @@ select.form-control:not([size]):not([multiple]) {
 }
 
 @media (max-width: 767px){
+
+    #site-navigation .menu .menu-item > a {
+        font-size: 28px;
+    }
     h1 {font-size: 50px;}
     h2 {font-size: 34px;}
     h3 {font-size: 30px;}
