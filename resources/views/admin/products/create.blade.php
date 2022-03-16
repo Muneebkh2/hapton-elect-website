@@ -17,7 +17,7 @@
             <div class="col-md-6 form-group">
                 <label for="name" class="@error('name') text-danger @enderror">Name <span class="text-danger">*</span></label>
                 <input class="form-control mb-1" type="text" name="name"
-value="{{ isset($product)?$product->name : '' }}" 
+value="{{ isset($product)?$product->name : '' }}"
                 >
                 @error('name')
                     <span class="form-text text-danger">{{ $message }}</span>
@@ -30,7 +30,7 @@ value="{{ isset($product)?$product->name : '' }}"
                     <option value="" disabled selected> Please select category </option>
                     @foreach ($categories as $category)
                     <option value="{{ $category->id }}"
-                        {{ (isset($product) && $product->category_id == $category->id) ? "selected" : ""  }}    
+                        {{ (isset($product) && $product->category_id == $category->id) ? "selected" : ""  }}
                         > {{ $category->name }} </option>
                     @endforeach
                 </select>
@@ -82,8 +82,8 @@ value="{{ isset($product)?$product->name : '' }}"
                         @foreach($attributes as $key => $attribute)
                         <tr>
                             <td class="col-sm-4">
-                                <input type="text" name="attribute_name[]" class="form-control" 
-                                value="{{ $attribute->name }}" 
+                                <input type="text" name="attribute_name[]" class="form-control"
+                                value="{{ $attribute->name }}"
                                 required />
                             </td>
                             <td class="col-sm-4">
@@ -125,7 +125,7 @@ value="{{ isset($product)?$product->name : '' }}"
                         </tr>
 
                         @endif
-                        
+
                     </tbody>
                 </table>
                 <div class=" d-flex justify-content-end">
@@ -133,73 +133,95 @@ value="{{ isset($product)?$product->name : '' }}"
                 </div>
             </div>
 
-
             <div class="col-12 form-group">
-                <h3>Add Product Table</h3>
+                <h3>Add Tabels Data</h3>
 
                 <table id="product_dynamic_table" class=" table">
-                    @if(isset($product) && $product->dynamic_table_header != null) 
+                    @if(isset($product) && $product->dynamic_table_header != null)
                     @php
                         $dynamic_table_header = collect($product->dynamic_table_header);
                         $dynamic_table_body = collect($product->dynamic_table_body);
-                    @endphp 
-                     
+                    @endphp
+
                         <thead id="product_dyn_header">
-                           
                             <tr>
                                  @foreach($dynamic_table_header as $key => $value)
-                                <td><input type="text" name="product_tbl_header[{{ $key }}]" class="form-control"
-                                  value="{{ $value }}" 
-                                  /></td>
+                                    <td>
+                                        <input type="text" name="product_tbl_header[{{ $key }}]" class="form-control" value="{{ $value }}" />
+                                    </td>
                                  @endforeach
                             </tr>
-
                         </thead>
-                     
-                    
+
                         <tbody id="product_dyn_body">
                             @foreach($dynamic_table_body as $key => $rowArray)
                             <tr>
                                 @foreach($rowArray as $innerKey => $value)
-                                    <td >
-                                        <input type="text" name="product_tbl_body[{{ $key }}][{{ $innerKey }}]" 
-                                        value="{{  $value }}" 
+                                    <td>
+                                        <input type="text" name="product_tbl_body[{{ $key }}][{{ $innerKey }}]"
+                                        value="{{  $value }}"
 
                                         class="form-control"  />
                                     </td>
                                 @endforeach
-
                             </tr>
                             @endforeach
                         </tbody>
                      @else
-                   
+
 
                    <thead id="product_dyn_header">
                         <tr>
                             <td>
-                                <input type="text" name="product_tbl_header[1]" class="form-control"
-                              /></td>
-                             <td><input type="text" name="product_tbl_header[2]" class="form-control" ></td>
+                                <input type="text" placeholder="Enter Title.." name="product_tbl_header[1]" class="form-control"/>
+                            </td>
+                            <td>
+                                <input type="text" placeholder="Enter Title.." name="product_tbl_header[2]" class="form-control"/>
+                            </td>
+                            <td>
+                                <input type="text" placeholder="Enter Title.." name="product_tbl_header[3]" class="form-control"/>
+                            </td>
+                            <td>
+                                <input type="text" placeholder="Enter Title.." name="product_tbl_header[4]" class="form-control"/>
+                            </td>
+                            <td>
+                                <input type="text" placeholder="Enter Title.." name="product_tbl_header[5]" class="form-control"/>
+                            </td>
+                            <td>
+                                <input type="text" placeholder="Enter Title.." name="product_tbl_header[6]" class="form-control"/>
+                            </td>
                         </tr>
                     </thead>
                     <tbody id="product_dyn_body">
                         <tr>
-                            <td >
-                                <input type="text" name="product_tbl_body[1][1]" class="form-control"  />
+                            <td>
+                                <input type="text" placeholder="Enter Value.." name="product_tbl_body[1][1]" class="form-control"/>
                             </td>
-                            <td><input type="text" name="product_tbl_body[1][2]" class="form-control" ></td>
-                          
+                            <td>
+                                <input type="text" placeholder="Enter Value.." name="product_tbl_body[1][2]" class="form-control"/>
+                            </td>
+                            <td>
+                                <input type="text" placeholder="Enter Value.." name="product_tbl_body[1][3]" class="form-control"/>
+                            </td>
+                            <td>
+                                <input type="text" placeholder="Enter Value.." name="product_tbl_body[1][4]" class="form-control"/>
+                            </td>
+                            <td>
+                                <input type="text" placeholder="Enter Value.." name="product_tbl_body[1][5]" class="form-control"/>
+                            </td>
+                            <td>
+                                <input type="text" placeholder="Enter Value.." name="product_tbl_body[1][6]" class="form-control"/>
+                            </td>
                         </tr>
                     </tbody>
 
-                @endif    
+                @endif
                 </table>
                 <div class=" d-flex justify-content-center">
-                    <input type="button" class="btn btn-lg  btn-style mr-2 btn-success" id="add_header_column" value="Add Header column" />
-                    <input type="button" class="btn btn-lg  btn-style mr-2 btn-success" id="add_body_row" value="Add Table Row" />
-                    <input type="button" class="btn btn-lg  btn-style mr-2 btn-danger" id="remove_header_column" value="Remove Header column" />
-                    <input type="button" class="btn btn-lg  btn-style mr-2 btn-danger" id="remove_body_row" value="Remove Table Row" />
+                    <input type="button" class="btn btn-lg btn-style mr-2 btn-success cs-hide-btn" id="add_header_column" value="Add Header column" />
+                    <input type="button" class="btn btn-lg btn-style mr-2 btn-success" id="add_body_row" value="Add Table Row" />
+                    <input type="button" class="btn btn-lg btn-style mr-2 btn-danger cs-hide-btn" id="remove_header_column" value="Remove Header column" />
+                    <input type="button" class="btn btn-lg btn-style mr-2 btn-danger" id="remove_body_row" value="Remove Table Row" />
                 </div>
             </div>
 
@@ -216,11 +238,18 @@ value="{{ isset($product)?$product->name : '' }}"
                 <input type="file" name="product_document[]" multiple id="product-document-add">
                 <div class="document_info"></div>
             </div>
-            <div class="col-12 d-flex justify-content-end">
-                <input type="submit" class="btn btn-lg btn-block btn-style" id="btn_submit" value="Create" />
+            <div class="col-12 form-group">
+                <h3>Product Background Image</h3>
+                <input type="file" name="bg_image" id="product-bg-image">
+                <div class="bg_image_preview"></div>
             </div>
-
-
+            <div class="col-12 d-flex justify-content-end">
+                @if(isset($product))
+                <input type="submit" class="btn btn-lg btn-block btn-style" id="btn_submit" value="Update Product" />
+                @else
+                <input type="submit" class="btn btn-lg btn-block btn-style" id="btn_submit" value="Create Product" />
+                @endif
+            </div>
 
         </div>
     </form>
@@ -231,6 +260,9 @@ value="{{ isset($product)?$product->name : '' }}"
 <link rel="stylesheet" href="//code.jquery.com/ui/1.12.1/themes/base/jquery-ui.css">
 
 <style type="text/css">
+.cs-hide-btn {
+    display: none;
+}
 .upload-wrapper h5, h6 {
     color: black !important;
 }
@@ -403,20 +435,20 @@ $(document).ready(function () {
         var headercols = "";
 //        var bodycols  = "";
         product_dyn_count++;
-        headercols += '<td><input type="text" name="product_tbl_header['+product_dyn_count+']" class="form-control" ></td>';
-        
+        headercols += '<td><input type="text" placeholder="Enter Title.." name="product_tbl_header['+product_dyn_count+']" class="form-control" ></td>';
+
         $("#product_dyn_header tr").append(headercols);
 
 
         var bodycols  = "";
         var productDynBodyCount = $("#product_dyn_body tr").length
-        
+
 
 
         $("#product_dyn_body tr").each(function(index, tr){
             trIndex = ++index;
             console.log("tr index" , index + "==> " +  trIndex);
-            bodycols = '<td><input type="text" name="product_tbl_body['+trIndex+']['+product_dyn_count+']" class="form-control" /></td>';
+            bodycols = '<td><input type="text" placeholder="Enter Value.." name="product_tbl_body['+trIndex+']['+product_dyn_count+']" class="form-control" /></td>';
              console.log(tr)
              $(tr).append(bodycols);
         });
@@ -426,12 +458,10 @@ $(document).ready(function () {
     $("#remove_header_column").on("click", function () {
         if($('#product_dyn_header tr:first td').length > 1){
             product_dyn_count--;
-            $('#product_dyn_header tr:first td:last').remove(); 
-
+            $('#product_dyn_header tr:first td:last').remove();
           $("#product_dyn_body tr").each(function(index, tr){
-             
              $(tr).find('td:last').remove()
-          });         
+          });
         }
     });
 
@@ -442,10 +472,9 @@ $(document).ready(function () {
         $('#product_dyn_body tr:first td').each(function(index, tr){
              tdKey = ++index
              productDynBodyCount = $("#product_dyn_body tr").length;
-             productDynBodyCount++ 
-             tdcol += '<td><input type="text" name="product_tbl_body['+productDynBodyCount+']['+tdKey+']" class="form-control"  /></td>'
-             
-          });      
+             productDynBodyCount++
+             tdcol += '<td><input type="text" placeholder="Enter Value.." name="product_tbl_body['+productDynBodyCount+']['+tdKey+']" class="form-control"  /></td>'
+          });
 
         var newRow = $("<tr>");
         newRow.append(tdcol);
@@ -454,7 +483,7 @@ $(document).ready(function () {
 
     $("#remove_body_row").on("click", function(){
         if($('#product_dyn_body tr').length > 1){
-            $('#product_dyn_body tr:last').remove();            
+            $('#product_dyn_body tr:last').remove();
         }
     });
 
@@ -509,6 +538,10 @@ $(function() {
 
     $('#product-document-add').on('change', function () {
         displayFileInfo(this, 'div.document_info');
+    });
+
+    $('#product-bg-image').on('change', function () {
+        imagesPreview(this, 'div.bg_image_preview');
     });
 });
 

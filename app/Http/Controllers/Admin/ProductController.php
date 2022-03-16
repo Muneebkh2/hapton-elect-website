@@ -52,8 +52,12 @@ class ProductController extends Controller
         $data['dynamic_table_body'] = json_encode($request->get('product_tbl_body'));
 
         $data['slug'] = Str::slug($request->name);
+
+        if ($request->has('bg_image')) {
+            $data['bg_image'] = HelperService::uploadAndReturnFile(request('bg_image'), 'product');
+        }
         $product =  Product::create($data);
-        
+
         if(count($request->attribute_name) > 0)
         {
             foreach($request->attribute_name as $key => $attribute){
@@ -63,7 +67,7 @@ class ProductController extends Controller
                 $product->attributes()->create($attributes);
             }
         }
-       
+
         HelperService::uploadFile($request->product_image, $product->id, Product::class, 'product_image', 'product');
         HelperService::uploadFiles($request->manufacturer_partners, $product->id, Product::class, 'manufacturer_partners', 'product');
         HelperService::uploadFiles($request->product_document, $product->id, Product::class, 'product_document', 'product');
@@ -76,12 +80,16 @@ class ProductController extends Controller
 
         $data = [];
         $product->name = $request->name;
-        $product->category_id = $request->category_id; 
+        $product->category_id = $request->category_id;
         $product->slug = Str::slug($request->name);
         $product->dynamic_table_header = json_encode($request->get('product_tbl_header'));
         $product->dynamic_table_body = json_encode($request->get('product_tbl_body'));
+        if ($request->has('bg_image')) {
+            $product->bg_image = HelperService::uploadAndReturnFile(request('bg_image'), 'product');
+        }
+
         $product->save();
-        
+
 
         if(count($request->attribute_name) > 0)
         {
@@ -94,10 +102,10 @@ class ProductController extends Controller
                 $product->attributes()->create($attributes);
             }
         }
-        
-        if($request->has('product_image')){  
+
+        if($request->has('product_image')){
             $product->files()->where('type','product_document')->delete();
-            HelperService::uploadFile($request->product_image, $product->id, Product::class, 'product_image', 'product');            
+            HelperService::uploadFile($request->product_image, $product->id, Product::class, 'product_image', 'product');
         }
 
 
@@ -111,7 +119,7 @@ class ProductController extends Controller
         return redirect()->route('admin::products.index')->with('success', 'Product has been updated successfully');
 
 
-       
+
     }
 
     /**
@@ -174,5 +182,5 @@ class ProductController extends Controller
         //
     }
 
-    
+
 }

@@ -6,6 +6,10 @@ use Illuminate\Support\Facades\Storage;
 
 Class HelperService{
 
+    public static function uploadAndReturnFile($file, $path) {
+        return Storage::disk('public')->put($path, $file);
+    }
+
     /**
      *  Upload file to storage
      */
@@ -22,7 +26,6 @@ Class HelperService{
         ]);
         return;
     }
-
 
     /**
      *  Upload multiple files to storage
