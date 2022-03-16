@@ -28,6 +28,7 @@ class StoreProductRequest extends FormRequest
             'name' => ['required', 'string', 'max:255'],
             'category_id' => ['required', 'exists:categories,id'],
             'product_image' => ['required', 'image'],
+            'bg_image' => ['required', 'image'],
             'manufacturer_partners' => ['nullable', 'array'],
             'manufacturer_partners.*' => ['max:5120', 'image'],
         ];
