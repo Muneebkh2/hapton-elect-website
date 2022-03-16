@@ -2,7 +2,7 @@
 ARG PHP_VERSION=7.4
 ARG NGINX_VERSION=1.17
 
-FROM php:${PHP_VERSION}-fpm-alpine3.15 AS app_php
+FROM php:${PHP_VERSION}-fpm-alpine3.10 AS products_php
 
 # persistent / runtime deps
 RUN apk add --no-cache \
@@ -12,9 +12,9 @@ RUN apk add --no-cache \
         git \
         mariadb-client \
     ;
-ENV ALPINE_VERSION=3.15
+ENV ALPINE_VERSION=3.10
+ENV IMAGICK_VERSION=3.4.3
 ENV MONGODB_VERSION=1.6.1
-
 # Install & clean up dependencies
 RUN apk --no-cache --update --repository http://dl-cdn.alpinelinux.org/alpine/v$ALPINE_VERSION/main/ add \
     autoconf \
@@ -33,7 +33,8 @@ RUN apk --no-cache --update --repository http://dl-cdn.alpinelinux.org/alpine/v$
     libpng-dev \
     libjpeg-turbo \
     libjpeg-turbo-dev \
-    libxml2-dev \
+    imagemagick-dev \
+    imagemagick \
 && apk --no-cache --update --repository http://dl-3.alpinelinux.org/alpine/v3.5/community/ add \
     php7-gd \
     php7-sockets \
@@ -43,6 +44,7 @@ RUN apk --no-cache --update --repository http://dl-cdn.alpinelinux.org/alpine/v$
     php7-bcmath \
 && docker-php-ext-configure intl \
 && pecl install \
+    imagick-$IMAGICK_VERSION \
     # amqp-$AMQP_VERSION \
     mongodb-$MONGODB_VERSION \
 && docker-php-ext-install \
@@ -52,8 +54,8 @@ RUN apk --no-cache --update --repository http://dl-cdn.alpinelinux.org/alpine/v$
     intl \
     opcache \
     bcmath \
-    soap \
 && docker-php-ext-enable \
+    imagick \
     # amqp \
     mongodb \
 && apk --no-cache del \
@@ -61,6 +63,7 @@ RUN apk --no-cache --update --repository http://dl-cdn.alpinelinux.org/alpine/v$
     icu-dev \
     libpng-dev \
     libjpeg-turbo-dev \
+    imagemagick-dev \
     tar \
     autoconf \
     build-base \
@@ -72,11 +75,13 @@ COPY docker/php-fpm/php.ini /usr/local/etc/php/php.ini
 COPY docker/php-fpm/php-cli.ini /usr/local/etc/php/php-cli.ini
 COPY docker/php-fpm/zz-docker.conf /usr/local/etc/php-fpm.d/zzz-docker.conf
 
+#RUN sed -i 's/9000/3001/' /usr/local/etc/php-fpm.d/zz-docker.conf
+
 # https://getcomposer.org/doc/03-cli.md#composer-allow-superuser
 ENV COMPOSER_ALLOW_SUPERUSER=1
 ENV PATH="${PATH}:/root/.composer/vendor/bin"
 
-WORKDIR /var/www/
+WORKDIR /var/www/application
 
 # build for production
 ARG APP_ENV=production
@@ -96,10 +101,10 @@ ENTRYPOINT ["docker-entrypoint.sh"]
 CMD ["php-fpm"]
 
 # NGINX
-FROM nginx:${NGINX_VERSION}-alpine AS app_nginx
+FROM nginx:${NGINX_VERSION}-alpine AS products_nginx
 
 COPY docker/nginx/conf.d/default.conf /etc/nginx/conf.d/
 
-WORKDIR /var/www/
+WORKDIR /var/www/application
 
-# COPY --from=app_php /var/www/public public/
+COPY --from=products_php /var/www/application/public public/

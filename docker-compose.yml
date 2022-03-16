@@ -1,52 +1,44 @@
 version: '3.4'
 
-networks: 
-  hapton-elect:
-
 services:
-  nginx:
-    container_name: nginx
+  php-fpm:
     build:
       context: .
-      target: app_nginx
+      target: products_php
     volumes:
-      - ./public:/var/www/public
-    depends_on:
-      - php-fpm
-      - mysql
+      - .:/var/www/application
     ports:
-      - "81:81"
+      - "9001:9000"
     networks:
-      - hapton-elect
+      - product-ms
+
+  nginx:
+    build:
+      context: .
+      target: products_nginx
+    ports:
+      - "81:80"
+    hostname: products.local
+    networks:
+      - product-ms
 
   mysql:
     image: mariadb:10.6
-    container_name: mysql
+    container_name: products_mysql
     restart: unless-stopped
     tty: true
     ports:
-      - "3306:3306"
+      - 3307:3306
     environment:
-      MYSQL_DATABASE: homestead_hapton_elect
-      MYSQL_USER: homestead
-      MYSQL_PASSWORD: secret
-      MYSQL_ROOT_PASSWORD: secret
+      MYSQL_DATABASE: products_db
+      MYSQL_USER: root
+      MYSQL_PASSWORD: dbpassword
+      MYSQL_ROOT_PASSWORD: dbpassword
       SERVICE_TAGS: dev
       SERVICE_NAME: mysql
     networks:
-      - hapton-elect
+      - product-ms
 
-  php-fpm:
-    container_name: php
-    build:
-      context: .
-      target: app_php
-    volumes:
-      - .:/var/www
-      - ./docker/php-fpm/php.ini:/usr/local/etc/php/php.ini
-      - ./docker/php-fpm/php-cli.ini:/usr/local/etc/php/php-cli.ini
-      - ./docker/php-fpm/zz-docker.conf:/usr/local/etc/php-fpm.d/zzz-docker.conf
-    depends_on:
-      - mysql
-    networks:
-      - hapton-elect
+networks:
+  product-ms:
+    driver: bridge

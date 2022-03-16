@@ -9,8 +9,10 @@ use App\Http\Requests\UpdateProductRequest;
 use App\Models\Attribute;
 use App\Models\Category;
 use App\Services\HelperService;
+use GuzzleHttp\Psr7\Request;
 use Illuminate\Support\Str;
 use Illuminate\Http\Request;
+use Yajra\DataTables\DataTables;
 
 class ProductController extends Controller
 {
@@ -21,9 +23,21 @@ class ProductController extends Controller
      */
     public function index()
     {
+        /*$products = Product::with('attributes','files')->get();*/
+        return view('admin.products.index');
+    }
+
+    public function getProducts () {
         $products = Product::with('attributes','files')->get();
-        // return response()->json($products);
-        return view('admin.products.index')->with('products', $products);
+        return DataTables::of($products)
+            ->addIndexColumn()
+            ->addColumn('action', function($row){
+                /* $actionBtn = '<a href="'.url('/admin/products/'.$row->id).'" class="edit btn btn-success btn-sm">Edit</a> <a href="javascript:void(0)" class="delete btn btn-danger btn-sm">Delete</a>'; */
+                $actionBtn = '<a href="'.url('/admin/products/'.$row->id).'" class="edit btn btn-success btn">Edit</a>';
+                return $actionBtn;
+            })
+            ->rawColumns(['action'])
+            ->make(true);
     }
 
     /**

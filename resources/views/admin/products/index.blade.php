@@ -4,44 +4,61 @@
 
 @include('common.partials.flash')
 
-<div class="container my-5" style="padding-left:150px; padding-right:150px;">
-    <div class="row">
-        <div class="col-8">
-            <h1>All Products</h1>
+<div class="container my-sm-5 my-0 pt-0 pt-sm-5">
+    <div class="row align-items-center admin-heading-row">
+        <div class="col-sm-8 col-8">
+            <h1 class="admin-page-title">All Products</h1>
         </div>
-        <div class="col-4">
-            <a href="{{ url('/admin/products/create') }}" class="btn btn-lg cs-btn-style bg-white"> Add New Product</a>
+        <div class="col-sm-4 col-4">
+            <a href="{{ url('/admin/products/create') }}" class="btn btn-lg cs-btn-style admin-page-btn"> Add New Product</a>
             {{-- <input type="button" class="btn btn-lg  btn-style" id="add_attribute" value="Add Attribute" /> --}}
         </div>
     </div>
-    <table id="attributes_table" class=" table order-list">
-        <thead>
-            <tr>
-                <td>Id.</td>
-                <td>Product Name</td>
-                <td>Product Image</td>
-                <td>Action (coming soon)</td>
-            </tr>
-        </thead>
-        <tbody>
-            @foreach ($products as $product)
-            <tr>
-                <td class="col-sm-1">
-                    {{$product->id}}
-                </td>
-                <td class="col-sm-4">
-                    {{$product->name}}
-                </td>
-                <td class="col-sm-5">
-                    {{$product->image}}
-                </td>
-                <td class="col-sm-2">
-                    Edit
-                </td>
-            </tr>
-            @endforeach
-        </tbody>
-    </table>
+
+    <div class="row">
+        <div class="col-12 px-sm-0">
+            <table class="table table-bordered data-table">
+                <thead>
+                <tr>
+                    <th>ID</th>
+                    <th>NAME</th>
+                    <th>Action</th>
+                </tr>
+                </thead>
+                <tbody>
+                </tbody>
+            </table>
+        </div>
+    </div>
+
+{{--    <table id="attributes_table" class=" table order-list">--}}
+{{--        <thead>--}}
+{{--            <tr>--}}
+{{--                <td>Id.</td>--}}
+{{--                <td>Product Name</td>--}}
+{{--                <td>Product Image</td>--}}
+{{--                <td>Action (coming soon)</td>--}}
+{{--            </tr>--}}
+{{--        </thead>--}}
+{{--        <tbody>--}}
+{{--            @foreach ($products as $product)--}}
+{{--            <tr>--}}
+{{--                <td class="col-sm-1">--}}
+{{--                    {{$product->id}}--}}
+{{--                </td>--}}
+{{--                <td class="col-sm-4">--}}
+{{--                    {{$product->name}}--}}
+{{--                </td>--}}
+{{--                <td class="col-sm-5">--}}
+{{--                    {{$product->image}}--}}
+{{--                </td>--}}
+{{--                <td class="col-sm-2">--}}
+{{--                    Edit--}}
+{{--                </td>--}}
+{{--            </tr>--}}
+{{--            @endforeach--}}
+{{--        </tbody>--}}
+{{--    </table>--}}
 </div>
 @endsection
 
@@ -49,17 +66,66 @@
 <link rel="stylesheet" href="//code.jquery.com/ui/1.12.1/themes/base/jquery-ui.css">
 
 <style type="text/css">
-.cs-btn-style {
-    float: right;
-    margin: 35px 0px;
-    background: white;
-    color: #000!important;
-    border: 1px solid transparent;
-}
-.cs-btn-style:hover{
-    background-color: #000;
-    border-color: #fff;
-}
+    .cs-btn-style {
+        float: right;
+        margin: 35px 0px;
+        background: white;
+        color: #000!important;
+        border: 1px solid transparent;
+    }
+    .cs-btn-style:hover{
+        background-color: #000;
+        border-color: #fff;
+    }
+
+    .admin-heading-row {
+        background-color: #fff;
+        margin-bottom: 10px;
+    }
+    .admin-page-title {
+        font-size: 16px;
+        font-weight: bold;
+        color: #000;
+    }
+    .admin-page-btn {
+        margin: 0px;
+        font-size: 12px;
+        border-color: #000;
+        background-color: #000!important;
+        color: #fff!important;
+    }
+    @media (max-width: 767px) {
+        .admin-heading-row {
+            background-color: #fff;
+            margin-bottom: 10px;
+        }
+        .admin-page-title {
+            font-size: 16px;
+            font-weight: bold;
+            color: #000;
+        }
+        .admin-page-btn {
+            margin: 0px;
+            font-size: 12px;
+            border-color: #000;
+            background-color: #000!important;
+            color: #fff!important;
+        }
+    }
+    table.data-table {
+        width: 100%;
+    }
+    .dataTables_filter label {
+        width: 100%;
+    }
+    .dataTables_filter .form-control.form-control-sm {
+        border-radius: 0px;
+        height: calc(2.25rem + 12px) !important;
+    }
+    .dataTables_paginate.paging_simple_numbers {
+        float: right;
+    }
+
 .upload-wrapper h5, h6 {
     color: black !important;
 }
@@ -202,4 +268,33 @@
     padding-top: 50px;
 }
 </style>
+@endpush
+
+@push('js')
+    <script src="https://ajax.googleapis.com/ajax/libs/jquery/1.9.1/jquery.js"></script>
+    <script src="https://cdnjs.cloudflare.com/ajax/libs/jquery-validate/1.19.0/jquery.validate.js"></script>
+    <script src="https://cdn.datatables.net/1.10.21/js/jquery.dataTables.min.js"></script>
+    <script src="https://stackpath.bootstrapcdn.com/bootstrap/4.5.0/js/bootstrap.min.js"></script>
+    <script src="https://cdn.datatables.net/1.10.21/js/dataTables.bootstrap4.min.js"></script>
+    <script type="text/javascript">
+        $(function () {
+
+            var table = $('.data-table').DataTable({
+                processing: true,
+                serverSide: true,
+                ajax: "{{ route('admin::productslist') }}",
+                columns: [
+                    {data: 'id', name: 'id'},
+                    {data: 'name', name: 'name'},
+                    {
+                        data: 'action',
+                        name: 'action',
+                        orderable: true,
+                        searchable: true
+                    },
+                ]
+            });
+
+        });
+    </script>
 @endpush

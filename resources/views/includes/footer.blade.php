@@ -3,7 +3,7 @@
     <section class="footer-top">
         <div class="container">
             <div class="row">
-    
+
                 <div class="col-lg-5 pr-md-5">
                     <div>
                         <h4>newsletter</h4>
@@ -16,16 +16,16 @@
                         </form>
                     </div>
                 </div>
-    
+
                 <div class="col-lg-7">
                     <div class="row">
                         <div class="col-lg-4">
                             <div>
                                 <h4>contact us</h4>
-                                <p>Lorem ipsum dolor, sit amet consectetur adipisicing.</p>
-    
-                                <p>Tel: +012 345678<br>
-                                <p><a href="#" class="email-link">info@hapton-elect.co.uk</a></p>
+                                {{-- <p>Lorem ipsum dolor, sit amet consectetur adipisicing.</p>
+                                <p>Tel: +012 345678<p> --}}
+                                <p><a href="mailto:info@hapton-elect.co.uk" class="email-link">info@hapton-elect.co.uk</a></p>
+                                <p><a href="mailto:contact@hapton-elect.co.uk" class="email-link">contact@hapton-elect.co.uk</a></p>
                             </div>
                         </div>
                         <div class="col-lg-4">

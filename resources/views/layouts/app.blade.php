@@ -37,12 +37,14 @@
             <!-- Main Start -->
             <main id="main" class="content">
 
-                <div class="he-grid-lines-holder">
-                    <div class="he-grid-line"></div>
-                    <div class="he-grid-line"></div>
-                    <div class="he-grid-line"></div>
-                    <div class="he-grid-line"></div>
-                </div>
+                @if(!Auth::check())
+                    <div class="he-grid-lines-holder">
+                        <div class="he-grid-line"></div>
+                        <div class="he-grid-line"></div>
+                        <div class="he-grid-line"></div>
+                        <div class="he-grid-line"></div>
+                    </div>
+                @endif
 
                 @yield('content')
             </main>

@@ -1,21 +1,23 @@
-@extends('layouts.default', ['title' => $product->name, 'page' => 'product'])
+@extends('layouts.default', ['title' => Str::title($product->name), 'page' => 'product'])
 
 @section('content')
 <div class="breadcrumbs my-2">
-    <div class="container">
-        @if (isset($category))
-        <a href="#">{{$category->name }}</a>
-        @endif
+    <div class="container-fluid">
+        <div class="row">
+            <div class="col-lg-12">
+                @if (isset($category)) <a href="{{url('category', $category->slug)}}">{{Str::title($category->name)}}</a> @endif
 
-        @if (isset($subCategory))
-        >  <a href="#">{{$subCategory->name }}</a>
-        @endif
+                @if (isset($subCategory))
+                >  <a href="{{url('category', [$category->slug, $subCategory->slug])}}">{{Str::title($subCategory->name)}}</a>
+                @endif
 
-        @if (isset($childCategory))
-        >  <a href="#">{{$childCategory->name }}</a>
-        @endif
-
-        > <span>{{$product->name}}</span>
+                @if (isset($childCategory))
+                >  <a href="#">{{Str::title($childCategory->name)}}</a>
+                @endif
+                > <span>{{Str::title($product->name)}}</span>
+                </p>
+            </div>
+        </div>
     </div>
 </div>
 <div class="product mb-5">
@@ -26,11 +28,11 @@
                 <img src="{{asset('storage/'.$product->file->path)}}" alt="" class="img-fluid">
                 @endif
             </div>
-            <div class="col-lg-6 ">
+            <div class="col-lg-6 product-featured-content">
                 <h1 class="product-title mb-5">{{$product->name}}</h1>
                 <ul class="specification-list">
                     @forelse ($product->attributes as $attribute)
-                    <li><span class="point-heading">{{$attribute->name}} :&nbsp;&nbsp;</span> {{$attribute->value}}</li>
+                    <li><span class="point-heading">{{$attribute->name}} : </span> <p>{{$attribute->value}}</p></li>
                     @empty
                     @endforelse
                 </ul>
@@ -107,13 +109,15 @@
                     </table>
                 </div> --}}
 
-                <h4>Manufacturing Partners</h4>
-                <div>
-                    @forelse ($product->files as $manufacturingPartner)
-                    <img class="m-partner-img" src="{{asset('storage/'. $manufacturingPartner->path)}}" alt="">
-                    @empty
-                    @endforelse
-                </div>
+                @if ($category->id == 2)
+                    <h4>Manufacturing Partners</h4>
+                    <div>
+                        @forelse ($product->files as $manufacturingPartner)
+                        <img class="m-partner-img" src="{{asset('storage/'. $manufacturingPartner->path)}}" alt="">
+                        @empty
+                        @endforelse
+                    </div>
+                @endif
                 @if (count($product->document_files))
                 <h4>Documents</h4>
                 <div class="product-download-btn">
@@ -159,9 +163,21 @@
     padding: 0;
 }
 
-.point-heading{
+/* .point-heading{
     font-weight: 800;
     font-size: 18px;
+} */
+.point-heading {
+    font-weight: bold;
+    font-size: 16px;
+    font-family: 'Montserrat', sans-serif;
+}
+
+.specification-list li p {
+    font-size: 14px;
+    /* font-family: 'Roboto'; */
+    /* line-height: 1.7; */
+    font-weight: lighter;
 }
 .m-partner-img{
     width: 70px;

@@ -3,9 +3,10 @@
     <div class="container-fluid">
         <div class="d-flex justify-content-between">
             <div class="site-logo">
-                <a href="{{ route('home') }}"><img src="{{ asset('assets/Hapton-Logo.png') }}" alt="Hapton" class="img-fluid"></a>
+                <a href="{{ route('home') }}"><img src="{{ asset('assets/logo/hapton-logo-white.png') }}" alt="Hapton" class="img-fluid"></a>
             </div>
 
+            @if (Str::contains(Request::path(), 'admin') != 1)
             <div class="navigation-toggle">
                 <a href="javascript:void(0)" class="he-menu-opener">
                     <span class="he-menu-close-icon">
@@ -23,7 +24,6 @@
                     </span>
                 </a>
             </div>
-
             <nav id="site-navigation">
                 <div class="nav-container">
                     <ul class="menu">
@@ -44,6 +44,28 @@
                     </ul>
                 </div>
             </nav>
+            @else
+
+            <nav class="admin-navigation">
+                <div class="nav-container">
+                    <ul class="menu">
+                        <li class="menu-item"><a href="{{ route('home') }}">Home</a></li>
+                        <li class="menu-item"><a href="{{ route('category') }}">Category</a></li>
+                        <li class="menu-item">
+                            <a href="{{ url('/admin/products') }}"> Products List </a>
+                        </li>
+                        <li class="menu-item">
+                            <a href="{{ url('/admin/products/create') }}"> Add New Product </a>
+                        </li>
+                        <li class="menu-item">
+                            <a href="{{ url('/logout') }}" class="text-danger"> Logout </a>
+                        </li>
+                    </ul>
+                </div>
+            </nav>
+            <div class="navigation-toggle">
+            </div>
+            @endif
         </div>
     </div>
 </header>
