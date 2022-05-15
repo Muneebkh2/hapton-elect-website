@@ -41,7 +41,9 @@
             <div class="col-lg-6 form-group">
                 <h4 class="mb-2">Product Image</h4>
                 <input type="file" name="product_image" id="product-image">
-                <img src="{{asset($product->file ? 'storage/'.$product->file->path : '')}}" height="70px" width="70px" alt="" class="float-right"/>
+                @if (isset($product))
+                    <img src="{{asset($product->file ? 'storage/'.$product->file->path : '')}}" height="70px" width="70px" alt="" class="float-right"/>
+                @endif
                 <div class="product_image_preview"></div>
                 @error('product_image')
                      <span class="form-text text-danger">{{ $message }}</span>
@@ -78,7 +80,9 @@
             <div class="col-lg-6 form-group">
                 <h4 class="mb-2">Background Image</h4>
                 <input type="file" name="bg_image" id="product-bg-image">
-                <img src="{{$product->bg_image ? asset('storage/'.$product->bg_image) : ''}}" height="70px" width="70px" alt=""  class="float-right"/>
+                @if (isset($product))
+                    <img src="{{$product->bg_image ? asset('storage/'.$product->bg_image) : ''}}" height="70px" width="70px" alt=""  class="float-right"/>
+                @endif
                 <div class="bg_image_preview"></div>
             </div>
 
