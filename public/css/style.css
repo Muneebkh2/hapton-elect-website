@@ -2166,9 +2166,19 @@ select.form-control:not([size]):not([multiple]) {
     color: #000;
 }
 .product .table td, .product .table th{border-top: none;}
-.product table.table td {
-    border-bottom: 1px solid #dee2e6;
+.product table.table thead {
+    border-bottom: 1px solid #fff;
+    font-weight: bold;
+    color: #fff;
 }
+.product table.table thead td {
+    vertical-align: bottom;
+}
+.product table.table td {
+    padding: 5px 0px;
+    /* border-bottom: 1px solid #dee2e6; */
+}
+
 .product .table-responsive::-webkit-scrollbar {
     height: 5px;
 }
@@ -2188,12 +2198,13 @@ select.form-control:not([size]):not([multiple]) {
     border-radius: 5px;
 }
 
-.col-lg-6.product-featured-image img {
-    height: 550px;
+.col-lg-6.product-featured-image,
+.col-lg-6.product-featured-content {
+    height: 500px;
 }
 .col-lg-6.product-featured-content{
-    height: 550px;
-    overflow-y: scroll;
+    /* height: 550px; */
+    /* overflow-y: auto; */
 }
 
 .breadcrumbs {
@@ -2333,6 +2344,11 @@ nav.admin-navigation > div > ul li {
     list-style: none;
     padding: 0px 20px;
     font-weight: bold;
+}
+
+.cs-responsive.product-info {
+    height: 385px;
+    overflow-y: auto;
 }
 
 /* ----------- iPad Pro 12.9" ----------- */
