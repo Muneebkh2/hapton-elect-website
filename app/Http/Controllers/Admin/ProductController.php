@@ -80,8 +80,12 @@ class ProductController extends Controller
         }
 
         HelperService::uploadFile($request->product_image, $product->id, Product::class, 'product_image', 'product');
-        HelperService::uploadFiles($request->manufacturer_partners, $product->id, Product::class, 'manufacturer_partners', 'product');
-        HelperService::uploadFiles($request->product_document, $product->id, Product::class, 'product_document', 'product');
+        if ($request->has('manufacturer_partners')) {
+            HelperService::uploadFiles($request->manufacturer_partners, $product->id, Product::class, 'manufacturer_partners', 'product');
+        }
+        if ($request->has('product_document')) {
+            HelperService::uploadFiles($request->product_document, $product->id, Product::class, 'product_document', 'product');
+        }
         return redirect()->route('admin::products.index')->with('success', 'Product hasbeen created successfully');
     }
 
