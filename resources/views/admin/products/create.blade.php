@@ -15,17 +15,16 @@
         @csrf
         <div class="row">
             <div class="col-md-6 form-group">
-                <label for="name" class="@error('name') text-danger @enderror">Name <span class="text-danger">*</span></label>
-                <input class="form-control mb-1" type="text" name="name"
-value="{{ isset($product)?$product->name : '' }}"
-                >
+                <h4 class="mb-2 @error('name') text-danger @enderror">Name <span class="text-danger">*</span></h4>
+                {{-- <label for="name" class="@error('name') text-danger @enderror">Name <span class="text-danger">*</span></label> --}}
+                <input class="form-control mb-1" type="text" name="name" value="{{ isset($product)?$product->name : '' }}">
                 @error('name')
                     <span class="form-text text-danger">{{ $message }}</span>
                 @enderror
-
             </div>
             <div class="col-md-6 form-group">
-                <label for="category" class="@error('category_id') text-danger @enderror">Category <span class="text-danger">*</label>
+                <h4 class="mb-2 @error('category_id') text-danger @enderror">Category <span class="text-danger">*</span></h4>
+                {{-- <label for="category" class="@error('category_id') text-danger @enderror">Category <span class="text-danger">*</label> --}}
                 <select class="form-control" name="category_id">
                     <option value="" disabled selected> Please select category </option>
                     @foreach ($categories as $category)
@@ -38,8 +37,17 @@ value="{{ isset($product)?$product->name : '' }}"
                     <span class="form-text text-danger">{{ $message }}</span>
                 @enderror
             </div>
-            <div class="col-12 form-group">
-                <div class="upload-wrapper one">
+
+            <div class="col-lg-6 form-group">
+                <h4 class="mb-2">Product Image</h4>
+                <input type="file" name="product_image" id="product-image">
+                <img src="{{asset($product->file ? 'storage/'.$product->file->path : '')}}" height="70px" width="70px" alt="" class="float-right"/>
+                <div class="product_image_preview"></div>
+                @error('product_image')
+                     <span class="form-text text-danger">{{ $message }}</span>
+                @enderror
+
+                {{-- <div class="upload-wrapper one">
                     <div class="upload-element">
                             <div class="upload-element-inner">
                                 <div class="upload-element-content">
@@ -47,7 +55,7 @@ value="{{ isset($product)?$product->name : '' }}"
                                             <div class="h-100">
                                                 <div class="dplay-tbl">
                                                     <div class="dplay-tbl-cell"> <i class="fa fa-cloud-upload"></i>
-                                                        <h5><b>Choose Your Image to Upload</b></h5>
+                                                        <h4><b>Choose Your Image to Upload</b></h4>
                                                         <h6 class="mt-10 mb-70">Or Drop Your Image Here</h6>
                                                     </div>
                                                 </div>
@@ -63,15 +71,25 @@ value="{{ isset($product)?$product->name : '' }}"
                             @enderror
                     </div>
                     <!--item-->
-                </div>
+                </div> --}}
             </div>
+
+            {{-- Product Background Image --}}
+            <div class="col-lg-6 form-group">
+                <h4 class="mb-2">Background Image</h4>
+                <input type="file" name="bg_image" id="product-bg-image">
+                <img src="{{$product->bg_image ? asset('storage/'.$product->bg_image) : ''}}" height="70px" width="70px" alt=""  class="float-right"/>
+                <div class="bg_image_preview"></div>
+            </div>
+
+            {{-- Add Attributes --}}
             <div class="col-12 form-group">
-                <h3>Add Attributes</h3>
+                <h4>Add Attributes</h4>
                 <table id="attributes_table" class=" table order-list">
                     <thead>
                         <tr>
-                            <td>Attribute Name</td>
-                            <td>Attribute Type</td>
+                            <td>Attribute Title</td>
+                            {{-- <td>Attribute Type</td> --}}
                             <td>Attribute Value</td>
                             <td>Action</td>
                         </tr>
@@ -82,21 +100,21 @@ value="{{ isset($product)?$product->name : '' }}"
                         @foreach($attributes as $key => $attribute)
                         <tr>
                             <td class="col-sm-4">
-                                <input type="text" name="attribute_name[]" class="form-control"
+                                <input type="text" name="attribute_name[]" class="form-control m-0"
                                 value="{{ $attribute->name }}"
                                 required />
                             </td>
-                            <td class="col-sm-4">
+                            {{-- <td class="col-sm-4">
                                 <select class="form-control" name="attribute_type[]" id="attribute_type" required>
                                     <option value="text">Text</option>
                                 </select>
-                            </td>
-                            <td class="col-sm-3">
-                                <input type="text" name="attribute_value[]"  class="form-control"
+                            </td> --}}
+                            <td class="col-sm-7">
+                                <input type="text" name="attribute_value[]"  class="form-control m-0"
                                 value="{{ $attribute->value }}"
                                  required/>
                             </td>
-                            <td class="col-sm-2">
+                            <td class="col-sm-1 align-middle">
                                 @if($key != 0)
                                 <input type="button" class="ibtnDel btn btn-md btn-danger" value="Delete">
                                 @endif
@@ -109,18 +127,18 @@ value="{{ isset($product)?$product->name : '' }}"
                         @else
                         <tr>
                             <td class="col-sm-4">
-                                <input type="text" name="attribute_name[]" class="form-control" required />
+                                <input type="text" name="attribute_name[]" class="form-control m-0" required />
                             </td>
-                            <td class="col-sm-4">
+                            {{-- <td class="col-sm-4">
                                 <select class="form-control" name="attribute_type[]" id="attribute_type" required>
                                     <option value="text">Text</option>
                                 </select>
+                            </td> --}}
+                            <td class="col-sm-7">
+                                <input type="text" name="attribute_value[]"  class="form-control m-0" required/>
                             </td>
-                            <td class="col-sm-3">
-                                <input type="text" name="attribute_value[]"  class="form-control" required/>
-                            </td>
-                            <td class="col-sm-2">
-                                <a class="deleteRow"></a>
+                            <td class="col-sm-1 align-middle">
+                                <input type="button" class="ibtnDel btn btn-md btn-danger" value="Delete" disabled>
                             </td>
                         </tr>
 
@@ -129,12 +147,13 @@ value="{{ isset($product)?$product->name : '' }}"
                     </tbody>
                 </table>
                 <div class=" d-flex justify-content-end">
-                    <input type="button" class="btn btn-lg  btn-style" id="add_attribute" value="Add Attribute" />
+                    <input type="button" class="btn btn-md  btn-style" id="add_attribute" value="Add Attribute" />
                 </div>
             </div>
 
+            {{-- Add Tabels Data --}}
             <div class="col-12 form-group">
-                <h3>Add Tabels Data</h3>
+                <h4>Add Tabels Data</h4>
 
                 <table id="product_dynamic_table" class=" table">
                     @if(isset($product) && $product->dynamic_table_header != null)
@@ -147,7 +166,7 @@ value="{{ isset($product)?$product->name : '' }}"
                             <tr>
                                  @foreach($dynamic_table_header as $key => $value)
                                     <td>
-                                        <input type="text" name="product_tbl_header[{{ $key }}]" class="form-control" value="{{ $value }}" />
+                                        <input type="text" name="product_tbl_header[{{ $key }}]" class="form-control m-0" value="{{ $value }}" />
                                     </td>
                                  @endforeach
                             </tr>
@@ -161,7 +180,7 @@ value="{{ isset($product)?$product->name : '' }}"
                                         <input type="text" name="product_tbl_body[{{ $key }}][{{ $innerKey }}]"
                                         value="{{  $value }}"
 
-                                        class="form-control"  />
+                                        class="form-control m-0"  />
                                     </td>
                                 @endforeach
                             </tr>
@@ -173,44 +192,44 @@ value="{{ isset($product)?$product->name : '' }}"
                    <thead id="product_dyn_header">
                         <tr>
                             <td>
-                                <input type="text" placeholder="Enter Title.." name="product_tbl_header[1]" class="form-control"/>
+                                <input type="text" placeholder="Enter Title.." name="product_tbl_header[1]" class="form-control m-0"/>
                             </td>
                             <td>
-                                <input type="text" placeholder="Enter Title.." name="product_tbl_header[2]" class="form-control"/>
+                                <input type="text" placeholder="Enter Title.." name="product_tbl_header[2]" class="form-control m-0"/>
                             </td>
                             <td>
-                                <input type="text" placeholder="Enter Title.." name="product_tbl_header[3]" class="form-control"/>
+                                <input type="text" placeholder="Enter Title.." name="product_tbl_header[3]" class="form-control m-0"/>
                             </td>
                             <td>
-                                <input type="text" placeholder="Enter Title.." name="product_tbl_header[4]" class="form-control"/>
+                                <input type="text" placeholder="Enter Title.." name="product_tbl_header[4]" class="form-control m-0"/>
                             </td>
                             <td>
-                                <input type="text" placeholder="Enter Title.." name="product_tbl_header[5]" class="form-control"/>
+                                <input type="text" placeholder="Enter Title.." name="product_tbl_header[5]" class="form-control m-0"/>
                             </td>
                             <td>
-                                <input type="text" placeholder="Enter Title.." name="product_tbl_header[6]" class="form-control"/>
+                                <input type="text" placeholder="Enter Title.." name="product_tbl_header[6]" class="form-control m-0"/>
                             </td>
                         </tr>
                     </thead>
                     <tbody id="product_dyn_body">
                         <tr>
                             <td>
-                                <input type="text" placeholder="Enter Value.." name="product_tbl_body[1][1]" class="form-control"/>
+                                <input type="text" placeholder="Enter Value.." name="product_tbl_body[1][1]" class="form-control m-0"/>
                             </td>
                             <td>
-                                <input type="text" placeholder="Enter Value.." name="product_tbl_body[1][2]" class="form-control"/>
+                                <input type="text" placeholder="Enter Value.." name="product_tbl_body[1][2]" class="form-control m-0"/>
                             </td>
                             <td>
-                                <input type="text" placeholder="Enter Value.." name="product_tbl_body[1][3]" class="form-control"/>
+                                <input type="text" placeholder="Enter Value.." name="product_tbl_body[1][3]" class="form-control m-0"/>
                             </td>
                             <td>
-                                <input type="text" placeholder="Enter Value.." name="product_tbl_body[1][4]" class="form-control"/>
+                                <input type="text" placeholder="Enter Value.." name="product_tbl_body[1][4]" class="form-control m-0"/>
                             </td>
                             <td>
-                                <input type="text" placeholder="Enter Value.." name="product_tbl_body[1][5]" class="form-control"/>
+                                <input type="text" placeholder="Enter Value.." name="product_tbl_body[1][5]" class="form-control m-0"/>
                             </td>
                             <td>
-                                <input type="text" placeholder="Enter Value.." name="product_tbl_body[1][6]" class="form-control"/>
+                                <input type="text" placeholder="Enter Value.." name="product_tbl_body[1][6]" class="form-control m-0"/>
                             </td>
                         </tr>
                     </tbody>
@@ -218,36 +237,31 @@ value="{{ isset($product)?$product->name : '' }}"
                 @endif
                 </table>
                 <div class=" d-flex justify-content-center">
-                    <input type="button" class="btn btn-lg btn-style mr-2 btn-success cs-hide-btn" id="add_header_column" value="Add Header column" />
-                    <input type="button" class="btn btn-lg btn-style mr-2 btn-success" id="add_body_row" value="Add Table Row" />
-                    <input type="button" class="btn btn-lg btn-style mr-2 btn-danger cs-hide-btn" id="remove_header_column" value="Remove Header column" />
-                    <input type="button" class="btn btn-lg btn-style mr-2 btn-danger" id="remove_body_row" value="Remove Table Row" />
+                    <input type="button" class="btn btn-md btn-style mr-2 btn-success cs-hide-btn" id="add_header_column" value="Add Header column" />
+                    <input type="button" class="btn btn-md btn-style mr-2 btn-success" id="add_body_row" value="Add Table Row" />
+                    <input type="button" class="btn btn-md btn-style mr-2 btn-danger cs-hide-btn" id="remove_header_column" value="Remove Header column" />
+                    <input type="button" class="btn btn-md btn-style mr-2 btn-danger" id="remove_body_row" value="Remove Table Row" />
                 </div>
             </div>
 
-
-
-
-            <div class="col-12 form-group">
-                <h3>Manufacturing Partner</h3>
+            {{-- Manufacturing Partner --}}
+            <div class="col-lg-6 form-group">
+                <h4>Manufacturing Partner</h4>
                 <input type="file" name="manufacturer_partners[]" multiple id="gallery-photo-add">
                 <div class="gallery"></div>
             </div>
-            <div class="col-12 form-group">
-                <h3>Product Document file</h3>
+            {{-- Product Document file --}}
+            <div class="col-lg-6 form-group">
+                <h4>Product Document file</h4>
                 <input type="file" name="product_document[]" multiple id="product-document-add">
                 <div class="document_info"></div>
             </div>
-            <div class="col-12 form-group">
-                <h3>Product Background Image</h3>
-                <input type="file" name="bg_image" id="product-bg-image">
-                <div class="bg_image_preview"></div>
-            </div>
+
             <div class="col-12 d-flex justify-content-end">
                 @if(isset($product))
-                <input type="submit" class="btn btn-lg btn-block btn-style" id="btn_submit" value="Update Product" />
+                <input type="submit" class="btn btn-md btn-block btn-style" id="btn_submit" value="Update Product" />
                 @else
-                <input type="submit" class="btn btn-lg btn-block btn-style" id="btn_submit" value="Create Product" />
+                <input type="submit" class="btn btn-md btn-block btn-style" id="btn_submit" value="Create Product" />
                 @endif
             </div>
 
@@ -263,7 +277,7 @@ value="{{ isset($product)?$product->name : '' }}"
 .cs-hide-btn {
     display: none;
 }
-.upload-wrapper h5, h6 {
+.upload-wrapper h4, h6 {
     color: black !important;
 }
 .upload-element .upload-element-content {
@@ -417,11 +431,11 @@ $(document).ready(function () {
         var newRow = $("<tr>");
         var cols = "";
 
-        cols += '<td><input type="text" class="form-control" name="attribute_name[]" required/></td>';
-        cols += '<td><select class="form-control" name="attribute_type[]" id="attribute_type" required><option value="text">Text</option></select></td>';
-        cols += '<td><input type="text" class="form-control" name="attribute_value[]" required/></td>';
+        cols += '<td><input type="text" class="form-control mb-0" name="attribute_name[]" required/></td>';
+        // cols += '<td><select class="form-control" name="attribute_type[]" id="attribute_type" required><option value="text">Text</option></select></td>';
+        cols += '<td><input type="text" class="form-control mb-0" name="attribute_value[]" required/></td>';
 
-        cols += '<td><input type="button" class="ibtnDel btn btn-md btn-danger "  value="Delete"></td>';
+        cols += '<td class="align-middle"><input type="button" class="ibtnDel btn btn-md btn-danger" value="Delete"></td>';
         newRow.append(cols);
         $("table.order-list").append(newRow);
         counter++;
@@ -542,6 +556,10 @@ $(function() {
 
     $('#product-bg-image').on('change', function () {
         imagesPreview(this, 'div.bg_image_preview');
+    });
+
+    $('#product-image').on('change', function () {
+        imagesPreview(this, 'div.product_image_preview');
     });
 });
 
