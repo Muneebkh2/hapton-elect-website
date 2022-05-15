@@ -21,112 +21,118 @@
     </div>
 </div>
 <div class="product mb-5">
-    <div class="container">
+    <div class="container px-lg-0">
         <div class="row">
-            <div class="col-lg-6 product-featured-image">
+            <div class="col-lg-6 product-featured-image px-lg-0">
                 @if ($product->file)
                 <img src="{{asset('storage/'.$product->file->path)}}" alt="" class="img-fluid">
                 @endif
             </div>
-            <div class="col-lg-6 product-featured-content">
+            <div class="col-lg-6 product-featured-content px-lg-0">
                 <h1 class="product-title mb-5">{{$product->name}}</h1>
-                <ul class="specification-list">
-                    @forelse ($product->attributes as $attribute)
-                    <li><span class="point-heading">{{$attribute->name}} : </span> <p>{{$attribute->value}}</p></li>
-                    @empty
-                    @endforelse
-                </ul>
 
-                
-                @php
-                    $productHeader = collect($product->dynamic_table_header);
-                    $productBody = collect($product->dynamic_table_body);
-                @endphp
+                <div class="cs-responsive product-info">
+                    <ul class="specification-list">
+                        @forelse ($product->attributes as $attribute)
+                        <li><span class="point-heading">{{$attribute->name}} : </span> <p>{{$attribute->value}}</p></li>
+                        @empty
+                        @endforelse
+                    </ul>
 
-                @if(count($productHeader) > 0 && $productHeader->get('1') != null)
-                <h4 >Chart</h4>
-                <table class=" table table-bordered">
-                    <thead>
-                        <tr>
-                            @foreach ($productHeader as $headerKey => $valueKey)
-                            <td>{{$valueKey}}</td>
-                            @endforeach
-                            
-                        </tr>
-                    </thead>
-                    <tbody>
-                        @foreach ($productBody as $productBodyItem)
-                        <tr>
-                            @foreach ($productBodyItem as $productBodyRow)
-                               <td>{{ $productBodyRow }}</td>
-                            @endforeach
-                        </tr>        
-                        @endforeach
-                    </tbody>
-                </table>
-                @endif
 
-                {{-- <h4>Models</h4>
-                <div class="table-responsive">
-                    <table class="table">
-                        <thead>
-                            <tr>
-                                <th scope="col">#</th>
-                                <th scope="col">First</th>
-                                <th scope="col">Last</th>
-                                <th scope="col">Handle</th>
-                                <th scope="col">Handle</th>
-                                <th scope="col">Handle</th>
-                                <th scope="col">Handle</th>
-                                <th scope="col">Handle</th>
-                                <th scope="col">Handle</th>
-                            </tr>
-                        </thead>
-                        <tbody>
-                            <tr>
-                                <td>1</td>
-                                <td>Mark</td>
-                                <td>Otto</td>
-                                <td>@mdo</td>
-                                <td>@mdo</td>
-                                <td>@mdo</td>
-                                <td>@mdo</td>
-                                <td>@mdo</td>
-                                <td>@mdo</td>
-                            </tr>
-                            <tr>
-                                <td>2</td>
-                                <td>Jacob</td>
-                                <td>Thornton</td>
-                                <td>@fat</td>
-                                <td>@fat</td>
-                                <td>@fat</td>
-                                <td>@fat</td>
-                                <td>@fat</td>
-                                <td>@fat</td>
-                            </tr>
-                        </tbody>
-                    </table>
-                </div> --}}
+                    @php
+                        $productHeader = collect($product->dynamic_table_header);
+                        $productBody = collect($product->dynamic_table_body);
+                    @endphp
 
-                @if ($category->id == 2)
-                    <h4>Manufacturing Partners</h4>
-                    <div>
-                        @forelse ($product->files as $manufacturingPartner)
-                        <img class="m-partner-img" src="{{asset('storage/'. $manufacturingPartner->path)}}" alt="">
+                    @if(count($productHeader) > 0 && $productHeader->get('1') != null)
+                    <h4 >Chart</h4>
+                    <div class="table-responsive">
+                        <table class="table text-center">
+                            <thead>
+                                <tr>
+                                    @foreach ($productHeader as $headerKey => $valueKey)
+                                    <td @if ($headerKey == 2)
+                                        width="35%" @elseif($headerKey == 5) width="20%"
+                                    @endif>{{$valueKey}}</td>
+                                    @endforeach
+                                </tr>
+                            </thead>
+                            <tbody>
+                                @foreach ($productBody as $productBodyItem)
+                                <tr>
+                                    @foreach ($productBodyItem as $productBodyRow)
+                                       <td>{{ $productBodyRow }}</td>
+                                    @endforeach
+                                </tr>
+                                @endforeach
+                            </tbody>
+                        </table>
+                    </div>
+                    @endif
+
+                    {{-- <h4>Models</h4>
+                    <div class="table-responsive">
+                        <table class="table">
+                            <thead>
+                                <tr>
+                                    <th scope="col">#</th>
+                                    <th scope="col">First</th>
+                                    <th scope="col">Last</th>
+                                    <th scope="col">Handle</th>
+                                    <th scope="col">Handle</th>
+                                    <th scope="col">Handle</th>
+                                    <th scope="col">Handle</th>
+                                    <th scope="col">Handle</th>
+                                    <th scope="col">Handle</th>
+                                </tr>
+                            </thead>
+                            <tbody>
+                                <tr>
+                                    <td>1</td>
+                                    <td>Mark</td>
+                                    <td>Otto</td>
+                                    <td>@mdo</td>
+                                    <td>@mdo</td>
+                                    <td>@mdo</td>
+                                    <td>@mdo</td>
+                                    <td>@mdo</td>
+                                    <td>@mdo</td>
+                                </tr>
+                                <tr>
+                                    <td>2</td>
+                                    <td>Jacob</td>
+                                    <td>Thornton</td>
+                                    <td>@fat</td>
+                                    <td>@fat</td>
+                                    <td>@fat</td>
+                                    <td>@fat</td>
+                                    <td>@fat</td>
+                                    <td>@fat</td>
+                                </tr>
+                            </tbody>
+                        </table>
+                    </div> --}}
+
+                    @if ($category->id == 2)
+                        <h4>Manufacturing Partners</h4>
+                        <div>
+                            @forelse ($product->files as $manufacturingPartner)
+                            <img class="m-partner-img" src="{{asset('storage/'. $manufacturingPartner->path)}}" alt="">
+                            @empty
+                            @endforelse
+                        </div>
+                    @endif
+                    @if (count($product->document_files))
+                    <h4>Documents</h4>
+                    <div class="product-download-btn">
+                        @forelse ($product->document_files as $productDocument)
+                        <a href="{{asset('storage/'.$productDocument->path)}}" target="_blank">Download</a>
                         @empty
                         @endforelse
                     </div>
-                @endif
-                @if (count($product->document_files))
-                <h4>Documents</h4>
-                <div class="product-download-btn">
-                    @forelse ($product->document_files as $productDocument)
-                    <a href="{{asset('storage/'.$productDocument->path)}}" target="_blank">Download</a>
-                    @empty
-                    @endforelse
+                    @endif
                 </div>
-                @endif
             </div>
         </div>
     </div>
@@ -146,7 +152,9 @@
                         <img src="{{asset('assets/no-image.png')}}" alt="" class="img-fluid">
                         @endif
                     </div>
-                    <h5>{{$relatedProduct->name}}</h5>
+                    <a href="{{url('category', [$category->slug, $subCategory->slug, $relatedProduct->slug] ) }}"">
+                        <h5>{{$relatedProduct->name}}</h5>
+                    </a>
                 </div>
             </div>
             @empty
