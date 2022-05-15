@@ -73,7 +73,7 @@ class ProductController extends Controller
         {
             foreach($request->attribute_name as $key => $attribute){
                 $attributes['name'] = $request->attribute_name[$key];
-                $attributes['type'] = $request->attribute_type[$key];
+                $attributes['type'] = 'text';//$request->attribute_type[$key];
                 $attributes['value'] = $request->attribute_value[$key];
                 $product->attributes()->create($attributes);
             }
@@ -112,7 +112,7 @@ class ProductController extends Controller
 
             foreach($request->attribute_name as $key => $attribute){
                 $attributes['name'] = $request->attribute_name[$key];
-                $attributes['type'] = $request->attribute_type[$key];
+                $attributes['type'] = 'text';//$request->attribute_type[$key];
                 $attributes['value'] = $request->attribute_value[$key];
                 $product->attributes()->create($attributes);
             }
