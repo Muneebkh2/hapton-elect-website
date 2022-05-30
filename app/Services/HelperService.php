@@ -6,6 +6,10 @@ use Illuminate\Support\Facades\Storage;
 
 Class HelperService{
 
+    public static function uploadAndReturnFile($file, $path) {
+        return Storage::disk('public')->put($path, $file);
+    }
+
     /**
      *  Upload file to storage
      */
@@ -23,7 +27,6 @@ Class HelperService{
         return;
     }
 
-
     /**
      *  Upload multiple files to storage
      */
@@ -35,5 +38,10 @@ Class HelperService{
         }
        }
         return;
+    }
+
+    public static function  isJson($string) {
+       json_decode($string);
+       return json_last_error() === JSON_ERROR_NONE;
     }
 }

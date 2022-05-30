@@ -92,16 +92,40 @@ class CategoriesTableSeeder extends Seeder
                 'bg_image' => 'assets/category/images/switches/switches_weatherproof_bg.jpg'
             ],
             [
-                'name' => 'Indoor Lighting',
+                'name' => 'Led Downlights',
                 'parent_id' => 2,
-                'image' => 'assets/category/images/switches/switches_weatherproof.png',
-                'bg_image' => 'assets/category/images/switches/switches_weatherproof_bg.jpg'
+                'image' => 'assets/category/images/luminaries/luminaries_downlight.png',
+                'bg_image' => 'assets/category/images/luminaries/luminaries_downlight_bg.jpg'
             ],
             [
-                'name' => 'Outdoor Lighting',
+                'name' => 'Led SpotLights',
                 'parent_id' => 2,
-                'image' => 'assets/category/images/switches/switches_weatherproof.png',
-                'bg_image' => 'assets/category/images/switches/switches_weatherproof_bg.jpg'
+                'image' => 'assets/category/images/luminaries/luminaries_spotlight.png',
+                'bg_image' => 'assets/category/images/luminaries/luminaries_spotlight_bg.jpg'
+            ],
+            [
+                'name' => 'Led Panel Lights',
+                'parent_id' => 2,
+                'image' => 'assets/category/images/luminaries/luminaries_panel_light.png',
+                'bg_image' => 'assets/category/images/luminaries/luminaries_panel_light_bg.jpg'
+            ],
+            [
+                'name' => 'Led Ceiling & Pendant Lights',
+                'parent_id' => 2,
+                'image' => 'assets/category/images/luminaries/luminaries_ceiling_light.png',
+                'bg_image' => 'assets/category/images/luminaries/luminaries_ceiling_light_bg.jpg'
+            ],
+            [
+                'name' => 'Led Track Lights',
+                'parent_id' => 2,
+                'image' => 'assets/category/images/luminaries/luminaries_track_light.png',
+                'bg_image' => 'assets/category/images/luminaries/luminaries_track_light_bg.jpg'
+            ],
+            [
+                'name' => 'Led Linear Lights',
+                'parent_id' => 2,
+                'image' => 'assets/category/images/luminaries/luminaries_linear_light.png',
+                'bg_image' => 'assets/category/images/luminaries/luminaries_linear_light_bg.jpg'
             ],
             [
                 'name' => 'MULTI-USAGE EXIT SIGN LIGHTS',
