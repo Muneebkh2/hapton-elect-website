@@ -15,15 +15,21 @@ class UserTableSeeder extends Seeder
      */
     public function run()
     {
-        User::truncate();
+        //User::truncate();
 
         $users = [
             [
                 'name' => 'Admin',
                 'email' => 'admin@hapton.com',
                 'email_verified_at' => Carbon::now(),
-                'password' => bcrypt('123456')
-            ]
+                'password' => bcrypt('s.admin@123')
+            ],
+	        [
+               	'name' => 'Admin Dev',
+                'email' => 'admin-dev@hapton.com',
+                'email_verified_at' => Carbon::now(),
+                'password' => bcrypt('admin.dev@123')
+            ],
         ];
 
         // Servcategory::insert($products);
