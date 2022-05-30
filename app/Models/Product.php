@@ -8,7 +8,7 @@ use Illuminate\Database\Eloquent\Model;
 class Product extends Model
 {
     use HasFactory;
-    protected $fillable = ['name', 'category_id', 'image', 'slug'];
+    protected $fillable = ['name', 'category_id', 'image', 'slug', 'bg_image', 'dynamic_table_header','dynamic_table_body'];
 
     /**
      * Get all of the product's images.
@@ -33,5 +33,13 @@ class Product extends Model
     public function attributes()
     {
         return $this->hasMany(Attribute::class);
+    }
+
+    function getDynamicTableHeaderAttribute($value){
+        return json_decode($value);
+    }
+
+    function getDynamicTableBodyAttribute($value){
+        return json_decode($value);
     }
 }

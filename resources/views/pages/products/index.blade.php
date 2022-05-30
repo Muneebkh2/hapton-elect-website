@@ -9,9 +9,9 @@
         </div>
     </div> --}}
     <section id="categories-grid">
-        <div class="row no-gutters category-row" style="background: url('./assets/category/bg1.png') no-repeat center / cover;">
+        <div class="row no-gutters category-row">
             @forelse ($products as $key => $product)
-            <div class="col-md-6 category-col">
+            <div class="col-md-6 category-col" style="background: url('{{asset('storage/'.$product->bg_image ?? '')}}') no-repeat 100% / 100%;">
                 <div class="category">
                     <a href="#">
                         <h5 class="category-row-title"><a href="{{Request::url()}}/{{$product->slug}}">{{$product->name}}</a></h5>

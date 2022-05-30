@@ -5,6 +5,8 @@
         <meta http-equiv="X-UA-Compatible" content="IE=edge">
         <meta name="viewport" content="width=device-width, initial-scale=1.0">
 
+        <link rel="icon" href="{{ asset('assets/logo/hapton-favicon.png') }}"/>
+
         <link rel="stylesheet" href="{{ asset('/css/bootstrap.min.css') }}">
 
         <link rel="stylesheet" href="{{ asset('/css/owl.carousel.min.css') }}">
@@ -77,8 +79,9 @@
                     $('.loader-wrapper').hide();
                     $('#wrapper').css('visibility','visible');
                     $('#wrapper').css('opacity','1');
-                }, 3000);
+                }, 2000);
             });
+
             $(document).ready(function() {
 
                 $('.counter').counterUp({
@@ -170,7 +173,6 @@
                         inited = true;
                     }
                 });
-
 
 
                 $('.he-menu-opener').on('click', function() {
