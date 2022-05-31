@@ -2,7 +2,7 @@
 ARG PHP_VERSION=7.4
 ARG NGINX_VERSION=1.17
 
-FROM php:${PHP_VERSION}-fpm-alpine3.10 AS products_php
+FROM php:${PHP_VERSION}-fpm-alpine3.10 AS he_uk_php
 
 # persistent / runtime deps
 RUN apk add --no-cache \
@@ -101,10 +101,10 @@ ENTRYPOINT ["docker-entrypoint.sh"]
 CMD ["php-fpm"]
 
 # NGINX
-FROM nginx:${NGINX_VERSION}-alpine AS products_nginx
+FROM nginx:${NGINX_VERSION}-alpine AS he_uk_nginx
 
 COPY docker/nginx/conf.d/default.conf /etc/nginx/conf.d/
 
 WORKDIR /var/www/application
 
-COPY --from=products_php /var/www/application/public public/
+COPY --from=he_uk_php /var/www/application/public public/

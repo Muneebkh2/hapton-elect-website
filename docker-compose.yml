@@ -2,43 +2,44 @@ version: '3.4'
 
 services:
   php-fpm:
+    restart: unless-stopped
     build:
       context: .
-      target: products_php
+      target: he_uk_php
     volumes:
       - .:/var/www/application
     ports:
-      - "9001:9000"
+      - "9004:9000"
     networks:
-      - product-ms
+      - he_uk
 
   nginx:
     build:
       context: .
-      target: products_nginx
+      target: he_uk_nginx
     ports:
-      - "81:80"
+      - "84:80"
     hostname: products.local
     networks:
-      - product-ms
+      - he_uk
 
   mysql:
     image: mariadb:10.6
-    container_name: products_mysql
+    container_name: he_uk_mysql
     restart: unless-stopped
     tty: true
     ports:
-      - 3307:3306
+      - 3309:3306
     environment:
-      MYSQL_DATABASE: products_db
+      MYSQL_DATABASE: he_uk_db
       MYSQL_USER: root
       MYSQL_PASSWORD: dbpassword
       MYSQL_ROOT_PASSWORD: dbpassword
       SERVICE_TAGS: dev
       SERVICE_NAME: mysql
     networks:
-      - product-ms
+      - he_uk
 
 networks:
-  product-ms:
+  he_uk:
     driver: bridge
