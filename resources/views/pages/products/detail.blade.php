@@ -29,16 +29,49 @@
                 @endif
             </div>
             <div class="col-lg-6 product-featured-content px-lg-0">
-                <h1 class="product-title mb-5">{{$product->name}}</h1>
+                <h1 class="product-title mb-md-3">{{$product->name}}</h1>
 
                 <div class="cs-responsive product-info">
-                    <ul class="specification-list">
+                    <!-- <ul class="specification-list">
                         @forelse ($product->attributes as $attribute)
                         <li><span class="point-heading">{{$attribute->name}} : </span> <p>{{$attribute->value}}</p></li>
                         @empty
                         @endforelse
-                    </ul>
+                    </ul> -->
+                    
+                    <!-- <div class="row specification-list">
+                        @forelse ($product->attributes as $attribute)
+                        <div class="col-md-auto py-2 border-top">
+                            <div class="point-heading">{{$attribute->name}} </div> 
+                            <span>{{$attribute->value}}</span>
+                        </div>
+                        @empty
+                        @endforelse
+                    </div> -->
 
+                    <div class="d-flex specification-list" style="overflow-x: scroll;">
+                        @forelse ($product->attributes as $attribute)
+                        <div class="py-2 px-2 border">
+                            <div style="inline-size: max-content;">
+                                <div class="point-heading">{{$attribute->name}} </div> 
+                                <span>{{$attribute->value}}</span>
+                            </div>
+                        </div>
+                        @empty
+                        @endforelse
+                    </div>
+
+                    <!-- <table class="table table-bordered specification-list">
+                        <tbody>
+                            @forelse ($product->attributes as $attribute)
+                            <tr>
+                                <th scope="col" class="point-heading">{{$attribute->name}} </th> 
+                                <td>{{$attribute->value}}</td>
+                            </tr>
+                            @empty
+                            @endforelse
+                        </tbody>
+                    </table> -->
 
                     @php
                         $productHeader = collect($product->dynamic_table_header);
@@ -46,7 +79,7 @@
                     @endphp
 
                     @if(count($productHeader) > 0 && $productHeader->get('1') != null)
-                    <h4 >Chart</h4>
+                    <h4 class="mb-2 mt-5">Chart</h4>
                     <div class="table-responsive">
                         <table class="table text-center">
                             <thead>
