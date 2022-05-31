@@ -2349,6 +2349,7 @@ nav.admin-navigation > div > ul li {
 .cs-responsive.product-info {
     height: 385px;
     overflow-y: auto;
+    overflow-x: hidden;
 }
 
 /* ----------- iPad Pro 12.9" ----------- */
