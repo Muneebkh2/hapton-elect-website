@@ -29,16 +29,16 @@
                 @endif
             </div>
             <div class="col-lg-6 product-featured-content px-lg-0">
-                <h1 class="product-title mb-5">{{$product->name}}</h1>
+                <h1 class="product-title mb-md-3">{{$product->name}}</h1>
 
                 <div class="cs-responsive product-info">
-                    <ul class="specification-list">
+                    <ul class="row specification-list">
                         @forelse ($product->attributes as $attribute)
-                        <li><span class="point-heading">{{$attribute->name}} : </span> <p>{{$attribute->value}}</p></li>
+                            <div class="col-4"><span class="point-heading">{{$attribute->name}}: </span></div>
+                            <div class="col-8">{{$attribute->value}}</div>
                         @empty
                         @endforelse
                     </ul>
-
 
                     @php
                         $productHeader = collect($product->dynamic_table_header);
@@ -46,23 +46,22 @@
                     @endphp
 
                     @if(count($productHeader) > 0 && $productHeader->get('1') != null)
-                    <h4 >Chart</h4>
+                    <h4 class="mb-2 mt-5">Models: </h4>
+                    
                     <div class="table-responsive">
                         <table class="table text-center">
                             <thead>
                                 <tr>
                                     @foreach ($productHeader as $headerKey => $valueKey)
-                                    <td @if ($headerKey == 2)
-                                        width="35%" @elseif($headerKey == 5) width="20%"
-                                    @endif>{{$valueKey}}</td>
+                                    <td class="pr-2">{{$valueKey}}</td>
                                     @endforeach
                                 </tr>
                             </thead>
                             <tbody>
                                 @foreach ($productBody as $productBodyItem)
-                                <tr>
+                                <tr class="border-bottom">
                                     @foreach ($productBodyItem as $productBodyRow)
-                                       <td>{{ $productBodyRow }}</td>
+                                       <td class="pr-2">{{ $productBodyRow }}</td>
                                     @endforeach
                                 </tr>
                                 @endforeach
