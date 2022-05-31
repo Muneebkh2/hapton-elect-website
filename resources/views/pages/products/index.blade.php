@@ -1,6 +1,5 @@
 @extends('layouts.default', ['title' => $category->name . ' -Products', 'page' => 'products'])
 
-@include('includes.category-header', ['title' => $category->name ?? 'null'])
 
 @section('content')
     {{-- <div class="page-header mt-3 mb-5">

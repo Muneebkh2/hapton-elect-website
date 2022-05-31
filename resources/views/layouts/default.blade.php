@@ -15,15 +15,9 @@
         <link rel="preconnect" href="https://fonts.googleapis.com">
         <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
         <link href="https://fonts.googleapis.com/css2?family=Alegreya:ital@1&family=Montserrat:wght@200;300;400;500;600;700&family=Raleway:wght@300;400;500;600;700&family=Roboto:wght@300;400;500;700&display=swap" rel="stylesheet">
-
-        <link
-        rel="stylesheet"
-        href="https://pro.fontawesome.com/releases/v5.10.0/css/all.css"
-        integrity="sha384-AYmEC3Yw5cVb3ZcuHtOA93w35dYTsvhLPVnYs9eStHfGJvOvKxVfELGroGkvsg+p"
-        crossorigin="anonymous"/>
-
-        <link rel="stylesheet" href="https://cdn.linearicons.com/free/1.0.0/icon-font.min.css">
-
+        
+        <link rel="stylesheet" href="https://pro.fontawesome.com/releases/v5.10.0/css/all.css"/>
+        <link rel="stylesheet" href="{{ asset('/css/icon-font.min.css') }}">
         <link rel="stylesheet" href="{{ asset('/css/style.css') }}">
 
         <title>{{ config('app.name') . ' | ' . ucfirst($title) }}</title>
@@ -36,6 +30,8 @@
 
             @if($page != 'category' && $page != 'products')
                 @include('includes.header')
+            @else
+                @include('includes.category-header', ['title' => $title ?? 'null'])
             @endif
 
             <!-- Main Start -->
@@ -57,31 +53,25 @@
 
         </div>
 
-        <script
-        src="https://code.jquery.com/jquery-2.2.4.min.js"
-        integrity="sha256-BbhdlvQf/xTY9gja0Dq3HiwQF8LaCRTXxZKRutelT44="
-        crossorigin="anonymous"></script>
-
-        <script src="https://cdnjs.cloudflare.com/ajax/libs/jquery-circle-progress/1.1.3/circle-progress.min.js"></script>
-        <script src="//cdnjs.cloudflare.com/ajax/libs/waypoints/2.0.3/waypoints.min.js"></script>
-
+        <script src="{{ asset('/js/jquery-2.2.4.min.js') }}"></script>
+        <script type="text/javascript">
+            $(window).load(function(){
+                setTimeout(function(){
+                    $('.loader-wrapper').hide();
+                    $('#wrapper').css('visibility','visible');
+                    $('#wrapper').css('opacity','1');
+                }, 500);
+            });
+        </script>
+        <script src="{{ asset('/js/circle-progress.min.js') }}"></script>
+        <script src="{{ asset('/js/waypoints.min.js') }}"></script>
         <script src="{{ asset('/js/bootstrap.min.js') }}"></script>
         <script src="{{ asset('/js/owl.carousel.min.js') }}"></script>
         <script src="{{ asset('/js/parallax.min.js') }}"></script>
         <script src="{{ asset('/js/jquery.appear.js') }}"></script>
         <script src="{{ asset('/js/jquery.counterup.min.js') }}"></script>
 
-
-
-        <script>
-            $(window).load(function(){
-                setTimeout(function(){
-                    $('.loader-wrapper').hide();
-                    $('#wrapper').css('visibility','visible');
-                    $('#wrapper').css('opacity','1');
-                }, 2000);
-            });
-
+        <script type="text/javascript">
             $(document).ready(function() {
 
                 $('.counter').counterUp({
