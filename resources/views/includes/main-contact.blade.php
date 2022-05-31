@@ -1,7 +1,7 @@
 <section id="contact">
     <div class="container">
         <div class="row no-gutters">
-            <div class="col-lg-6">
+            <div class="col-lg-6 order-sm-2">
                 <form action="" class="contact-form">
                     <div class="form-group mb-0">
                         <textarea name="" id="" rows="6" class="form-control" placeholder="Write a message..."></textarea>
@@ -20,8 +20,8 @@
                     </div>
                 </form>
             </div>
-            <div class="col-lg-6">
-                <div class="contact-content">
+            <div class="col-lg-6 order-sm-1">
+                <div class="contact-content mt-0 mb-5 px-0">
                     <div class="section-header">
                         <h2 class="section-header--title">GET IN TOUCH</h2>
                         <div class="section-header--line"></div>
@@ -29,13 +29,13 @@
                             We'll be more than happy to assist you.</p>
                     </div>
                     <div class="row">
-                        <div class="col-lg-6">
+                        <div class="col-sm-6 col-12">
                             <div>
                                 <h5>EU & N.AMERICA</h5>
                                 <p><a href="#">ea.sales@hapton-elect.uk</a></p>
                             </div>
                         </div>
-                        <div class="col-lg-6">
+                        <div class="col-sm-6 col-12">
                             <div>
                                 <h5>M.EAST & AFRICA</h5>
                                 <p><a href="#">mea.sales@hapton-elect.uk</a></p>

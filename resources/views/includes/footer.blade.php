@@ -1,7 +1,7 @@
 <!-- Footer Start -->
 <footer class="site-footer">
     <section class="footer-top">
-        <div class="container">
+        <div class="container px-sm-3">
             <div class="row">
 
                 <div class="col-lg-5 pr-md-5">
@@ -19,7 +19,7 @@
 
                 <div class="col-lg-7">
                     <div class="row">
-                        <div class="col-lg-4">
+                        <div class="col-sm-4 col-12">
                             <div>
                                 <h4>contact us</h4>
                                 {{-- <p>Lorem ipsum dolor, sit amet consectetur adipisicing.</p>
@@ -28,7 +28,7 @@
                                 <p><a href="mailto:contact@hapton-elect.co.uk" class="email-link">contact@hapton-elect.co.uk</a></p>
                             </div>
                         </div>
-                        <div class="col-lg-4">
+                        <div class="col-sm-4 col-12">
                             <div>
                                 <h4>products</h4>
                                 <nav id="product-navigation">
@@ -47,7 +47,7 @@
                                 </nav>
                             </div>
                         </div>
-                        <div class="col-lg-4">
+                        <div class="col-sm-4 col-12">
                             <div>
                                 <h4>about us</h4>
                                 <nav id="footer-navigation">
@@ -73,7 +73,7 @@
         </div>
     </section>
     <section class="footer-bottom">
-        <div class="container">
+        <div class="container px-sm-3">
             <div class="row">
                 <div class="col-lg-4">
                     <p class="text-center text-md-left">© 2022 Hapton Elect UK, All Rights Reserved</p>
