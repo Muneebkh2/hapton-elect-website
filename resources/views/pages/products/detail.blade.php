@@ -39,17 +39,17 @@
                         @endforelse
                     </ul> -->
                     
-                    <!-- <div class="row specification-list">
+                    <div class="row specification-list" style="height: 100px;overflow: auto;">
                         @forelse ($product->attributes as $attribute)
-                        <div class="col-md-auto py-2 border-top">
+                        <div class="col col-md-auto py-2 border-top">
                             <div class="point-heading">{{$attribute->name}} </div> 
                             <span>{{$attribute->value}}</span>
                         </div>
                         @empty
                         @endforelse
-                    </div> -->
+                    </div>
 
-                    <div class="d-flex specification-list" style="overflow-x: scroll;">
+                    <!-- <div class="d-flex specification-list" style="overflow-x: scroll;">
                         @forelse ($product->attributes as $attribute)
                         <div class="py-2 px-2 border">
                             <div style="inline-size: max-content;">
@@ -59,7 +59,7 @@
                         </div>
                         @empty
                         @endforelse
-                    </div>
+                    </div> -->
 
                     <!-- <table class="table table-bordered specification-list">
                         <tbody>
@@ -80,7 +80,38 @@
 
                     @if(count($productHeader) > 0 && $productHeader->get('1') != null)
                     <h4 class="mb-2 mt-5">Chart</h4>
-                    <div class="table-responsive">
+                    <style>
+                        /* .h-50px{height: 40px}; */
+                    </style>
+                    <!-- <div class="row">
+                        <div class="col-2">
+                            @foreach ($productHeader as $headerKey => $valueKey)
+                                <div class="h5 mb-0 h-50px d-flex flex-column-reverse">{{$valueKey}}</div>
+                            @endforeach
+                        </div>
+                        <div class="col-9 d-flex offset-md-0 offset-sm-1" style="overflow:auto;">
+                            @foreach ($productBody as $productBodyItem)
+                                <div class="tbl-inner-row">
+                                    @foreach ($productBodyItem as $productBodyRow)
+                                        <div class="h-50px border-bottom px-2 d-flex flex-column-reverse">{{ $productBodyRow }}</div>
+                                    @endforeach
+                                </div>
+                            @endforeach
+                        </div>
+                    </div> -->
+                    
+                    <table class="table table-dark table-responsive table-striped">
+                        @foreach ($productHeader as $headerKey => $valueKey)
+                            <tr class="d-flex align-items-center">
+                                <th class="" style="width: 120px;word-break: break-word;">{{$valueKey}}</th>
+                                @foreach ($productBody[$headerKey] as $productBodyRow)
+                                    <td class="pl-2">{{ $productBodyRow }}</td>
+                                @endforeach
+                            </tr>
+                        @endforeach
+                    </table>
+                    
+                    <!-- <div class="table-responsive">
                         <table class="table text-center">
                             <thead>
                                 <tr>
@@ -101,7 +132,7 @@
                                 @endforeach
                             </tbody>
                         </table>
-                    </div>
+                    </div> -->
                     @endif
 
                     {{-- <h4>Models</h4>
