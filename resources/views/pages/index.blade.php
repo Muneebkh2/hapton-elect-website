@@ -6,7 +6,7 @@
             <img src="assets/slider/slider1.jpeg" alt="" class="img-fluid w-100" />
             <div class="slide-content-box">
                 <div class="slide-content-box--inner">
-                    <h1>HAPTON ELECT SWITCHES</h1>
+                    <h1>HAPTON <br>ELECT SWITCHES</h1>
                     <p>Turn on your home with style with the Hapton Switches comprehensive range to suit your home.</p>
                     <img src="assets/slide-img-1.png" alt="" class="img-fluid" />
                 </div>
