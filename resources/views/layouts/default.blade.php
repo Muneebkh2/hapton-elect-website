@@ -74,6 +74,14 @@
         <script type="text/javascript">
             $(document).ready(function() {
 
+                // dropdown menu inside hamburger.
+                $("ul.menu > li.menu-item > i").on("click", function(){
+                    console.log("You click/Tap on categories.");
+                    //alert("Hi CLicked!");
+                    //$("ul.menu > li.menu-item > ul.sub_menu").css("display", "block");
+                    $("ul.menu > li.menu-item > ul.sub-menu").toggle("slow");
+                });
+
                 $('.counter').counterUp({
                     delay: 10,
                     time: 1000
