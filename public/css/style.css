@@ -615,6 +615,7 @@ ul li ul li {
 #site-navigation .menu .menu-item > ul.sub-menu{
     margin: 0px 0px 10px 0px;
     padding: 0px;
+    transform: translateY(0);
 }
 #site-navigation .menu .menu-item .sub-menu > li.menu-item {
     font-size: 2vmin;
@@ -2310,6 +2311,13 @@ select.form-control:not([size]):not([multiple]) {
     #site-navigation .menu .menu-item > a {
         font-size: 28px;
     }
+    #site-navigation .menu .menu-item .sub-menu .menu-item > a {
+        font-size: 18px;
+    }
+    #site-navigation .menu .menu-item > i {
+        font-size: 28px;
+        margin-top: 16px;
+    }
     h1 {font-size: 50px;}
     h2 {font-size: 34px;}
     h3 {font-size: 30px;}
@@ -2591,5 +2599,18 @@ nav.admin-navigation > div > ul li {
 and (min-device-width: 375px) 
 and (max-device-width: 812px) 
 and (-webkit-min-device-pixel-ratio: 3) {
+}
 
+@media (max-width: 600px){
+
+    #site-navigation .menu .menu-item > a {
+        font-size: 26px;
+    }
+    #site-navigation .menu .menu-item .sub-menu .menu-item > a {
+        font-size: 16px;
+    }
+    #site-navigation .menu .menu-item > i {
+        font-size: 26px;
+        margin-top: 10px;
+    }
 }
