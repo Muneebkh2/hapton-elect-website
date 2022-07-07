@@ -473,6 +473,62 @@ textarea {
     font-size: 8vmin;
     line-height: 1.2;
 }
+
+ul.submenu {
+    visibility: hidden;
+    opacity: 0;
+    position: absolute;
+    transition: all 0.5s ease;
+    right: 10px;
+    display: none;
+    background: black;
+    z-index: 1000;
+    margin-top: -3px;
+}
+  
+ul li:hover > ul.submenu,
+ul li ul.submenu:hover {
+    visibility: visible;
+    opacity: 1;
+    display: block;
+    padding-left: 0px;
+}
+
+/* .submenu {
+    left: 0;
+    opacity: 0;
+    position: absolute;
+    transform: translateY(-10%);
+    top: 100%;
+    width: 100%;
+    visibility: hidden;
+    z-index: 2;
+} */
+
+.submenu .menu-item {
+    font-size: 3.5vmin;
+    width: 100%;
+    padding: 20px 10px;
+    z-index: 1110000; 
+    list-style: none;
+}
+.submenu .menu-item > a {
+    color: var(#75757C);
+    text-shadow: 1px 1px 0 #18181A, 2px 2px 0 #18181A;
+}
+.submenu .menu-item > a {
+    text-decoration: underline;
+    text-underline-position: under;
+}
+.submenu .menu-item > a::before, .submenu .menu-item > a::after {
+    display: none;
+}
+
+ul li ul li {
+    clear: both;
+    width: 100%;
+}
+
 /* .submenu {
     left: 0;
     opacity: 0;
@@ -548,6 +604,31 @@ textarea {
     text-decoration: none;
     transition: color 150ms cubic-bezier(0.215, 0.61, 0.355, 1), opacity 150ms cubic-bezier(0.215, 0.61, 0.355, 1), transform 150ms cubic-bezier(0.215, 0.61, 0.355, 1);
     z-index: 1;
+}
+
+#site-navigation .menu .menu-item > i {
+    font-size: 34px;
+    position: absolute;
+    margin-top: 20px;
+    cursor: pointer;
+}
+#site-navigation .menu .menu-item > ul.sub-menu{
+    margin: 0px 0px 10px 0px;
+    padding: 0px;
+}
+#site-navigation .menu .menu-item .sub-menu > li.menu-item {
+    font-size: 2vmin;
+    position: relative;
+}
+#site-navigation .menu .menu-item .sub-menu .menu-item > a {
+    color: #d8d8d8;
+    font-size: 24px;
+    transition: color 150ms cubic-bezier(0.215, 0.61, 0.355, 1), opacity 150ms cubic-bezier(0.215, 0.61, 0.355, 1), transform 150ms cubic-bezier(0.215, 0.61, 0.355, 1);
+    z-index: 2;
+    position: relative;
+}
+#site-navigation .menu .menu-item .sub-menu .menu-item > a:hover {
+    color: #fff;
 }
 
 /*#site-navigation .menu .menu-item > a::before, #site-navigation .menu .menu-item > a::after {*/
