@@ -47,22 +47,22 @@
                                 <a href="{{ route('category') }}">Category</a>
                                 <ul class="submenu">
                                     <li class="menu-item">
-                                        <a href="{{Request::url()}}/category/metal-pvc-bl-wp-switches">
+                                        <a href="{{Request::root()}}/category/metal-pvc-bl-wp-switches">
                                             METAL, PVC, BL &amp; WP SWITCHES
                                         </a>
                                     </li>
                                     <li class="menu-item">
-                                        <a href="{{Request::url()}}/category/modern-luminaires">
+                                        <a href="{{Request::root()}}/category/modern-luminaires">
                                             MODERN LUMINAIRES
                                         </a>
                                     </li>
                                     <li class="menu-item">
-                                        <a href="{{Request::url()}}/category/emergency-std-exit-lights">
+                                        <a href="{{Request::root()}}/category/emergency-std-exit-lights">
                                             EMERGENCY STD &amp; EXIT LIGHTS
                                         </a>
                                     </li>
                                     <li class="menu-item">
-                                        <a href="{{Request::url()}}/category/pir-microwave-motion-sensors">
+                                        <a href="{{Request::root()}}/category/pir-microwave-motion-sensors">
                                             PIR &amp; MICROWAVE MOTION SENSORS
                                         </a>
                                     </li>
