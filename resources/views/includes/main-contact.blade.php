@@ -1,16 +1,37 @@
 <section id="contact">
-    <div class="container">
+    <div class="container px-lg-0">
         <div class="row no-gutters">
             <div class="col-lg-6 order-sm-2">
-                <form action="" class="contact-form">
-                    <div class="form-group mb-0">
-                        <textarea name="" id="" rows="6" class="form-control" placeholder="Write a message..."></textarea>
+                @if(Session::has('success'))
+                    <div class="alert alert-success">
+                        {{ Session::get('success') }}
                     </div>
-                    <div class="form-group mb-0">
-                        <input type="text" class="form-control" placeholder="Your Name">
+                @endif
+                <form method="POST" action="{{route('contact.store')}}" class="contact-form">
+                    {{csrf_field()}}
+                    <div class="form-group mt-0 my-4">
+                        <textarea name="message" id="" rows="6" class="form-control mb-0 @error('email') is-invalid @enderror" placeholder="Write a message..."></textarea>
+                        @error('message')
+                        <span class="invalid-feedback" role="alert">
+                            <strong>{{ $message }}</strong>
+                        </span>
+                        @enderror
                     </div>
-                    <div class="form-group mb-0">
-                        <input type="email" class="form-control" placeholder="Your Email">
+                    <div class="form-group mt-0 my-4">
+                        <input name="name" type="text" class="form-control mb-0 @error('name') is-invalid @enderror" placeholder="Your Name">
+                        @error('name')
+                        <span class="invalid-feedback" role="alert">
+                            <strong>{{ $message }}</strong>
+                        </span>
+                        @enderror
+                    </div>
+                    <div class="form-group mt-0 my-4">
+                        <input name="email" type="email" class="form-control mb-0 @error('email') is-invalid @enderror" placeholder="Your Email">
+                        @error('email')
+                        <span class="invalid-feedback" role="alert">
+                            <strong>{{ $message }}</strong>
+                        </span>
+                        @enderror
                     </div>
                     <div class="btn-border">
                         <button type="submit" class="he-btn he-btn-simple">
@@ -32,13 +53,13 @@
                         <div class="col-sm-6 col-12">
                             <div>
                                 <h5>EU & N.AMERICA</h5>
-                                <p><a href="#">ea.sales@hapton-elect.uk</a></p>
+                                <p><a href="mailto:ea.sales@hapton-elect.uk">ea.sales@hapton-elect.uk</a></p>
                             </div>
                         </div>
                         <div class="col-sm-6 col-12">
                             <div>
                                 <h5>M.EAST & AFRICA</h5>
-                                <p><a href="#">mea.sales@hapton-elect.uk</a></p>
+                                <p><a href="mailto:mea.sales@hapton-elect.uk">mea.sales@hapton-elect.uk</a></p>
                             </div>
                         </div>
                     </div>

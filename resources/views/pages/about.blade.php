@@ -2,23 +2,21 @@
 
 @section('content')
 <section>
-    <div class="container">
-        <h1 class="mb-4">About Us</h1>
-        <p>
-            Lorem ipsum dolor sit amet consectetur adipisicing elit. Aliquam exercitationem officiis ab nesciunt quo! Ex amet illum, soluta nisi perspiciatis ratione quam maxime velit fugiat harum incidunt non ipsa facilis?
-            Lorem ipsum dolor sit amet consectetur adipisicing elit. Rem nulla adipisci veniam a laboriosam doloribus ipsum officia eligendi dolorum necessitatibus amet, similique eius voluptas quae cum ratione quia cupiditate error.
-            Lorem ipsum dolor sit amet consectetur adipisicing elit. Provident repellat, saepe placeat praesentium cumque vitae aut doloremque, mollitia libero unde consectetur, excepturi commodi quas fugit. Ipsa atque quaerat dignissimos reprehenderit!
-        </p>
-        <p>
-            Lorem ipsum dolor sit amet consectetur adipisicing elit. Aliquam exercitationem officiis ab nesciunt quo! Ex amet illum, soluta nisi perspiciatis ratione quam maxime velit fugiat harum incidunt non ipsa facilis?
-            Lorem ipsum dolor sit amet consectetur adipisicing elit. Rem nulla adipisci veniam a laboriosam doloribus ipsum officia eligendi dolorum necessitatibus amet, similique eius voluptas quae cum ratione quia cupiditate error.
-            Lorem ipsum dolor sit amet consectetur adipisicing elit. Provident repellat, saepe placeat praesentium cumque vitae aut doloremque, mollitia libero unde consectetur, excepturi commodi quas fugit. Ipsa atque quaerat dignissimos reprehenderit!
-        </p>
-        <p>
-            Lorem ipsum dolor sit amet consectetur adipisicing elit. Aliquam exercitationem officiis ab nesciunt quo! Ex amet illum, soluta nisi perspiciatis ratione quam maxime velit fugiat harum incidunt non ipsa facilis?
-            Lorem ipsum dolor sit amet consectetur adipisicing elit. Rem nulla adipisci veniam a laboriosam doloribus ipsum officia eligendi dolorum necessitatibus amet, similique eius voluptas quae cum ratione quia cupiditate error.
-            Lorem ipsum dolor sit amet consectetur adipisicing elit. Provident repellat, saepe placeat praesentium cumque vitae aut doloremque, mollitia libero unde consectetur, excepturi commodi quas fugit. Ipsa atque quaerat dignissimos reprehenderit!
-        </p>
+    <div class="container px-lg-0">
+        <h1 class="mb-lg-0">About Us</h1>
+        <div class="content-box py-lg-5">
+            <p>
+                Hapton, a UK based brand, is specialised in a wide range of commercial lighting,
+                Electrical switches & accessories, Emergency Lighting and sensors. There are over 749 new product ranges under development.
+            </p>
+            <p>
+                We are a vibrant, energetic, innovative and customer-oriented company and our aim is happy you and thus our whole and sole focus is not just the satisfaction of our customers,
+                but sheer joy and immense pleasure in using Hapton products. We are continuously developing new products and upgrading our successful ranges.
+            </p>
+            <p>
+                With our wide international distributors and central quality control system, you have our swift support always.
+            </p>
+        </div>
     </div>
 </section>
 @stop

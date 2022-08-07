@@ -32,7 +32,7 @@
                         <li class="menu-item"><a href="{{ route('home') }}">Home</a></li>
                         <li class="menu-item"><a href="{{ route('about') }}">About</a></li>
                         <li class="menu-item"><a href="{{ route('category') }}">Categories</a></li>
-                        <li class="menu-item"><a href="#">Contact</a></li>
+                        <li class="menu-item"><a href="{{ route('contact') }}">Contact</a></li>
                     </ul>
                 </div>
             </nav>
@@ -68,11 +68,11 @@
                                     </li>
                                 </ul>
                             </li>
-                            <li class="menu-item"><a href="#">Contact</a></li>
+                            <li class="menu-item"><a href="{{ route('contact') }}">Contact</a></li>
                         </ul>
                     </div>
                 </nav>
-                <h2 class="page-title">{{ $title  }}</h2>
+                <h2 class="page-title">{{ $title }}</h2>
             </div>
 
         </div>

@@ -53,12 +53,12 @@
                                 <nav id="footer-navigation">
                                     <div class="menu-container">
                                         <ul id="footer-menu" class="menu list-unstyled">
-                                            <li><a href="#">About Us</a></li>
+                                            <li><a href="{{route('about')}}">About Us</a></li>
                                             <li><a href="#">Catalogues</a></li>
                                             <li><a href="#">Brands</a></li>
                                             <li><a href="#">Most Popular Products</a></li>
                                             <li><a href="#">News & Events</a></li>
-                                            <li><a href="#">Contact Us</a></li>
+                                            <li><a href="{{route('contact')}}">Contact Us</a></li>
                                             <li><a href="#">FAQs</a></li>
                                             <li><a href="#">Returns & Warranty Policy</a></li>
                                             <li><a href="#">Company Profile</a></li>

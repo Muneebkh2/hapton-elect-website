@@ -160,7 +160,7 @@
                             and upgrading our successful ranges.
                         </p>
                         <div class="he-btn-wrap">
-                            <a itemprop="url" href="#" target="_self" class="he-btn he-btn-simple">
+                            <a itemprop="url" href="{{route('about')}}" target="_self" class="he-btn he-btn-simple">
                                 <span class="he-btn-repeating-linear"></span>
                                 <span class="he-btn-text">Read More</span>
                             </a>
@@ -371,7 +371,7 @@
         <div class="container">
             <div class="content text-center">
                 <h1>LET US ASSIST YOU</h1>
-                <a itemprop="url" href="#" target="_self" class="he-btn he-btn-medium he-btn-solid">
+                <a itemprop="url" href="{{route('contact')}}" target="_self" class="he-btn he-btn-medium he-btn-solid">
                     <span class="he-btn-border-holder"></span>
                     <span class="he-btn-line-holder"></span>
                     <span class="he-btn-text">Read More</span>
