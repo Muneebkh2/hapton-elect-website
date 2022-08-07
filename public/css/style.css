@@ -485,7 +485,7 @@ ul.submenu {
     z-index: 1000;
     margin-top: -3px;
 }
-  
+
 ul li:hover > ul.submenu,
 ul li ul.submenu:hover {
     visibility: visible;
@@ -509,7 +509,7 @@ ul li ul.submenu:hover {
     font-size: 14px;/*3.5vmin;*/
     width: 100%;
     padding: 10px 10px;
-    z-index: 1110000; 
+    z-index: 1110000;
     list-style: none;
 }
 .submenu .menu-item > a {
@@ -2048,6 +2048,11 @@ main#main {
 }
 /* Menu Toggle Ends */
 
+/* Content Styling */
+div.content-box p {
+    font-size: 20px;
+    line-height: 2.2rem;
+}
 /* Auth Pages Styling */
 section.auth div.main {
     background: #0264d6;
@@ -2595,9 +2600,9 @@ nav.admin-navigation > div > ul li {
 
 /* -----------  Mobile Devices ----------- */
 
-@media only screen 
-and (min-device-width: 375px) 
-and (max-device-width: 812px) 
+@media only screen
+and (min-device-width: 375px)
+and (max-device-width: 812px)
 and (-webkit-min-device-pixel-ratio: 3) {
 }
 
