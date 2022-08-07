@@ -8,6 +8,7 @@ services:
       target: he_uk_php
     volumes:
       - .:/var/www/application
+      - ./public/css/style.css:/var/www/application/public/css/style.css
     ports:
       - "9004:9000"
     networks:
@@ -20,6 +21,8 @@ services:
     ports:
       - "84:80"
     hostname: products.local
+    volumes:
+        - ./public/css/style.css:/var/www/application/public/css/style.css
     networks:
       - he_uk
 
@@ -29,7 +32,7 @@ services:
     restart: unless-stopped
     tty: true
     ports:
-      - 3309:3306
+      - 3310:3306
     environment:
       MYSQL_DATABASE: he_uk_db
       MYSQL_USER: root
