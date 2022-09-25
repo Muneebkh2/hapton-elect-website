@@ -18,6 +18,7 @@ Route::get('/contact', function () {
     return view('pages.contact');
 })->name('contact');
 Route::post('/contact-us-page', [\App\Http\Controllers\HomeController::class, 'sendContactEmail'])->name('contact.store');
+Route::post('/newsletter-send-page', [\App\Http\Controllers\HomeController::class, 'sendNewsletterEmail'])->name('newsletter.send');
 
 /*
 |--------------------------------------------------------------------------
