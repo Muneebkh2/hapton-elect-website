@@ -8,9 +8,22 @@
                     <div>
                         <h4>newsletter</h4>
                         <p>Sign up to our newsletter to receive updates on our latest products.</p>
-                        <form action="" class="newsletter-form">
+                        @if(Session::has('newsletter-success'))
+                            <div class="alert alert-success">
+                                {{ Session::get('newsletter-success') }}
+                            </div>
+                        @endif
+                        <form action="{{route('newsletter.send')}}" class="newsletter-form" method="POST">
+                            {{csrf_field()}}
                             <div class="form-group">
-                                <input type="email" name="" class="newsletter-email form-control" placeholder="your email address" />
+                                <input type="email" name="email_address"
+                                       class="newsletter-email form-control @error('email_address') is-invalid @enderror"
+                                       placeholder="your email address" />
+                                @error('email_address')
+                                <span class="invalid-feedback" role="alert">
+                                    <strong>{{ $email_address }}</strong>
+                                </span>
+                                @enderror
                             </div>
                             <input type="submit" class="btn newsletter-submit" value="SUBSCRIBE">
                         </form>
