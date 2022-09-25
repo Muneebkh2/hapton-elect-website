@@ -24,8 +24,8 @@
                                 <h4>contact us</h4>
                                 {{-- <p>Lorem ipsum dolor, sit amet consectetur adipisicing.</p>
                                 <p>Tel: +012 345678<p> --}}
-                                <p><a href="mailto:info@hapton-elect.co.uk" class="email-link">info@hapton-elect.co.uk</a></p>
-                                <p><a href="mailto:contact@hapton-elect.co.uk" class="email-link">contact@hapton-elect.co.uk</a></p>
+                                <p><a href="mailto:info@hapton-elect.uk" class="email-link">info@hapton-elect.uk</a></p>
+                                <p><a href="mailto:sales@hapton-elect.uk" class="email-link">sales@hapton-elect.uk</a></p>
                             </div>
                         </div>
                         <div class="col-sm-4 col-12">
@@ -54,7 +54,7 @@
                                     <div class="menu-container">
                                         <ul id="footer-menu" class="menu list-unstyled">
                                             <li><a href="{{route('about')}}">About Us</a></li>
-                                            <li><a href="#">Catalogues</a></li>
+                                            <li><a href="{{route('category')}}">Catalogues</a></li>
                                             <li><a href="#">Brands</a></li>
                                             <li><a href="#">Most Popular Products</a></li>
                                             <li><a href="#">News & Events</a></li>
@@ -83,10 +83,10 @@
                     <div class="d-flex align-items-center justify-content-center justify-content-md-end">
                         <span class="mr-2">connect with us</span>
                         <div class="social-menu d-flex align-items-center">
-                            <a href="#" target="_blank"><i class="fab fa-instagram"></i></a>
-                            <a href="#" target="_blank"><i class="fab fa-pinterest"></i></a>
-                            <a href="#" target="_blank"><i class="fab fa-linkedin"></i></a>
-                            <a href="#" target="_blank"><i class="fab fa-facebook-f"></i></a>
+                            <a href="https://www.facebook.com/hapton.switch/" target="_blank"><i class="fab fa-facebook"></i></a>
+                            <a href="https://www.instagram.com/hapton_elect/" target="_blank"><i class="fab fa-instagram"></i></a>
+                            {{--<a href="#" target="_blank"><i class="fab fa-pinterest"></i></a>
+                            <a href="#" target="_blank"><i class="fab fa-linkedin"></i></a>--}}
                         </div>
                     </div>
                 </div>
