@@ -18,7 +18,7 @@
                             <div class="form-group">
                                 <input type="email" name="email_address"
                                        class="newsletter-email form-control @error('email_address') is-invalid @enderror"
-                                       placeholder="your email address" />
+                                       placeholder="your email address" required/>
                                 @error('email_address')
                                 <span class="invalid-feedback" role="alert">
                                     <strong>{{ $email_address }}</strong>
@@ -67,14 +67,14 @@
                                     <div class="menu-container">
                                         <ul id="footer-menu" class="menu list-unstyled">
                                             <li><a href="{{route('about')}}">About Us</a></li>
-                                            <li><a href="{{route('category')}}">Catalogues</a></li>
+                                            {{--<li><a href="{{route('category')}}">Catalogues</a></li>
                                             <li><a href="#">Brands</a></li>
                                             <li><a href="#">Most Popular Products</a></li>
-                                            <li><a href="#">News & Events</a></li>
+                                            <li><a href="#">News & Events</a></li>--}}
                                             <li><a href="{{route('contact')}}">Contact Us</a></li>
-                                            <li><a href="#">FAQs</a></li>
+                                            {{--<li><a href="#">FAQs</a></li>
                                             <li><a href="#">Returns & Warranty Policy</a></li>
-                                            <li><a href="#">Company Profile</a></li>
+                                            <li><a href="#">Company Profile</a></li>--}}
                                         </ul>
                                     </div>
                                 </nav>
