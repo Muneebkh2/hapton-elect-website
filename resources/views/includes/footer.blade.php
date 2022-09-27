@@ -62,7 +62,7 @@
                         </div>
                         <div class="col-sm-4 col-12">
                             <div>
-                                <h4>about us</h4>
+                                <h4>Quick Links</h4>
                                 <nav id="footer-navigation">
                                     <div class="menu-container">
                                         <ul id="footer-menu" class="menu list-unstyled">
